@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MMK | Modz</title>
-<style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -28,7 +28,7 @@
             left: 0;
             right: 0;
             display: grid;
-            grid-template-columns: 1fr auto 1fr; /* Membagi rata 3 bagian agar posisi tengah presisi */
+            grid-template-columns: 1fr auto 1fr; 
             align-items: center;
             padding: 10px 24px; 
             background: rgba(2, 2, 4, 0.95); 
@@ -58,14 +58,14 @@
             color: #0066ff;
             font-size: 1.4rem;
             cursor: pointer;
-            display: none; /* Sembunyikan default di Desktop */
+            display: none; 
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
             text-shadow: 0 0 8px rgba(0, 71, 255, 0.6);
         }
 
-        /* Container Logo untuk Memastikan Dimensi Stabil */
+        /* Container Logo */
         .logo-container {
             display: flex;
             align-items: center;
@@ -131,7 +131,7 @@
             50% { text-shadow: 0 0 12px #0066ff, 0 0 25px #0047ff; }
         }
 
-        /* Sisi Kanan Navbar (Pencarian Icon) */
+        /* Sisi Kanan Navbar */
         .navbar-right {
             display: flex;
             justify-content: flex-end;
@@ -154,7 +154,7 @@
             transform: scale(1.1);
         }
 
-        /* Kotak input Pencarian Pop-up / Dropdown */
+        /* Kotak input Pencarian */
         .search-popover {
             display: none;
             position: absolute;
@@ -182,11 +182,6 @@
             outline: none;
             font-size: 0.9rem;
             width: 200px;
-        }
-
-        .search-popover input::placeholder {
-            color: #0055ff;
-            opacity: 0.7;
         }
 
         /* Sidebar Style */
@@ -239,9 +234,10 @@
 
         .sidebar-title {
             color: #fff;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 700;
             text-shadow: 0 0 8px #0047ff;
+            letter-spacing: 1px;
         }
 
         .sidebar-divider {
@@ -435,16 +431,16 @@
         /* APK Grid Layout */
         .apk-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
             gap: 25px;
         }
 
-        /* APK CARD */
+        /* Layout Kartu APK Horizontal */
         .apk-card {
             background: linear-gradient(145deg, #05050a 0%, #00081a 100%);
             border: 1px solid #00249c;
             border-radius: 20px;
-            padding: 25px;
+            padding: 20px;
             box-shadow: 0 0 15px rgba(0, 36, 156, 0.2);
             transition: all 0.4s ease;
             position: relative;
@@ -452,6 +448,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            gap: 15px;
         }
 
         .apk-card::after {
@@ -472,28 +469,36 @@
         }
 
         .apk-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             box-shadow: 0 12px 30px rgba(0, 71, 255, 0.35);
             border-color: #0066ff;
         }
 
         .apk-card.hidden { display: none !important; }
 
+        /* Baris Atas: Mengatur Logo disamping Meta Info teks */
+        .apk-top-row {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
         .apk-icon {
-            width: 75px;
-            height: 75px;
+            width: 78px;
+            height: 78px;
             background: #000000;
-            border-radius: 18px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
             border: 2px solid rgba(0, 71, 255, 0.5);
             transition: transform 0.4s ease;
+            flex-shrink: 0;
         }
 
         .apk-card:hover .apk-icon {
-            transform: scale(1.08) rotate(3deg);
+            transform: scale(1.05) rotate(2deg);
             border-color: #00f3ff;
         }
 
@@ -501,60 +506,91 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 16px;
+            border-radius: 14px;
+        }
+
+        .apk-meta-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex-grow: 1;
         }
 
         .apk-title {
-            font-size: 1.25em;
+            font-size: 1.2em;
             font-weight: bold;
             color: #fff;
-            margin-bottom: 5px;
+            line-height: 1.2;
         }
 
         .apk-version {
             color: #0066ff;
             font-weight: 700;
-            margin-bottom: 10px;
-            font-size: 1em;
+            font-size: 0.88em;
+            margin-bottom: 2px;
+        }
+
+        /* Spesifikasi Terpisah dengan Kotak Border Biru Tipis */
+        .apk-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .detail-item {
+            font-size: 0.72em;
+            color: #a2b4cc;
+            font-weight: 600;
+            padding: 4px 8px;
+            background: rgba(0, 36, 156, 0.1);
+            border: 1px solid #0047ff; 
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        /* Baris Bawah: Kotak Kolom Deskripsi & Area Tombol */
+        .apk-bottom-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        /* Kolom Deskripsi Ber-Border Rapi */
+        .apk-description-box {
+            background: rgba(0, 5, 20, 0.6);
+            border: 1px solid #00249c; 
+            border-radius: 12px;
+            padding: 12px;
         }
 
         .apk-description {
             color: #94a3b8;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            font-size: 0.9em;
-            min-height: 50px;
+            line-height: 1.5;
+            font-size: 0.86em;
+            text-align: left;
         }
 
-        .apk-details {
+        /* Area Aksi Tombol Diposisikan ke Tengah (Center) */
+        .apk-action-area {
             display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        .detail-item {
-            background: rgba(0, 36, 156, 0.2);
-            border: 1px solid rgba(0, 71, 255, 0.4);
-            padding: 6px 12px;
-            border-radius: 25px;
-            font-size: 0.8em;
-            color: #0066ff;
-            font-weight: 600;
-        }
-
-        /* Tombol Download */
-        .download-btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+            justify-content: center;
             width: 100%;
+        }
+
+        .download-btn-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            width: 85%;
         }
 
         .download-btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
+            display: inline-block;
+            width: 85%;
+            padding: 11px 20px;
             background: linear-gradient(135deg, #00249c 0%, #000a2b 100%);
             color: #ffffff;
             text-decoration: none;
@@ -563,17 +599,19 @@
             font-weight: 700;
             transition: all 0.3s ease;
             border: 1px solid #0047ff;
-            font-size: 0.95em;
+            font-size: 0.9em;
         }
 
         .download-btn:hover {
             background: linear-gradient(135deg, #0047ff 0%, #001a66 100%);
             border-color: #00f3ff;
+            transform: scale(1.02);
         }
 
         .console-btn {
+            width: 100% !important;
             padding: 8px;
-            font-size: 0.85em;
+            font-size: 0.8em;
             background: linear-gradient(135deg, #000511 0%, #05050f 100%);
             color: #0066ff;
             border: 1px solid #0033cc;
@@ -612,108 +650,99 @@
             display: none;
         }
 
-        /* Responsive Media Query untuk HP / Android saja */
+        /* Responsive Media Query untuk HP / Mobile */
         @media (max-width: 900px) {
-            .navbar {
-                padding: 10px 16px;
-            }
+            .navbar { padding: 10px 16px; }
             body { padding-top: 70px; }
             
-            /* Sembunyikan Nav Desktop, Aktifkan Tombol Garis Tiga */
             .desktop-nav { display: none; }
             .menu-toggle { display: flex; }
             
-            .logo {
-                width: 34px;
-                height: 34px;
-            }
-            
+            .logo { width: 34px; height: 34px; }
             .main-title { font-size: 1.15rem; letter-spacing: 1px; }
-            .apk-grid { grid-template-columns: 1fr; }
             
+            .apk-grid { grid-template-columns: 1fr; gap: 18px; }
+            
+            .apk-top-row { gap: 12px; }
+            .apk-icon { width: 70px; height: 70px; border-radius: 12px; }
+            .apk-title { font-size: 1.1em; }
+
+            .download-btn, .download-btn-group { width: 100%; }
+
             .search-popover {
-                width: calc(100vw - 32px); /* Melebar penuh menyesuaikan layar HP */
+                width: calc(100vw - 32px); 
                 right: -16px;
                 top: 48px;
             }
-            .search-popover input {
-                width: 100%;
-            }
+            .search-popover input { width: 100%; }
         }
-</style>
-  </head>
-  <body>
+    </style>
+</head>
+<body>
 
     <!-- Header / Navbar -->
     <div class="navbar">
-
-      <!-- SISI KIRI: Tombol Menu (Hp) & Logo Bulat Presisi -->
+      <!-- SISI KIRI -->
       <div class="navbar-left">
         <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
         <div class="logo-container">
-          <img class="logo" src="https://developing-magenta-mfyr3a7p.edgeone.app/M.png" alt="Logo">
+          <img class="logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="Logo">
         </div>
-        <!-- Menu Navigasi Horizontal Desktop -->
         <div class="desktop-nav">
-          <div class="desktop-nav-item" onclick="filterCategory('all')">Semua</div>
-          <div class="desktop-nav-item" onclick="filterCategory('Streaming')">Streaming</div>
-          <div class="desktop-nav-item" onclick="filterCategory('Tools')">Tools</div>
-          <div class="desktop-nav-item" onclick="filterCategory('Game')">Game</div>
-          <div class="desktop-nav-item" onclick="openModderProfileDesktop()">About</div>
+            <div class="desktop-nav-item" onclick="filterCategory('all')">Semua</div>
+            <div class="desktop-nav-item" onclick="filterCategory('Streaming')">Streaming</div>
+            <div class="desktop-nav-item" onclick="filterCategory('Tools')">Tools</div>
+            <div class="desktop-nav-item" onclick="filterCategory('Game')">Game</div>
+            <div class="desktop-nav-item" onclick="openModderProfileDesktop()">About</div>
         </div>
       </div>
 
-      <!-- SISI TENGAH: Judul Utama Berada Pas di Tengah-tengah -->
+      <!-- SISI TENGAH -->
       <div class="navbar-center">
         <h1 class="main-title">MMK | Modz</h1>
       </div>
 
-      <!-- SISI KANAN: Hanya Icon Pencarian Ringkas -->
+      <!-- SISI KANAN -->
       <div class="navbar-right">
         <button class="search-trigger-btn" onclick="toggleSearchBox()">🔍</button>
-        <!-- Pop-up Kolom Pencarian -->
         <div class="search-popover" id="searchPopover">
-          <input type="text" id="searchInput" placeholder="Cari APK..." onkeyup="searchApk()">
+            <input type="text" id="searchInput" placeholder="Cari APK..." onkeyup="searchApk()">
         </div>
       </div>
-
     </div>
 
-    <!-- Sidebar Menu Navigasi (Aktif penuh di Tampilan HP/Android) -->
+    <!-- Sidebar Menu Navigasi HP -->
     <div class="sidebar" id="sidebar">
-      <span class="sidebar-close" onclick="toggleSidebar()">×</span>
-
-      <div class="sidebar-header">
-        <img class="sidebar-logo" src="https://developing-magenta-mfyr3a7p.edgeone.app/M.png" alt="Logo MMK">
-        <div class="sidebar-title">MMK | MODZ</div>
-      </div>
-
-      <hr class="sidebar-divider">
-
-      <div class="sidebar-section-title">Kategori apk</div>
-      <ul class="sidebar-menu">
-        <li><div onclick="filterCategory('all')">📱 Semua Aplikasi</div></li>
-        <li><div onclick="filterCategory('Streaming')">🎬 Streaming / TV</div></li>
-        <li><div onclick="filterCategory('Tools')">🛠️ Tools / Utilitas</div></li>
-        <li><div onclick="filterCategory('Game')">🎮 Game Modifikasi</div></li>
-        <li><div onclick="filterCategory('Entertainment')">🎭 Hiburan / Komik</div></li>
-      </ul>
-
-      <hr class="sidebar-divider">
-
-      <div class="sidebar-section-title">Informasi & Dukungan</div>
-      <ul class="sidebar-menu">
-        <li><div onclick="openModderProfile()">👤 About modder</div></li>
-        <li><a href="https://whatsapp.com/channel/0029Vb7i2omLNSa3VM8Chc1A" target="_blank">📢 Join saluran Utama</a></li>
-        <li><a href="https://whatsapp.com/channel/0029Vb7vQrL1yT22MFrBrR42" target="_blank">🔔 Join saluran Alternatif</a></li>
-        <li><div onclick="alert('Terima kasih! Fitur Donasi sedang dipersiapkan.')">☕ Donate modder</div></li>
-      </ul>
+        <span class="sidebar-close" onclick="toggleSidebar()">×</span>
+        
+        <div class="sidebar-header">
+            <img class="sidebar-logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="Logo MMK">
+            <div class="sidebar-title">MMK | Modz</div>
+        </div>
+        
+        <hr class="sidebar-divider">
+        
+        <div class="sidebar-section-title">Kategori apk</div>
+        <ul class="sidebar-menu">
+            <li><div onclick="filterCategory('all')">📱 Semua Aplikasi</div></li>
+            <li><div onclick="filterCategory('Streaming')">🎬 Streaming / TV</div></li>
+            <li><div onclick="filterCategory('Tools')">🛠️ Tools / Utilitas</div></li>
+            <li><div onclick="filterCategory('Game')">🎮 Game Modifikasi</div></li>
+            <li><div onclick="filterCategory('Entertainment')">🎭 Hiburan / Komik</div></li>
+        </ul>
+        
+        <hr class="sidebar-divider">
+        
+        <div class="sidebar-section-title">Informasi & Dukungan</div>
+        <ul class="sidebar-menu">
+            <li><div onclick="openModderProfile()">👤 About modder</div></li>
+            <li><a href="https://whatsapp.com/channel/0029Vb7i2omLNSa3VM8Chc1A" target="_blank">📢 Join saluran Utama</a></li>
+            <li><a href="https://whatsapp.com/channel/0029Vb7vQrL1yT22MFrBrR42" target="_blank">🔔 Join saluran Alternatif</a></li>
+            <li><a href="https://saweria.link/username_anda" target="_blank">☕ Donate modder</a></li>
+        </ul>
     </div>
 
-    <!-- Floating Modder Icon Tab -->
     <div class="modder-tab" onclick="toggleModderModal()">👤</div>
-
-    <!-- Dim Overlay background -->
     <div class="overlay" id="overlay" onclick="closeAllPanels()"></div>
 
     <!-- Modder Profile Modal Box -->
@@ -727,7 +756,6 @@
         Spesialis APK Modifikasi & Android Customization<br>
         Gabung ke komunitas kami melalui tautan di bawah ini:
       </div>
-
       <div class="modder-socials">
         <a href="https://chat.whatsapp.com/LDzlBOXR3I12Rb79oy5TFJ?mode=hqctcla" target="_blank" class="social-link">
           <span>💬</span> Grup WhatsApp MMK
@@ -746,19 +774,17 @@
         <p>Kumpulan APK modifikasi terbaik dari komunitas MMK</p>
       </header>
 
-      <!-- Tempat Kartu Grid Dibuat -->
       <div class="apk-grid" id="apkGrid"></div>
       <div class="no-results" id="noResults">🔍 Tidak ada APK yang cocok dengan kriteria pencarian</div>
 
-      <!-- Footer Warning Text -->
       <div class="footer">
         <p>Dibuat dengan ❤️ oleh <strong>Komunitas MMK</strong></p>
         <div class="warning">⚠️ PENTING!!. APLIKASI KAMI 100% GRATIS, APABILA ANDA MENDAPATKAN APLIKASI INI BAYAR MAKA SEGERA MINTA PENGEMBALIAN DANA ANDA.</div>
       </div>
     </div>
 
-<script>
-        // Data Array APK Kembali ke Versi Asli
+    <script>
+        // Data Array APK Asli
         const apks = [
             { name: "cineflow", version: "latest version", description: "Streaming film & series premium unlocked tanpa iklan dengan kualitas full HD.", size: "none", android: "Android 5.0+", category: "Streaming", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/cineflow.png", downloadUrl: "#" },
             { name: "CloneApp", version: "latest version", description: "Kloning aplikasi tanpa batas, support vip feature bypass device-id.", size: "8.3 MB", android: "Android 6.0+", category: "Tools", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/CloneApp.png", downloadUrl: "https://link.adsafelink.com/8DyG5TiH" },
@@ -793,42 +819,58 @@
 
         const apkGrid = document.getElementById('apkGrid');
         
-        // Pembuat Kartu Otomatis
         apks.forEach((apk, index) => {
             const card = document.createElement('div');
             card.className = 'apk-card';
             card.setAttribute('data-category', apk.category);
             card.id = `apk-${index}`;
             
-            let downloadButtonHTML = '';
+            let actionAreaHTML = '';
             if(apk.multiDownload) {
-                downloadButtonHTML = `
-                    <div class="download-btn-group">
-                        <a href="${apk.links.psp}" target="_blank" class="download-btn console-btn">🎮 LINK PSP</a>
-                        <a href="${apk.links.ps2}" target="_blank" class="download-btn console-btn">🎮 LINK PS2</a>
-                        <a href="${apk.links.ps3}" target="_blank" class="download-btn console-btn">🎮 LINK PS3</a>
-                        <a href="${apk.links.gameboy}" target="_blank" class="download-btn console-btn">🕹️ GAMEBOY</a>
+                actionAreaHTML = `
+                    <div class="apk-action-area">
+                        <div class="download-btn-group">
+                            <a href="${apk.links.psp}" target="_blank" class="download-btn console-btn">🎮 LINK PSP</a>
+                            <a href="${apk.links.ps2}" target="_blank" class="download-btn console-btn">🎮 LINK PS2</a>
+                            <a href="${apk.links.ps3}" target="_blank" class="download-btn console-btn">🎮 LINK PS3</a>
+                            <a href="${apk.links.gameboy}" target="_blank" class="download-btn console-btn">🕹️ GAMEBOY</a>
+                        </div>
                     </div>
                 `;
             } else {
-                downloadButtonHTML = `<a href="${apk.downloadUrl}" target="_blank" class="download-btn">⬇️ DOWNLOAD APK</a>`;
+                actionAreaHTML = `
+                    <div class="apk-action-area">
+                        <a href="${apk.downloadUrl}" target="_blank" class="download-btn">⬇️ DOWNLOAD APK</a>
+                    </div>
+                `;
             }
 
             card.innerHTML = `
-                <div>
+                <!-- Bagian Atas: Logo Kiri, Info Kanan -->
+                <div class="apk-top-row">
                     <div class="apk-icon">
                         <img src="${apk.imageUrl}" alt="${apk.name}" onerror="this.src='https://placehold.co/75x75/000000/0047ff?text=APK'">
                     </div>
-                    <div class="apk-title">${apk.name}</div>
-                    <div class="apk-version">${apk.version}</div>
-                    <div class="apk-description">${apk.description}</div>
-                    <div class="apk-details">
-                        <span class="detail-item">📦 ${apk.size}</span>
-                        <span class="detail-item">🤖 ${apk.android}</span>
-                        <span class="detail-item">📁 ${apk.category}</span>
+                    <div class="apk-meta-info">
+                        <div class="apk-title">${apk.name}</div>
+                        <div class="apk-version">${apk.version}</div>
+                        
+                        <!-- PENGGANTIAN TEKS KE EMOJI: Lebih Simpel & Modern -->
+                        <div class="apk-details">
+                            <span class="detail-item">💾 ${apk.size}</span>
+                            <span class="detail-item">🤖 ${apk.android}</span>
+                            <span class="detail-item">📁 ${apk.category}</span>
+                        </div>
                     </div>
                 </div>
-                ${downloadButtonHTML}
+
+                <!-- Bagian Bawah: Kolom Deskripsi Ber-Border & Tombol -->
+                <div class="apk-bottom-content">
+                    <div class="apk-description-box">
+                        <div class="apk-description">${apk.description}</div>
+                    </div>
+                    ${actionAreaHTML}
+                </div>
             `;
             apkGrid.appendChild(card);
         });
@@ -850,13 +892,11 @@
             overlay.classList.toggle('active');
         }
 
-        // Mengarahkan About di Sidebar
         function openModderProfile() {
             toggleSidebar();
             toggleModderModal();
         }
 
-        // Mengarahkan About di Desktop Nav
         function openModderProfileDesktop() {
             toggleModderModal();
         }
@@ -892,9 +932,7 @@
             });
 
             noResults.style.display = matchCount > 0 ? 'none' : 'block';
-            
-            document.getElementById('sidebar').classList.remove('active');
-            document.getElementById('overlay').classList.remove('active');
+            closeAllPanels();
         }
 
         // Fitur Live Search
@@ -918,6 +956,6 @@
 
             noResults.style.display = found ? 'none' : 'block';
         }
-</script>
-  </body>
+    </script>
+</body>
 </html>
