@@ -350,6 +350,722 @@
 
         .modder-name { font-size: 1.5em; color: #fff; margin-bottom: 5px; }
         .modder-role { color: #0066ff; font-size: 1.1em; margin-bottom: 15px; }
+        .modder-info { font-size: 0.9rem; line-height: 1.4; color: #a2b4cc; }
+
+        .modder-socials {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 2px solid #25d366;
+            color: #25d366;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .social-link.channel-one { border-color: #0047ff; color: #0066ff; }
+        .social-link.channel-two { border-color: #a855f7; color: #a855f7; }
+        .social-link.donate-link { border-color: #eab308; color: #eab308; } /* Warna Kuning Gold Emas untuk Saweria */
+
+        .social-link:hover {
+            transform: scale(1.02);
+            background: currentColor;
+            color: #000;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8em;
+            color: #0047ff;
+            cursor: pointer;
+        }
+
+        /* Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1500;
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Main Content Intro */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 10px 15px;
+            margin-bottom: 25px;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            color: #0055ff;
+        }
+
+        /* APK Grid Layout */
+        .apk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 25px;
+        }
+
+        /* Layout Kartu APK Horizontal */
+        .apk-card {
+            background: linear-gradient(145deg, #05050a 0%, #00081a 100%);
+            border: 1px solid #00249c;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 36, 156, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .apk-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(0, 102, 255, 0.15), transparent);
+            transform: skewX(-25deg);
+            animation: laserShimmer 6s infinite ease-in-out;
+        }
+
+        @keyframes laserShimmer {
+            0% { left: -150%; }
+            30%, 100% { left: 250%; }
+        }
+
+        .apk-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 71, 255, 0.35);
+            border-color: #0066ff;
+        }
+
+        .apk-card.hidden { display: none !important; }
+
+        /* Baris Atas: Mengatur Logo disamping Meta Info teks */
+        .apk-top-row {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .apk-icon {
+            width: 78px;
+            height: 78px;
+            background: #000000;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(0, 71, 255, 0.5);
+            transition: transform 0.4s ease;
+            flex-shrink: 0;
+        }
+
+        .apk-card:hover .apk-icon {
+            transform: scale(1.05) rotate(2deg);
+            border-color: #00f3ff;
+        }
+
+        .apk-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        .apk-meta-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex-grow: 1;
+        }
+
+        .apk-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .apk-version {
+            color: #0066ff;
+            font-weight: 700;
+            font-size: 0.88em;
+            margin-bottom: 2px;
+        }
+
+        /* Spesifikasi Terpisah dengan Kotak Border Biru Tipis */
+        .apk-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .detail-item {
+            font-size: 0.72em;
+            color: #a2b4cc;
+            font-weight: 600;
+            padding: 4px 8px;
+            background: rgba(0, 36, 156, 0.1);
+            border: 1px solid #0047ff; 
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        /* Baris Bawah: Kotak Kolom Deskripsi & Area Tombol */
+        .apk-bottom-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        /* Kolom Deskripsi Ber-Border Rapi */
+        .apk-description-box {
+            background: rgba(0, 5, 20, 0.6);
+            border: 1px solid #00249c; 
+            border-radius: 12px;
+            padding: 12px;
+        }
+
+        .apk-description {
+            color: #94a3b8;
+            line-height: 1.5;
+            font-size: 0.86em;
+            text-align: left;
+        }
+
+        /* Area Aksi Tombol Diposisikan ke Tengah (Center) */
+        .apk-action-area {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .download-btn-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            width: 85%;
+        }
+
+        .download-btn {
+            display: inline-block;
+            width: 85%;
+            padding: 11px 20px;
+            background: linear-gradient(135deg, #00249c 0%, #000a2b 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 1px solid #0047ff;
+            font-size: 0.9em;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, #0047ff 0%, #001a66 100%);
+            border-color: #00f3ff;
+            transform: scale(1.02);
+        }
+
+        .console-btn {
+            width: 100% !important;
+            padding: 8px;
+            font-size: 0.8em;
+            background: linear-gradient(135deg, #000511 0%, #05050f 100%);
+            color: #0066ff;
+            border: 1px solid #0033cc;
+        }
+
+        .footer {
+            text-align: center;
+            color: #0055ff;
+            padding: 25px;
+            margin-top: 40px;
+            border-top: 2px solid rgba(0, 36, 156, 0.3);
+        }
+
+        .warning {
+            background: rgba(255, 68, 68, 0.05);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            padding: 10px 15px;
+            border-radius: 10px;
+            color: #ff4444;
+            font-size: 0.85em;
+            margin-top: 12px;
+            font-weight: 600;
+            animation: dangerPulse 2s infinite ease-in-out;
+        }
+
+        @keyframes dangerPulse {
+            0%, 100% { box-shadow: 0 0 5px rgba(255, 68, 68, 0.2); }
+            50% { box-shadow: 0 0 15px rgba(255, 68, 68, 0.5); }
+        }
+
+        .no-results {
+            text-align: center;
+            color: #0055ff;
+            font-size: 1.3em;
+            padding: 40px;
+            display: none;
+        }
+
+        /* Responsive Media Query untuk HP / Mobile */
+        @media (max-width: 900px) {
+            .navbar { padding: 10px 16px; }
+            body { padding-top: 70px; }
+            
+            .desktop-nav { display: none; }
+            .menu-toggle { display: flex; }
+            
+            .logo { width: 34px; height: 34px; }
+            .main-title { font-size: 1.15rem; letter-spacing: 1px; }
+            
+            .apk-grid { grid-template-columns: 1fr; gap: 18px; }
+            
+            .apk-top-row { gap: 12px; }
+            .apk-icon { width: 70px; height: 70px; border-radius: 12px; }
+            .apk-title { font-size: 1.1em; }
+
+            .download-btn, .download-btn-group { width: 100%; }
+
+            .search-popover {
+                width: calc(100vw - 32px); 
+                right: -16px;
+                top: 48px;
+            }
+            .search-popover input { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <div class="navbar">
+      <!-- SISI KIRI -->
+      <div class="navbar-left">
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+        <div class="logo-container">
+          <img class="logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="Logo">
+        </div>
+        <div class="desktop-nav">
+            <div class="desktop-nav-item" onclick="filterCategory('all')">Semua</div>
+            <div class="desktop-nav-item" onclick="filterCategory('Streaming')">Streaming</div>
+            <div class="desktop-nav-item" onclick="filterCategory('Tools')">Tools</div>
+            <div class="desktop-nav-item" onclick="filterCategory('Game')">Game</div>
+            <div class="desktop-nav-item" onclick="openModderProfileDesktop()">About</div>
+        </div>
+      </div>
+
+      <!-- SISI TENGAH -->
+      <div class="navbar-center">
+        <h1 class="main-title">MMK | Modz</h1>
+      </div>
+
+      <!-- SISI KANAN -->
+      <div class="navbar-right">
+        <button class="search-trigger-btn" onclick="toggleSearchBox()">🔍</button>
+        <div class="search-popover" id="searchPopover">
+            <input type="text" id="searchInput" placeholder="Cari APK..." onkeyup="searchApk()">
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Menu Navigasi HP -->
+    <div class="sidebar" id="sidebar">
+        <span class="sidebar-close" onclick="toggleSidebar()">×</span>
+        
+        <div class="sidebar-header">
+            <img class="sidebar-logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="Logo MMK">
+            <div class="sidebar-title">MMK | Modz</div>
+        </div>
+        
+        <hr class="sidebar-divider">
+        
+        <div class="sidebar-section-title">Kategori apk</div>
+        <ul class="sidebar-menu">
+            <li><div onclick="filterCategory('all')">📱 Semua Aplikasi</div></li>
+            <li><div onclick="filterCategory('Streaming')">🎬 Streaming / TV</div></li>
+            <li><div onclick="filterCategory('Tools')">🛠️ Tools / Utilitas</div></li>
+            <li><div onclick="filterCategory('Game')">🎮 Game Modifikasi</div></li>
+            <li><div onclick="filterCategory('Entertainment')">🎭 Hiburan / Komik</div></li>
+        </ul>
+        
+        <hr class="sidebar-divider">
+        
+        <div class="sidebar-section-title">Informasi & Dukungan</div>
+        <ul class="sidebar-menu">
+            <li><div onclick="openModderProfile()">👤 About modder</div></li>
+            <li><a href="https://whatsapp.com/channel/0029Vb7i2omLNSa3VM8Chc1A" target="_blank">📢 Join saluran Utama</a></li>
+            <li><a href="https://whatsapp.com/channel/0029Vb7vQrL1yT22MFrBrR42" target="_blank">🔔 Join saluran Alternatif</a></li>
+            <!-- UPDATE LINK DONATE SAWERIA PADA SIDEBAR -->
+            <li><a href="https://saweria.co/MrKhenzoOFFICIAL" target="_blank">☕ Donate modder</a></li>
+        </ul>
+    </div>
+
+    <div class="modder-tab" onclick="toggleModderModal()">👤</div>
+    <div class="overlay" id="overlay" onclick="closeAllPanels()"></div>
+
+    <!-- Modder Profile Modal Box -->
+    <div class="modder-modal" id="modderModal">
+      <span class="close-modal" onclick="toggleModderModal()">×</span>
+      <div class="modder-avatar">MMK</div>
+      <h2 class="modder-name">MMK Modder</h2>
+      <p class="modder-role">Lead Modder & Developer</p>
+      <div class="modder-info">
+        Komunitas MMK (Modz Master Killer)<br>
+        Spesialis APK Modifikasi & Android Customization<br>
+        Gabung ke komunitas kami melalui tautan di bawah ini:
+      </div>
+      <div class="modder-socials">
+        <!-- UPDATE LINK DONATE SAWERIA DI DALAM MODAL PROFILE -->
+        <a href="https://saweria.co/MrKhenzoOFFICIAL" target="_blank" class="social-link donate-link">
+          <span>☕</span> Dukung Melalui Saweria
+        </a>
+        <a href="https://chat.whatsapp.com/LDzlBOXR3I12Rb79oy5TFJ?mode=hqctcla" target="_blank" class="social-link">
+          <span>💬</span> Grup WhatsApp MMK
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb7i2omLNSa3VM8Chc1A" target="_blank" class="social-link channel-one">
+          <span>📢</span> Saluran Utama MMK
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb7vQrL1yT22MFrBrR42" target="_blank" class="social-link channel-two">
+          <span>🔔</span> Saluran Alternatif MMK
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <header>
+        <p>Kumpulan APK modifikasi terbaik dari komunitas MMK</p>
+      </header>
+
+      <div class="apk-grid" id="apkGrid"></div>
+      <div class="no-results" id="noResults">🔍 Tidak ada APK yang cocok dengan kriteria pencarian</div>
+
+      <div class="footer">
+        <p>Dibuat dengan ❤️ oleh <strong>Komunitas MMK</strong></p>
+        <div class="warning">⚠️ PENTING!!. APLIKASI KAMI 100% GRATIS, APABILA ANDA MENDAPATKAN APLIKASI INI BAYAR MAKA SEGERA MINTA PENGEMBALIAN DANA ANDA.</div>
+      </div>
+    </div>
+
+    <script>
+        // Data Array APK Asli
+        const apks = [
+            { name: "cineflow", version: "latest version", description: "Streaming film & series premium unlocked tanpa iklan dengan kualitas full HD.", size: "none", android: "Android 5.0+", category: "Streaming", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/cineflow.png", downloadUrl: "#" },
+            { name: "CloneApp", version: "latest version", description: "Kloning aplikasi tanpa batas, support vip feature bypass device-id.", size: "8.3 MB", android: "Android 6.0+", category: "Tools", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/CloneApp.png", downloadUrl: "https://link.adsafelink.com/8DyG5TiH" },
+            { name: "Dark Aura", version: "latest version", description: "Kustomisasi tema super dark AMOLED dengan paket ikon premium aesthetic.", size: "none", android: "Android 7.0+", category: "Personalization", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/DarkAura.png", downloadUrl: "#" },
+            { name: "DramaNova", version: "latest version", description: "Nonton drama Asia terlengkap, VIP server cepat unlocked tanpa login.", size: "none", android: "Android 5.0+", category: "Streaming", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/DramaNova.png", downloadUrl: "#" },
+            { name: "DramaQueen", version: "latest version", description: "Akses eksklusif koleksi drakor premium dan variety show sub Indo ad-free.", size: "none", android: "Android 5.0+", category: "Streaming", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/dramaqueen.png", downloadUrl: "https://link.adsafelink.com/es5iMSo" },
+            { name: "Dramora", version: "latest version", description: "Platform streaming drama terlengkap dengan fitur download offline sepuasnya.", size: "none", android: "Android 5.5+", category: "Streaming", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/Dramora.png", downloadUrl: "https://link.adsafelink.com/Pr9aGT" },
+            { name: "Floatee", version: "latest version", description: "Aplikasi widget melayang (floating shortcut) untuk multitasking pro unlocked.", size: "none", android: "Android 6.0+", category: "Tools", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/floatee.png", downloadUrl: "https://link.adsafelink.com/7WhOymr" },
+            { name: "GbaEmulator", version: "latest version", description: "Emulator Game Boy Advance dengan cheat menu terintegrasi dan save state slot gratis.", size: "none", android: "Android 5.0+", category: "Game", imageUrl: "https://link-gambar-anda.com/gbaemulator.png", downloadUrl: "#" },
+            { name: "GearUp", version: "latest version", description: "Game booster pro pengurang ping dan lag, optimasi jaringan VIP unlocked.", size: "31 MB", android: "Android 7.0+", category: "Tools", imageUrl: "https://link-gambar-anda.com/gearup.png", downloadUrl: "#" },
+            { name: "Groic", version: "latest version", description: "Aplikasi pengatur jadwal dan manajemen tugas harian pro premium features unlocked.", size: "none", android: "Android 6.0+", category: "Productivity", imageUrl: "https://link-gambar-anda.com/groic.png", downloadUrl: "#" },
+            { name: "HelloTalk", version: "latest version", description: "Belajar bahasa asing gratis dengan fitur translate premium tak terbatas.", size: "67 MB", android: "Android 5.0+", category: "Education", imageUrl: "https://link-gambar-anda.com/hellotalk.png", downloadUrl: "#" },
+            { name: "KomikBahagia", version: "latest version", description: "Baca ratusan manga, manhua, dan manhwa favorit tanpa koin/ad-free.", size: "none", android: "Android 5.0+", category: "Entertainment", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/comikbahagia.png", downloadUrl: "#" },
+            { name: "Lane", version: "latest version", description: "Aplikasi alternatif pemutar musik Spotify dengan fitur Premium terbuka.", size: "none", android: "Android 6.0+", category: "Music", imageUrl: "https://link-gambar-anda.com/lane.png", downloadUrl: "https://link.adsafelink.com/exTl" },
+            { name: "Music Downloader", version: "latest version", description: "Download musik MP3 resolusi tinggi langsung dari berbagai platform musik.", size: "none", android: "Android 5.0+", category: "Music", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/MusicDownloader.png", downloadUrl: "https://link.adsafelink.com/KXD6B" },
+            { name: "RCTI+", version: "latest version", description: "Nonton siaran langsung TV nasional tanpa buffer dan tanpa gangguan iklan.", size: "26 MB", android: "Android 5.0+", category: "Streaming", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/rcti.png", downloadUrl: "#" },
+            { name: "Remini", version: "latest version", description: "Penjernih foto AI pro unlocked, kuota edit tanpa batas, kualitas ultra HD.", size: "54 MB", android: "Android 6.0+", category: "Editor", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/remini.png", downloadUrl: "https://link.adsafelink.com/78c34m3" },
+            { name: "TeraBox", version: "latest version", description: "Penyimpanan cloud raksasa dengan fitur download kecepatan tinggi VIP unlocked.", size: "68 MB", android: "Android 6.0+", category: "Tools", imageUrl: "tera.png", downloadUrl: "https://link.adsafelink.com/g5mo8dv" },
+            { name: "WPS OFFICE", version: "latest version", description: "Buka dan edit semua dokumen PDF ke Word, edit ppt premium unlocked gratis.", size: "62 MB", android: "Android 7.0+", category: "Productivity", imageUrl: "https://link-gambar-anda.com/wpsoffice.png", downloadUrl: "#" },
+            { name: "Instagram Pro", version: "latest version", description: "Download foto, video, story sekali klik, anti-view tersembunyi, feed ad-free.", size: "64 MB", android: "Android 6.0+", category: "Social", imageUrl: "https://link-gambar-anda.com/instagrampro.png", downloadUrl: "https://link.adsafelink.com/d6hmwu1" },
+            { name: "Xeno", version: "latest version", description: "Browser keamanan enkripsi tinggi lengkap dengan VPN internal bypass internet positif.", size: "none", android: "Android 6.0+", category: "Tools", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/Xeno.png", downloadUrl: "https://link.adsafelink.com/9Iww9zQd" },
+            { 
+                name: "XGames", version: "latest version", description: "Pusat download game emulator terlengkap dengan script bawaan berbagai konsol.", size: "none", android: "Android 5.0+", category: "Game", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/xgame.png", multiDownload: true,
+                links: { psp: "https://link.adsafelink.com/wFQ5ZE", ps2: "https://link.adsafelink.com/1L8k", ps3: "https://link.adsafelink.com/KwC4WD13", gameboy: "https://link.adsafelink.com/2yPweIK3" }
+            },
+            { name: "KucingPremium", version: "latest version", description: "Aplikasi hiburan dan streaming film/anime premium mod terlengkap.", size: "none", android: "Android 5.0+", category: "Entertainment", imageUrl: "https://link-gambar-anda.com/kucingpremium.png", downloadUrl: "https://link.adsafelink.com/neE91I9d" },
+            { name: "Fr Legend", version: "latest version", description: "Game balapan drift mobil legendaris dengan modifikasi uang tak terbatas.", size: "94 MB", android: "Android 5.0+", category: "Game", imageUrl: "https://link-gambar-anda.com/frlegend.png", downloadUrl: "https://link.adsafelink.com/tUlN" },
+            { name: "Melolo", version: "latest version", description: "Aplikasi streaming hiburan musik dan video pendek seru premium mod.", size: "none", android: "Android 5.0+", category: "Entertainment", imageUrl: "https://link-gambar-anda.com/melolo.png", downloadUrl: "https://link.adsafelink.com/9oNC5wAu" },
+            { name: "Raft Survival", version: "latest version", description: "Game simulator bertahan hidup di atas rakit tengah lautan, crafting mod unlocked.", size: "105 MB", android: "Android 5.0+", category: "Game", imageUrl: "https://link-gambar-anda.com/raftsurvival.png", downloadUrl: "https://link.adsafelink.com/KbyM8V" },
+            { name: "Youshort", version: "latest version", description: "Nonton berbagai video pendek premium dan drama singkat menarik unlocked tanpa batas.", size: "none", android: "Android 5.0+", category: "Entertainment", imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/youshort.png", downloadUrl: "#" }
+        ];
+
+        const apkGrid = document.getElementById('apkGrid');
+        
+        apks.forEach((apk, index) => {
+            const card = document.createElement('div');
+            card.className = 'apk-card';
+            card.setAttribute('data-category', apk.category);
+            card.id = `apk-${index}`;
+            
+            let actionAreaHTML = '';
+            if(apk.multiDownload) {
+                actionAreaHTML = `
+                    <div class="apk-action-area">
+                        <div class="download-btn-group">
+                            <a href="${apk.links.psp}" target="_blank" class="download-btn console-btn">🎮 LINK PSP</a>
+                            <a href="${apk.links.ps2}" target="_blank" class="download-btn console-btn">🎮 LINK PS2</a>
+                            <a href="${apk.links.ps3}" target="_blank" class="download-btn console-btn">🎮 LINK PS3</a>
+                            <a href="${apk.links.gameboy}" target="_blank" class="download-btn console-btn">🕹️ GAMEBOY</a>
+                        </div>
+                    </div>
+                `;
+            } else {
+                actionAreaHTML = `
+                    <div class="apk-action-area">
+                        <a href="${apk.downloadUrl}" target="_blank" class="download-btn">⬇️ DOWNLOAD APK</a>
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
+                <!-- Bagian Atas: Logo Kiri, Info Kanan -->
+                <div class="apk-top-row">
+                    <div class="apk-icon">
+                        <img src="${apk.imageUrl}" alt="${apk.name}" onerror="this.src='https://placehold.co/75x75/000000/0047ff?text=APK'">
+                    </div>
+                    <div class="apk-meta-info">
+                        <div class="apk-title">${apk.name}</div>
+                        <div class="apk-version">${apk.version}</div>
+                        
+                        <!-- Format Emoji & Box Border Biru -->
+                        <div class="apk-details">
+                            <span class="detail-item">💾 ${apk.size}</span>
+                            <span class="detail-item">🤖 ${apk.android}</span>
+                            <span class="detail-item">📁 ${apk.category}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian Bawah: Kolom Deskripsi Ber-Border & Tombol -->
+                <div class="apk-bottom-content">
+                    <div class="apk-description-box">
+                        <div class="apk-description">${apk.description}</div>
+                    </div>
+                    ${actionAreaHTML}
+                </div>
+            `;
+            apkGrid.appendChild(card);
+        });
+
+        // Toggle Pencarian Popover
+        function toggleSearchBox() {
+            const popover = document.getElementById('searchPopover');
+            popover.classList.toggle('active');
+            if (popover.classList.contains('active')) {
+                document.getElementById('searchInput').focus();
+            }
+        }
+
+        // Handler Sidebar & Panel
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function openModderProfile() {
+            toggleSidebar();
+            toggleModderModal();
+        }
+
+        function openModderProfileDesktop() {
+            toggleModderModal();
+        }
+
+        function toggleModderModal() {
+            const modal = document.getElementById('modderModal');
+            const overlay = document.getElementById('overlay');
+            modal.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function closeAllPanels() {
+            document.getElementById('sidebar').classList.remove('active');
+            document.getElementById('modderModal').classList.remove('active');
+            document.getElementById('searchPopover').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+
+        // Filter Kategori
+        function filterCategory(category) {
+            const cards = document.querySelectorAll('.apk-card');
+            const noResults = document.getElementById('noResults');
+            let matchCount = 0;
+
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.classList.remove('hidden');
+                    matchCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            noResults.style.display = matchCount > 0 ? 'none' : 'block';
+            closeAllPanels();
+        }
+
+        // Fitur Live Search
+        function searchApk() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.apk-card');
+            const noResults = document.getElementById('noResults');
+            let found = false;
+
+            cards.forEach(card => {
+                const title = card.querySelector('.apk-title').textContent.toLowerCase();
+                const description = card.querySelector('.apk-description').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.classList.remove('hidden');
+                    found = true;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            noResults.style.display = found ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>            font-size: 0.85em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .sidebar-menu li a, .sidebar-menu li div {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            color: #d1d5db;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sidebar-menu li a:hover, .sidebar-menu li div:hover {
+            background: rgba(0, 71, 255, 0.15);
+            color: #fff;
+        }
+
+        /* Floating Modder Tab */
+        .modder-tab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(145deg, #000000 0%, #001133 100%);
+            border: 2px solid #0047ff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 25px rgba(0, 71, 255, 0.5);
+            z-index: 1011;
+            font-size: 1.5em;
+            animation: floatUpDown 3s infinite ease-in-out;
+        }
+
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Modal Box */
+        .modder-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.7);
+            background: linear-gradient(145deg, #020205 0%, #000b21 100%);
+            border: 2px solid #0047ff;
+            border-radius: 25px;
+            padding: 30px;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 0 40px rgba(0, 71, 255, 0.6);
+            z-index: 2000;
+            text-align: center;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .modder-modal.active {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .modder-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #00249c;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2em;
+            color: #ffffff;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 0 10px rgba(0, 71, 255, 0.8);
+        }
+
+        .modder-name { font-size: 1.5em; color: #fff; margin-bottom: 5px; }
+        .modder-role { color: #0066ff; font-size: 1.1em; margin-bottom: 15px; }
 
         .modder-socials {
             display: flex;
