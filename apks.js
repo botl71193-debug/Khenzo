@@ -37,7 +37,7 @@ const apks = [
   {
     name: "BeautyPlus",
     version: "V 7.38.1",
-    category: "Foto & Video",
+    category: "Tools",
     size: "371,23MB",
     android: "Android 6.0+",
     imageUrl: "https://i.supaimg.com/1ac260ce-b26f-4f02-a315-4072e31459d4/1f57c4f2-fca5-4414-9788-e3824fa18c2e.png",
