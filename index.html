@@ -88,20 +88,21 @@
             box-shadow: 0 0 15px rgba(0, 243, 255, 0.6);
         }
 
-        /* Menu Navigasi Horizontal Desktop */
+        /* Menu Navigasi Horizontal Desktop - Ditambah Kategori */
         .desktop-nav {
             display: flex;
-            gap: 18px;
+            gap: 14px;
             margin-left: 10px;
         }
 
         .desktop-nav-item {
             color: #d1d5db;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .desktop-nav-item:hover {
@@ -592,7 +593,7 @@
             width: 100%;
         }
 
-        /* --- STYLE UNTUK SEMUA TOMBOL UNDUHAN (SERAGAM & BER-BORDER EKSKLUSIF) --- */
+        /* --- STYLE TOMBOL UNDUHAN --- */
         .download-btn {
             display: block;
             width: 100%;
@@ -677,11 +678,15 @@
         <div class="logo-container">
           <img class="logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="Logo">
         </div>
+        <!-- KATEGORI DESKTOP SANGAT LENGKAP DI SINI -->
         <div class="desktop-nav">
           <div class="desktop-nav-item" onclick="filterCategory('all')">Semua</div>
-          <div class="desktop-nav-item" onclick="filterCategory('Streaming')">Streaming</div>
-          <div class="desktop-nav-item" onclick="filterCategory('Tools')">Tools</div>
           <div class="desktop-nav-item" onclick="filterCategory('Game')">Game</div>
+          <div class="desktop-nav-item" onclick="filterCategory('Streaming')">Streaming</div>
+          <div class="desktop-nav-item" onclick="filterCategory('Music')">Music</div>
+          <div class="desktop-nav-item" onclick="filterCategory('Tools')">Tools</div>
+          <div class="desktop-nav-item" onclick="filterCategory('Entertainment')">Hiburan</div>
+          <div class="desktop-nav-item" onclick="filterCategory('Foto & Video')">Editor</div>
           <div class="desktop-nav-item" onclick="openModderProfileDesktop()">About</div>
         </div>
       </div>
@@ -705,13 +710,16 @@
         <div class="sidebar-title">MMK | Modz</div>
       </div>
       <hr class="sidebar-divider">
+      <!-- KATEGORI SIDEBAR MOBILE LEBIH BANYAK DAN LENGKAP -->
       <div class="sidebar-section-title">Kategori apk</div>
       <ul class="sidebar-menu">
         <li><div onclick="filterCategory('all')">📱 Semua Aplikasi</div></li>
-        <li><div onclick="filterCategory('Streaming')">🎬 Streaming / TV</div></li>
-        <li><div onclick="filterCategory('Tools')">🛠️ Tools / Utilitas</div></li>
         <li><div onclick="filterCategory('Game')">🎮 Game Modifikasi</div></li>
+        <li><div onclick="filterCategory('Streaming')">🎬 Streaming / TV</div></li>
+        <li><div onclick="filterCategory('Music')">🎵 Musik / Audio</div></li>
+        <li><div onclick="filterCategory('Tools')">🛠️ Tools / Utilitas</div></li>
         <li><div onclick="filterCategory('Entertainment')">🎭 Hiburan / Komik</div></li>
+        <li><div onclick="filterCategory('Foto & Video')">📸 Foto & Video Editor</div></li>
       </ul>
       <hr class="sidebar-divider">
       <div class="sidebar-section-title">Informasi & Dukungan</div>
@@ -766,6 +774,7 @@
       </div>
     </div>
 
+    <!-- PANGGIL DATA ARRAY DARI FILE LUAR APKS.JS -->
     <script src="apks.js"></script>
 
     <script>
@@ -780,7 +789,6 @@
 
             let actionAreaHTML = '';
             if(apk.multiDownload) {
-                // MODIFIKASI: Tanpa dropdown accordion, tombol langsung berjejer vertikal dengan border yang sama persis
                 let buttonsHTML = '';
                 for (const [key, value] of Object.entries(apk.links)) {
                     const labelText = key.toUpperCase(); 
@@ -799,11 +807,14 @@
                 `;
             }
 
+            // Fallback emoji otomatis berdasarkan kategori baru
             let fallbackEmoji = '📱';
             if (apk.category === 'Streaming') fallbackEmoji = '🎬';
             else if (apk.category === 'Game') fallbackEmoji = '🎮';
+            else if (apk.category === 'Music') fallbackEmoji = '🎵';
             else if (apk.category === 'Tools') fallbackEmoji = '🛠️';
             else if (apk.category === 'Entertainment') fallbackEmoji = '🎭';
+            else if (apk.category === 'Foto & Video') fallbackEmoji = '📸';
 
             card.innerHTML = `
                 <div class="apk-top-row">
