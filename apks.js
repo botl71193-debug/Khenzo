@@ -28,7 +28,7 @@ const apks = [
     name: "Lane",
     version: "v 1.4",
     category: "Music",
-    size: "75,16MB",
+    size: "75 MB",
     android: "Android 6.0+",
     imageUrl: "https://worrying-apricot-utxtj0qs.edgeone.app/lane.png",
     downloadUrl: "https://safefileku.com/download/3sA8xBwdh6oTQ6ZB",
@@ -37,8 +37,8 @@ const apks = [
   {
     name: "BeautyPlus",
     version: "V 7.38.1",
-    category: "Tools",
-    size: "371,23MB",
+    category: "Foto & Video",
+    size: "371 MB",
     android: "Android 6.0+",
     imageUrl: "https://i.supaimg.com/1ac260ce-b26f-4f02-a315-4072e31459d4/1f57c4f2-fca5-4414-9788-e3824fa18c2e.png",
     downloadUrl: "https://safefileku.com/download/HO7fPpKhQVw9YmMk",
@@ -58,7 +58,7 @@ const apks = [
     name: "Bus Simulator",
     version: "V 4.5",
     category: "Game",
-    size: "1 GB+",
+    size: "1 GB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/CsKKbjQS/Bussid.webp",
     downloadUrl: "https://www.mediafire.com/file/9gz1qrpal55px45/Busid+Mod+Apk+V4.5+Terbaru+2026.zip/file",
@@ -68,7 +68,7 @@ const apks = [
     name: "Frag Pro Shooter",
     version: "V 5.1.0",
     category: "Game",
-    size: "200 MB+",
+    size: "200 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/MkJ1SxSZ/Frag-Pro.webp",
     downloadUrl: "https://www.mediafire.com/file/fcikalep5413ca3/Frag_Pro_Shooter_v5.1.0_Menu.apk/file",
@@ -88,7 +88,7 @@ const apks = [
     name: "CloneApp",
     version: "v3.2.1",
     category: "Tools",
-    size: "8.3 MB",
+    size: "8 MB",
     android: "Android 6.0+",
     imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/CloneApp.png",
     downloadUrl: "https://link.adsafelink.com/8DyG5TiH",
@@ -207,7 +207,7 @@ const apks = [
   {
     name: "Remini",
     version: "v3.7.83",
-    category: "Tools",
+    category: "Foto & Video",
     size: "54 MB",
     android: "Android 6.0+",
     imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/remini.png",
@@ -226,48 +226,48 @@ const apks = [
   },
   {
     name: "WPS Office",
-            version: "v18.7.1",
-            category: "Tools",
-            size: "62 MB",
-            android: "Android 7.0+",
-            imageUrl: "https://worrying-apricot-utxtj0qs.edgeone.app/wps.png",
-            downloadUrl: "https://link.adsafelink.com/aBAHAU4J",
-            description: "Buka dan edit semua dokumen PDF ke Word, edit ppt premium unlocked gratis."
-          },
-          {
-            name: "Xeno",
-            version: "v1.0.5",
-            category: "Tools",
-            size: "14 MB",
-            android: "Android 6.0+",
-            imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/Xeno.png",
-            downloadUrl: "https://link.adsafelink.com/9Iww9zQd",
-            description: "Browser keamanan enkripsi tinggi lengkap dengan VPN internal bypass internet positif."
-          },
-          {
-            name: "XGames",
-            version: "v2.0",
-            category: "Game",
-            size: "45 MB",
-            android: "Android 5.0+",
-            imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/xgame.png",
-            multiDownload: true,
-            links: {
-              psp: "https://link.adsafelink.com/wFQ5ZE",
-              ps2: "https://link.adsafelink.com/1L8k",
-              ps3: "https://link.adsafelink.com/KwC4WD13",
-              gameboy: "https://link.adsafelink.com/2yPweIK3"
-            },
-            description: "Pusat download game emulator terlengkap dengan script bawaan berbagai konsol."
-          },
-          {
-            name: "Youshort",
-            version: "v1.0.1",
-            category: "Entertainment",
-            size: "16 MB",
-            android: "Android 5.0+",
-            imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/youshort.png",
-            downloadUrl: "https://link.adsafelink.com/1ZOUs",
-            description: "Nonton berbagai video pendek premium dan drama singkat menarik unlocked tanpa batas."
-          }
+    version: "v18.7.1",
+    category: "Tools",
+    size: "62 MB",
+    android: "Android 7.0+",
+    imageUrl: "https://worrying-apricot-utxtj0qs.edgeone.app/wps.png",
+    downloadUrl: "https://link.adsafelink.com/aBAHAU4J",
+    description: "Buka dan edit semua dokumen PDF ke Word, edit ppt premium unlocked gratis."
+  },
+  {
+    name: "Xeno",
+    version: "v1.0.5",
+    category: "Tools",
+    size: "14 MB",
+    android: "Android 6.0+",
+    imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/Xeno.png",
+    downloadUrl: "https://link.adsafelink.com/9Iww9zQd",
+    description: "Browser keamanan enkripsi tinggi lengkap dengan VPN internal bypass internet positif."
+  },
+  {
+    name: "XGames",
+    version: "v2.0",
+    category: "Game",
+    size: "45 MB",
+    android: "Android 5.0+",
+    imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/xgame.png",
+    multiDownload: true,
+    links: {
+      PSP: "https://link.adsafelink.com/wFQ5ZE",
+      PS2: "https://link.adsafelink.com/1L8k",
+      PS3: "https://link.adsafelink.com/KwC4WD13",
+      GameBoy: "https://link.adsafelink.com/2yPweIK3"
+    },
+    description: "Pusat download game emulator terlengkap dengan script bawaan berbagai konsol."
+  },
+  {
+    name: "Youshort",
+    version: "v1.0.1",
+    category: "Entertainment",
+    size: "16 MB",
+    android: "Android 5.0+",
+    imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/youshort.png",
+    downloadUrl: "https://link.adsafelink.com/1ZOUs",
+    description: "Nonton berbagai video pendek premium dan drama singkat menarik unlocked tanpa batas."
+  }
 ];
