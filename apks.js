@@ -3,7 +3,7 @@ const apks = [
   {
     name: "DramaNova",
     version: "v1.3.10",
-    category: "Streaming","18+",
+    category: "Streaming",
     size: "22 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/qL615prw/Drama-Nova.webp",
