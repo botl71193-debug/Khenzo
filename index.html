@@ -88,7 +88,7 @@
             box-shadow: 0 0 15px rgba(0, 243, 255, 0.6);
         }
 
-        /* Menu Navigasi Horizontal Desktop - Ditambah Kategori */
+        /* Menu Navigasi Horizontal Desktop */
         .desktop-nav {
             display: flex;
             gap: 14px;
@@ -593,7 +593,7 @@
             width: 100%;
         }
 
-        /* --- STYLE TOMBOL UNDUHAN --- */
+        /* STYLE EXCLUSIVE DOWNLOAD BUTTON */
         .download-btn {
             display: block;
             width: 100%;
@@ -678,7 +678,6 @@
         <div class="logo-container">
           <img class="logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="Logo">
         </div>
-        <!-- KATEGORI DESKTOP SANGAT LENGKAP DI SINI -->
         <div class="desktop-nav">
           <div class="desktop-nav-item" onclick="filterCategory('all')">Semua</div>
           <div class="desktop-nav-item" onclick="filterCategory('Game')">Game</div>
@@ -710,7 +709,6 @@
         <div class="sidebar-title">MMK | Modz</div>
       </div>
       <hr class="sidebar-divider">
-      <!-- KATEGORI SIDEBAR MOBILE LEBIH BANYAK DAN LENGKAP -->
       <div class="sidebar-section-title">Kategori apk</div>
       <ul class="sidebar-menu">
         <li><div onclick="filterCategory('all')">📱 Semua Aplikasi</div></li>
@@ -778,68 +776,71 @@
     <script src="apks.js"></script>
 
     <script>
-        const apkGrid = document.getElementById('apkGrid');
+        // DIJALANKAN DENGAN EVENT DOMCONTENTLOADED SUPAYA INSTAN / ANTI DELAY
+        window.addEventListener('DOMContentLoaded', () => {
+            const apkGrid = document.getElementById('apkGrid');
+            
+            if (typeof apks !== 'undefined' && apkGrid) {
+                apks.forEach((apk, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'apk-card';
+                    card.setAttribute('data-category', apk.category);
+                    card.id = `apk-${index}`;
 
-        // Render data otomatis dari file apks.js luar
-        apks.forEach((apk, index) => {
-            const card = document.createElement('div');
-            card.className = 'apk-card';
-            card.setAttribute('data-category', apk.category);
-            card.id = `apk-${index}`;
+                    let actionAreaHTML = '';
+                    if(apk.multiDownload) {
+                        let buttonsHTML = '';
+                        for (const [key, value] of Object.entries(apk.links)) {
+                            const labelText = key.toUpperCase(); 
+                            buttonsHTML += `<a href="${value}" target="_blank" class="download-btn">⬇️ DOWNLOAD VIA ${labelText}</a>`;
+                        }
+                        actionAreaHTML = `
+                            <div class="apk-action-area">
+                                ${buttonsHTML}
+                            </div>
+                        `;
+                    } else {
+                        actionAreaHTML = `
+                            <div class="apk-action-area">
+                                <a href="${apk.downloadUrl}" target="_blank" class="download-btn">⬇️ DOWNLOAD APK</a>
+                            </div>
+                        `;
+                    }
 
-            let actionAreaHTML = '';
-            if(apk.multiDownload) {
-                let buttonsHTML = '';
-                for (const [key, value] of Object.entries(apk.links)) {
-                    const labelText = key.toUpperCase(); 
-                    buttonsHTML += `<a href="${value}" target="_blank" class="download-btn">⬇️ DOWNLOAD VIA ${labelText}</a>`;
-                }
-                actionAreaHTML = `
-                    <div class="apk-action-area">
-                        ${buttonsHTML}
-                    </div>
-                `;
-            } else {
-                actionAreaHTML = `
-                    <div class="apk-action-area">
-                        <a href="${apk.downloadUrl}" target="_blank" class="download-btn">⬇️ DOWNLOAD APK</a>
-                    </div>
-                `;
-            }
+                    let fallbackEmoji = '📱';
+                    if (apk.category === 'Streaming') fallbackEmoji = '🎬';
+                    else if (apk.category === 'Game') fallbackEmoji = '🎮';
+                    else if (apk.category === 'Music') fallbackEmoji = '🎵';
+                    else if (apk.category === 'Tools') fallbackEmoji = '🛠️';
+                    else if (apk.category === 'Entertainment') fallbackEmoji = '🎭';
+                    else if (apk.category === 'Foto & Video') fallbackEmoji = '📸';
 
-            // Fallback emoji otomatis berdasarkan kategori baru
-            let fallbackEmoji = '📱';
-            if (apk.category === 'Streaming') fallbackEmoji = '🎬';
-            else if (apk.category === 'Game') fallbackEmoji = '🎮';
-            else if (apk.category === 'Music') fallbackEmoji = '🎵';
-            else if (apk.category === 'Tools') fallbackEmoji = '🛠️';
-            else if (apk.category === 'Entertainment') fallbackEmoji = '🎭';
-            else if (apk.category === 'Foto & Video') fallbackEmoji = '📸';
-
-            card.innerHTML = `
-                <div class="apk-top-row">
-                    <div class="apk-icon">
-                        <img src="${apk.imageUrl}" alt="${apk.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='${fallbackEmoji}';" loading="lazy">
-                    </div>
-                    <div class="apk-meta-info">
-                        <div class="apk-title">${apk.name}</div>
-                        <div class="apk-version">${apk.version}</div>
-                        <div class="apk-details">
-                            <span class="detail-item">💾 ${apk.size}</span>
-                            <span class="detail-item">🤖 ${apk.android}</span>
-                            <span class="detail-item">📁 ${apk.category}</span>
+                    card.innerHTML = `
+                        <div class="apk-top-row">
+                            <div class="apk-icon">
+                                <img src="${apk.imageUrl}" alt="${apk.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='${fallbackEmoji}';" loading="lazy">
+                            </div>
+                            <div class="apk-meta-info">
+                                <div class="apk-title">${apk.name}</div>
+                                <div class="apk-version">${apk.version}</div>
+                                <div class="apk-details">
+                                    <span class="detail-item">💾 ${apk.size}</span>
+                                    <span class="detail-item">🤖 ${apk.android}</span>
+                                    <span class="detail-item">📁 ${apk.category}</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="apk-bottom-content">
-                    <div class="apk-description-box">
-                        <div class="apk-description">${apk.description}</div>
-                    </div>
-                    ${actionAreaHTML}
-                </div>
-            `;
-            apkGrid.appendChild(card);
+                        <div class="apk-bottom-content">
+                            <div class="apk-description-box">
+                                <div class="apk-description">${apk.description}</div>
+                            </div>
+                            ${actionAreaHTML}
+                        </div>
+                    `;
+                    apkGrid.appendChild(card);
+                });
+            }
         });
 
         function toggleSearchBox() {
