@@ -31,7 +31,7 @@ const apks = [
     size: "236 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/LzZvvrsG/Supermarket-Simulator.webp",
-    downloadUrl: "https://safefileku.com/download/0YMvTe9iFaam2Y5c",
+    downloadUrl: "https://safefileku.com/download/v3E0T3jTXVYhE7db",
     description: "Game simulator supermarket 3D premium unlocked. Kelola toko, stok barang, layani pelanggan, dan kembangkan bisnis supermarketmu tanpa iklan."
   },
   {
