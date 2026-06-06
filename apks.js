@@ -1,6 +1,16 @@
 // Data Array APK Terupdate - Disimpan terpisah agar mudah diedit
 const apks = [
   {
+    name: "DramaNova",
+    version: "v1.3.10",
+    category: "Streaming",
+    size: "22 MB",
+    android: "Android 5.0+",
+    imageUrl: "https://i.ibb.co.com/qL615prw/Drama-Nova.webp",
+    downloadUrl: "https://safefileku.com/download/Ok5nckWcwhs5N1SW",
+    description: "Nonton drama Asia terlengkap, VIP server cepat unlocked tanpa login."
+  },
+  {
     name: "Minecraft Patch",
     version: "V1.26.23.1",
     category: "Game",
