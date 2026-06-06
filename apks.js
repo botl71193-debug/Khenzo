@@ -1,6 +1,16 @@
 
 const apks = [
   {
+    name: "EasyCut",
+    version: "v1.8.9.2023",
+    category: "Foto & Video",
+    size: "61 MB",
+    android: "Android 6.0+",
+    imageUrl: "https://i.ibb.co.com/XfJScKd2/Easy-Cut.webp",
+    downloadUrl: "https://safefileku.com/download/vkNl6F03OY2NfYey",
+    description: "Aplikasi editor video & foto mudah dan powerful untuk edit, merge, buat video, vlog dengan template, filter, dan efek lengkap."
+  },
+  {
     name: "DramaNova",
     version: "v1.3.10",
     category: "Streaming",
