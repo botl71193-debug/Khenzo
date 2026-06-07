@@ -319,8 +319,80 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Modal Box */
-        .modder-modal, .info-modal {
+        /* STYLING MODAL PROMOSI OTOMATIS (POP-UP UTAMA) */
+        .promo-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.7);
+            background: linear-gradient(145deg, #04040c 0%, #000f30 100%);
+            border: 2px solid #00f3ff; /* Efek Cyan Neon */
+            border-radius: 20px;
+            padding: 25px;
+            max-width: 420px;
+            width: 88%;
+            box-shadow: 0 0 35px rgba(0, 243, 255, 0.4);
+            z-index: 2500;
+            text-align: center;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .promo-modal.active {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .promo-badge {
+            background: #00f3ff;
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        .promo-title {
+            color: #fff;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 8px rgba(0, 243, 255, 0.3);
+        }
+
+        .promo-text {
+            font-size: 0.88rem;
+            color: #a2b4cc;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .promo-btn-close {
+            background: linear-gradient(135deg, #00f3ff 0%, #0047ff 100%);
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 71, 255, 0.4);
+        }
+
+        .promo-btn-close:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.6);
+        }
+
+        /* Modal Box Profile */
+        .modder-modal {
             display: none;
             position: fixed;
             top: 50%;
@@ -339,28 +411,10 @@
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .modder-modal.active, .info-modal.active {
+        .modder-modal.active {
             display: block;
             opacity: 1;
             transform: translate(-50%, -50%) scale(1);
-        }
-
-        /* Style Khusus Info Modal */
-        .info-title {
-            font-size: 1.5em;
-            color: #ff4444;
-            font-weight: 800;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
-        }
-
-        .info-text {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #fff;
-            margin-bottom: 20px;
-            text-align: center;
         }
 
         .modder-avatar {
@@ -747,22 +801,19 @@
       </ul>
     </div>
 
+    <!-- ELEMEN POP-UP PROMOSI OTOMATIS SAAT REFRESH -->
+    <div class="promo-modal" id="promoModal">
+      <div class="promo-badge">Pengumuman Resmi</div>
+      <h3 class="promo-title">Selamat Datang di MMK Modz!</h3>
+      <p class="promo-text">
+        Semua file APK Premium Mod di website ini dibagikan secara <strong>100% Free / Gratis</strong> untuk seluruh member grup!<br><br>
+        Jangan lupa untuk join <strong>Saluran WhatsApp Utama</strong> kami agar tidak ketinggalan update mod versi terbaru setiap hari.
+      </p>
+      <button class="promo-btn-close" onclick="closePromoModal()">MASUK KE WEBSITE</button>
+    </div>
+
     <div class="modder-tab" onclick="toggleModderModal()">👤</div>
     <div class="overlay" id="overlay" onclick="closeAllPanels()"></div>
-
-    <!-- NOTIFIKASI INFO PENTING AUTOMATIS (BARU) -->
-    <div class="info-modal" id="infoModal">
-      <span class="close-modal" onclick="closeInfoModal()">×</span>
-      <h2 class="info-title">PENTING!!!</h2>
-      <div class="info-text">
-        🔥 Top Up Game Kini Lebih Mudah & Untung! Temukan penawaran eksklusif yang akan membuat game Anda makin seru. Cek sekarang!
-      </div>
-      <div class="modder-socials">
-        <a href="https://saweria.co/MrKhenzoOFFICIAL" target="_blank" class="social-link donate-link" onclick="closeInfoModal()">
-          <span>🎮</span> CEK TOP UP GAME
-        </a>
-      </div>
-    </div>
 
     <div class="modder-modal" id="modderModal">
       <span class="close-modal" onclick="toggleModderModal()">×</span>
@@ -785,14 +836,14 @@
           <span>📢</span> Saluran Utama MMK
         </a>
         <a href="https://whatsapp.com/channel/0029Vb7vQrL1yT22MFrBrR42" target="_blank" class="social-link channel-two">
-          <span>🔔</span> Saluran Alternatif MMK
+        <span>🔔</span> Saluran Alternatif MMK
         </a>
       </div>
     </div>
 
     <div class="container">
       <header>
-        <p>Kumpulan Aplikasi Free & 100% Aman</p>
+        <p>Kumpulan APK modifikasi terbaik dari komunitas MMK</p>
       </header>
 
       <div class="apk-grid" id="apkGrid"></div>
@@ -808,13 +859,11 @@
     <script src="apks.js"></script>
 
     <script>
-        // Variabel pelacak status agar popup info hanya muncul satu kali saja per sesi kunjungan
-        let infoModalShown = false;
-
         // DIJALANKAN DENGAN EVENT DOMCONTENTLOADED SUPAYA INSTAN / ANTI DELAY
         window.addEventListener('DOMContentLoaded', () => {
             const apkGrid = document.getElementById('apkGrid');
-
+            
+            // 1. Ambil & Render data aplikasi instan
             if (typeof apks !== 'undefined' && apkGrid) {
                 apks.forEach((apk, index) => {
                     const card = document.createElement('div');
@@ -829,11 +878,7 @@
                             const labelText = key.toUpperCase(); 
                             buttonsHTML += `<a href="${value}" target="_blank" class="download-btn">⬇️ DOWNLOAD VIA ${labelText}</a>`;
                         }
-                        actionAreaHTML = `
-                            <div class="apk-action-area">
-                                ${buttonsHTML}
-                            </div>
-                        `;
+                        actionAreaHTML = `<div class="apk-action-area">${buttonsHTML}</div>`;
                     } else {
                         actionAreaHTML = `
                             <div class="apk-action-area">
@@ -865,7 +910,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="apk-bottom-content">
                             <div class="apk-description-box">
                                 <div class="apk-description">${apk.description}</div>
@@ -877,25 +921,20 @@
                 });
             }
 
-            // Fungsi mendeteksi tap / klik pertama kali di mana saja pada halaman web
-            document.body.addEventListener('click', () => {
-                if (!infoModalShown) {
-                    openInfoModal();
+            // 2. PICU POP-UP PROMOSI OTOMATIS SETIAP KALI REFRESH / WEB BARU DIMUAT
+            setTimeout(() => {
+                const promoModal = document.getElementById('promoModal');
+                const overlay = document.getElementById('overlay');
+                if(promoModal && overlay) {
+                    promoModal.classList.add('active');
+                    overlay.classList.add('active');
                 }
-            });
+            }, 300); // Muncul mulus dengan delay 0.3 detik setelah grid selesai dibuat
         });
 
-        // FUNGSI UNTUK MODAL INFO (BARU)
-        function openInfoModal() {
-            const infoModal = document.getElementById('infoModal');
-            const overlay = document.getElementById('overlay');
-            infoModal.classList.add('active');
-            overlay.classList.add('active');
-            infoModalShown = true; // Kunci agar tidak muncul berulang-ulang saat layar di tap lagi
-        }
-
-        function closeInfoModal() {
-            document.getElementById('infoModal').classList.remove('active');
+        // FUNGSI UNTUK MENUTUP MODAL PROMOSI
+        function closePromoModal() {
+            document.getElementById('promoModal').classList.remove('active');
             document.getElementById('overlay').classList.remove('active');
         }
 
@@ -933,7 +972,7 @@
         function closeAllPanels() {
             document.getElementById('sidebar').classList.remove('active');
             document.getElementById('modderModal').classList.remove('active');
-            document.getElementById('infoModal').classList.remove('active');
+            document.getElementById('promoModal').classList.remove('active'); // Tutup juga saat overlay diclick
             document.getElementById('searchPopover').classList.remove('active');
             document.getElementById('overlay').classList.remove('active');
         }
