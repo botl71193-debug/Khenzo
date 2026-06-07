@@ -320,7 +320,7 @@
         }
 
         /* Modal Box */
-        .modder-modal {
+        .modder-modal, .info-modal {
             display: none;
             position: fixed;
             top: 50%;
@@ -339,10 +339,28 @@
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .modder-modal.active {
+        .modder-modal.active, .info-modal.active {
             display: block;
             opacity: 1;
             transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Style Khusus Info Modal */
+        .info-title {
+            font-size: 1.5em;
+            color: #ff4444;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+        }
+
+        .info-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         .modder-avatar {
@@ -732,6 +750,20 @@
     <div class="modder-tab" onclick="toggleModderModal()">👤</div>
     <div class="overlay" id="overlay" onclick="closeAllPanels()"></div>
 
+    <!-- NOTIFIKASI INFO PENTING AUTOMATIS (BARU) -->
+    <div class="info-modal" id="infoModal">
+      <span class="close-modal" onclick="closeInfoModal()">×</span>
+      <h2 class="info-title">PENTING!!!</h2>
+      <div class="info-text">
+        🔥 Top Up Game Kini Lebih Mudah & Untung! Temukan penawaran eksklusif yang akan membuat game Anda makin seru. Cek sekarang!
+      </div>
+      <div class="modder-socials">
+        <a href="https://saweria.co/MrKhenzoOFFICIAL" target="_blank" class="social-link donate-link" onclick="closeInfoModal()">
+          <span>🎮</span> CEK TOP UP GAME
+        </a>
+      </div>
+    </div>
+
     <div class="modder-modal" id="modderModal">
       <span class="close-modal" onclick="toggleModderModal()">×</span>
       <div class="modder-avatar">MMK</div>
@@ -753,7 +785,7 @@
           <span>📢</span> Saluran Utama MMK
         </a>
         <a href="https://whatsapp.com/channel/0029Vb7vQrL1yT22MFrBrR42" target="_blank" class="social-link channel-two">
-        <span>🔔</span> Saluran Alternatif MMK
+          <span>🔔</span> Saluran Alternatif MMK
         </a>
       </div>
     </div>
@@ -776,10 +808,13 @@
     <script src="apks.js"></script>
 
     <script>
+        // Variabel pelacak status agar popup info hanya muncul satu kali saja per sesi kunjungan
+        let infoModalShown = false;
+
         // DIJALANKAN DENGAN EVENT DOMCONTENTLOADED SUPAYA INSTAN / ANTI DELAY
         window.addEventListener('DOMContentLoaded', () => {
             const apkGrid = document.getElementById('apkGrid');
-            
+
             if (typeof apks !== 'undefined' && apkGrid) {
                 apks.forEach((apk, index) => {
                     const card = document.createElement('div');
@@ -841,7 +876,28 @@
                     apkGrid.appendChild(card);
                 });
             }
+
+            // Fungsi mendeteksi tap / klik pertama kali di mana saja pada halaman web
+            document.body.addEventListener('click', () => {
+                if (!infoModalShown) {
+                    openInfoModal();
+                }
+            });
         });
+
+        // FUNGSI UNTUK MODAL INFO (BARU)
+        function openInfoModal() {
+            const infoModal = document.getElementById('infoModal');
+            const overlay = document.getElementById('overlay');
+            infoModal.classList.add('active');
+            overlay.classList.add('active');
+            infoModalShown = true; // Kunci agar tidak muncul berulang-ulang saat layar di tap lagi
+        }
+
+        function closeInfoModal() {
+            document.getElementById('infoModal').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
 
         function toggleSearchBox() {
             const popover = document.getElementById('searchPopover');
@@ -877,6 +933,7 @@
         function closeAllPanels() {
             document.getElementById('sidebar').classList.remove('active');
             document.getElementById('modderModal').classList.remove('active');
+            document.getElementById('infoModal').classList.remove('active');
             document.getElementById('searchPopover').classList.remove('active');
             document.getElementById('overlay').classList.remove('active');
         }
