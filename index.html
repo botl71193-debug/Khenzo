@@ -330,7 +330,7 @@
             border: 2px solid #00f3ff; /* Efek Cyan Neon */
             border-radius: 20px;
             padding: 25px;
-            max-width: 420px;
+            max-width: 440px;
             width: 88%;
             box-shadow: 0 0 35px rgba(0, 243, 255, 0.4);
             z-index: 2500;
@@ -377,13 +377,15 @@
             background: linear-gradient(135deg, #00f3ff 0%, #0047ff 100%);
             color: #fff;
             border: none;
-            padding: 10px 25px;
-            border-radius: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
             font-weight: 700;
+            font-size: 0.88rem;
             cursor: pointer;
             width: 100%;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 71, 255, 0.4);
+            text-align: center;
         }
 
         .promo-btn-close:hover {
@@ -801,15 +803,24 @@
       </ul>
     </div>
 
-    <!-- ELEMEN POP-UP PROMOSI OTOMATIS SAAT REFRESH -->
     <div class="promo-modal" id="promoModal">
       <div class="promo-badge">Pengumuman Resmi</div>
       <h3 class="promo-title">Selamat Datang di MMK Modz!</h3>
       <p class="promo-text">
         Semua file APK Premium Mod di website ini dibagikan secara <strong>100% Free / Gratis</strong> untuk seluruh member grup!<br><br>
-        Jangan lupa untuk join <strong>Saluran WhatsApp Utama</strong> kami agar tidak ketinggalan update mod versi terbaru setiap hari.
+        Jangan lupa untuk join <strong>Saluran WhatsApp Utama</strong> kami agar tidak ketinggalan update mod versi terbaru setiap hari.<br><br>
+        Kini kami juga menyediakan platform top up game, yuk cek ke platform top up game!
       </p>
-      <button class="promo-btn-close" onclick="closePromoModal()">MASUK KE WEBSITE</button>
+      
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <a href="https://saweria.co/MrKhenzoOFFICIAL" target="_blank" class="promo-btn-close" style="text-decoration: none; display: block; background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); color: #000; border: 1px solid #eab308;" onclick="closePromoModal()">
+          🎮 TOP UP GAME 🎮
+        </a>
+        
+        <button class="promo-btn-close" style="background: linear-gradient(135deg, #00f3ff 0%, #0047ff 100%); color: #fff; border: 1px solid #00f3ff;" onclick="closePromoModal()">
+          SKIP
+        </button>
+      </div>
     </div>
 
     <div class="modder-tab" onclick="toggleModderModal()">👤</div>
@@ -855,7 +866,6 @@
       </div>
     </div>
 
-    <!-- PANGGIL DATA ARRAY DARI FILE LUAR APKS.JS -->
     <script src="apks.js"></script>
 
     <script>
