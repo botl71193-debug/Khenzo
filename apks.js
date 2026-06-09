@@ -100,7 +100,7 @@ const apks = [
     category: "Game",
     size: "200 MB",
     android: "Android 5.0+",
-    imageUrl: "https://coastal-beige-xshefioh.edgeone.app/BeachBuggy.png",
+    imageUrl: "https://i.ibb.co.com/WWJMXTFs/Beach-Buggy.webp",
     downloadUrl: "https://www.mediafire.com/file/qv6hjfup8z0nky0/(NO+PW)BB+Racing+2+Mod+Menu+v2026.05.21+Support+All+Fix+v3.zip/file",
     description: "Game balapan kart arcade dengan power-up gila, trek beragam, dan mode multiplayer."
   },
