@@ -1,6 +1,16 @@
 
 const apks = [
   {
+    name: "Mighty Micros",
+    version: "v1.0.1",
+    category: "Game",
+    size: "105 MB",
+    android: "Android 5.0+",
+    imageUrl: "https://i.ibb.co.com/pjpN3fDf/Screenshot-2026-0609-155659.webp",
+    downloadUrl: "https://safefileku.com/download/sOxpMHkuIGAyRNE1",
+    description: "Game balap LEGO DC universe versi MOD dengan resources unlimited, save editor, dan no ads. Balap superhero DC dengan kontrol sederhana aman untuk anak."
+  },
+  {
     name: "EasyCut",
     version: "v1.8.9.2023",
     category: "Foto & Video",
