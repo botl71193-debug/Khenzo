@@ -241,6 +241,24 @@
             letter-spacing: 1px;
         }
 
+        /* Status Badge di Sidebar */
+        .user-status-badge {
+            background: rgba(255, 255, 255, 0.1);
+            color: #a2b4cc;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-top: 5px;
+            font-weight: bold;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .user-status-badge.executive {
+            background: rgba(168, 85, 247, 0.2);
+            color: #c084fc;
+            border-color: #a855f7;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+        }
+
         .sidebar-divider {
             height: 1px;
             background: linear-gradient(to right, transparent, rgba(0, 71, 255, 0.6), transparent);
@@ -256,6 +274,9 @@
             letter-spacing: 1px;
             margin-bottom: 10px;
         }
+        .sidebar-section-title.exec-title {
+            color: #a855f7;
+        }
 
         .sidebar-menu {
             list-style: none;
@@ -264,7 +285,7 @@
             gap: 5px;
         }
 
-        .sidebar-menu li div {
+        .sidebar-menu li div, .sidebar-menu li a {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -275,18 +296,6 @@
             font-size: 0.9rem;
             transition: all 0.3s ease;
             cursor: pointer;
-        }
-
-        .sidebar-menu li a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 8px 12px;
-            color: #d1d5db;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
         }
 
         .sidebar-menu li a:hover, .sidebar-menu li div:hover {
@@ -294,29 +303,15 @@
             color: #fff;
         }
 
-        /* Floating Modder Tab */
-        .modder-tab {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(145deg, #000000 0%, #001133 100%);
-            border: 2px solid #0047ff;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 0 25px rgba(0, 71, 255, 0.5);
-            z-index: 1011;
-            font-size: 1.5em;
-            animation: floatUpDown 3s infinite ease-in-out;
+        /* Custom Hover Menu Executive */
+        .exec-menu-item:hover {
+            background: rgba(168, 85, 247, 0.2) !important;
+            color: #fff !important;
         }
 
-        @keyframes floatUpDown {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        /* Sembunyikan default menu executive untuk user biasa */
+        .executive-only {
+            display: none !important;
         }
 
         /* STYLING MODAL PROMOSI OTOMATIS (POP-UP UTAMA) */
@@ -327,7 +322,7 @@
             left: 50%;
             transform: translate(-50%, -50%) scale(0.7);
             background: linear-gradient(145deg, #04040c 0%, #000f30 100%);
-            border: 2px solid #00f3ff; /* Efek Cyan Neon */
+            border: 2px solid #00f3ff; 
             border-radius: 20px;
             padding: 25px;
             max-width: 440px;
@@ -393,8 +388,8 @@
             box-shadow: 0 0 15px rgba(0, 243, 255, 0.6);
         }
 
-        /* Modal Box Profile */
-        .modder-modal {
+        /* Modal Box Profile & Fitur Khusus */
+        .modder-modal, .executive-panel {
             display: none;
             position: fixed;
             top: 50%;
@@ -404,8 +399,8 @@
             border: 2px solid #0047ff;
             border-radius: 25px;
             padding: 30px;
-            max-width: 450px;
-            width: 90%;
+            max-width: 520px;
+            width: 92%;
             box-shadow: 0 0 40px rgba(0, 71, 255, 0.6);
             z-index: 2000;
             text-align: center;
@@ -413,7 +408,14 @@
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .modder-modal.active {
+        .executive-panel {
+            border-color: #a855f7;
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
+            max-height: 88vh;
+            overflow-y: auto;
+        }
+
+        .modder-modal.active, .executive-panel.active {
             display: block;
             opacity: 1;
             transform: translate(-50%, -50%) scale(1);
@@ -478,6 +480,10 @@
             font-size: 1.8em;
             color: #0047ff;
             cursor: pointer;
+            z-index: 10;
+        }
+        .executive-panel .close-modal {
+            color: #a855f7;
         }
 
         /* Overlay */
@@ -517,14 +523,13 @@
             color: #0055ff;
         }
 
-        /* APK Grid Layout */
+        /* APK Grid Layout Asli Horizontal */
         .apk-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
             gap: 25px;
         }
 
-        /* Layout Kartu APK Horizontal */
         .apk-card {
             background: linear-gradient(145deg, #05050a 0%, #00081a 100%);
             border: 1px solid #00249c;
@@ -565,7 +570,6 @@
 
         .apk-card.hidden { display: none !important; }
 
-        /* Baris Atas */
         .apk-top-row {
             display: flex;
             flex-direction: row;
@@ -667,7 +671,6 @@
             width: 100%;
         }
 
-        /* STYLE EXCLUSIVE DOWNLOAD BUTTON */
         .download-btn {
             display: block;
             width: 100%;
@@ -690,6 +693,110 @@
             box-shadow: 0 0 12px rgba(0, 114, 255, 0.5);
             transform: scale(1.01);
         }
+
+        /* STYLING KARTU REPOSITORY EXECUTIVE */
+        .exec-list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .exec-file-card {
+            background: rgba(168, 85, 247, 0.05);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 12px;
+            padding: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .exec-file-info h4 {
+            color: #fff;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .exec-file-info p {
+            color: #a2b4cc;
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .exec-download-btn {
+            background: linear-gradient(135deg, #a855f7 0%, #6b21a8 100%);
+            color: #fff;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            cursor: pointer;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+        .exec-download-btn:hover {
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+            transform: scale(1.02);
+        }
+
+        /* Form Input Fitur Khusus */
+        .exec-label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #c084fc;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .exec-input, .exec-select {
+            width: 100%; background: #000; border: 1px solid #a855f7;
+            padding: 10px; color: #fff; border-radius: 8px; margin-bottom: 12px; outline: none;
+            font-family: monospace; font-size: 0.9rem;
+        }
+        .exec-file-input {
+            width: 100%; background: rgba(168, 85, 247, 0.1); border: 1px dashed #a855f7;
+            padding: 10px; color: #fff; border-radius: 8px; margin-bottom: 12px; outline: none;
+            font-size: 0.82rem; cursor: pointer;
+        }
+        .exec-btn {
+            width: 100%; padding: 11px; border: none; border-radius: 8px;
+            background: linear-gradient(135deg, #a855f7, #6b21a8);
+            color: #fff; font-weight: bold; cursor: pointer; transition: 0.3s;
+            font-size: 0.88rem;
+        }
+        .exec-btn:hover { box-shadow: 0 0 15px rgba(168, 85, 247, 0.6); }
+
+        /* Output Download Box */
+        .output-download-box {
+            display: none;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid #22c55e;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+        }
+        .output-download-box span { color: #22c55e; font-size: 0.82rem; font-weight: bold; }
+        .output-dl-link {
+            background: #22c55e; color: #000; text-decoration: none; padding: 6px 12px;
+            border-radius: 6px; font-size: 0.8rem; font-weight: bold; transition: 0.3s;
+        }
+        .output-dl-link:hover { background: #4ade80; box-shadow: 0 0 10px rgba(34,197,94,0.5); }
+
+        .modder-tab {
+            position: fixed; bottom: 25px; right: 25px; width: 50px; height: 50px;
+            background: #0047ff; color: white; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; font-size: 1.5rem;
+            box-shadow: 0 0 15px #0047ff; cursor: pointer; z-index: 1400; transition: 0.3s;
+        }
+        .modder-tab:hover { transform: scale(1.1); }
 
         .footer {
             text-align: center;
@@ -781,7 +888,15 @@
       <div class="sidebar-header">
         <img class="sidebar-logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="Logo MMK">
         <div class="sidebar-title">MMK | Modz</div>
+        <div id="userStatus" class="user-status-badge">User Biasa</div>
       </div>
+      
+      <hr class="sidebar-divider">
+      <div class="sidebar-section-title">Aktivasi Mode</div>
+      <ul class="sidebar-menu">
+         <li><div id="authMenuBtn" onclick="handleExecutiveAuth()" style="border: 1px solid #0047ff; color: #0066ff;">🔓 Login Akses</div></li>
+      </ul>
+
       <hr class="sidebar-divider">
       <div class="sidebar-section-title">Kategori apk</div>
       <ul class="sidebar-menu">
@@ -793,6 +908,24 @@
         <li><div onclick="filterCategory('Entertainment')">🎭 Hiburan / Komik</div></li>
         <li><div onclick="filterCategory('Foto & Video')">📸 Foto & Video Editor</div></li>
       </ul>
+
+      <hr class="sidebar-divider executive-only">
+      <div class="sidebar-section-title exec-title executive-only">👑 Executive Repository</div>
+      <ul class="sidebar-menu executive-only">
+        <li><div class="exec-menu-item" onclick="openExecutivePanel('tools')">🧰 Tools Modder (.apk)</div></li>
+        <li><div class="exec-menu-item" onclick="openExecutivePanel('sc')">📜 Script & Termux (.py)</div></li>
+        <li><div class="exec-menu-item" onclick="openExecutivePanel('instant')">⚡ Instant Premium (.lpzip)</div></li>
+      </ul>
+
+      <hr class="sidebar-divider executive-only">
+      <div class="sidebar-section-title exec-title executive-only">🖥️ Modding Web Tools</div>
+      <ul class="sidebar-menu executive-only">
+        <li><div class="exec-menu-item" onclick="openExecutivePanel('flutter')">⚔️ Flutter Patcher</div></li>
+        <li><div class="exec-menu-item" onclick="openExecutivePanel('blutter')">🧬 Blutter Flutter Dump</div></li>
+        <li><div class="exec-menu-item" onclick="openExecutivePanel('hexeditor')">🧭 Hex Editor Online</div></li>
+        <li><div class="exec-menu-item" onclick="openExecutivePanel('stringtohex')">🔄 String to Hex</div></li>
+      </ul>
+
       <hr class="sidebar-divider">
       <div class="sidebar-section-title">Informasi & Dukungan</div>
       <ul class="sidebar-menu">
@@ -816,11 +949,152 @@
         <a href="https://saweria.co/MrKhenzoOFFICIAL" target="_blank" class="promo-btn-close" style="text-decoration: none; display: block; background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); color: #000; border: 1px solid #eab308;" onclick="closePromoModal()">
           🎮 TOP UP GAME 🎮
         </a>
-        
         <button class="promo-btn-close" style="background: linear-gradient(135deg, #00f3ff 0%, #0047ff 100%); color: #fff; border: 1px solid #00f3ff;" onclick="closePromoModal()">
           SKIP
         </button>
       </div>
+    </div>
+
+
+    <div class="executive-panel" id="panel-tools">
+        <span class="close-modal" onclick="closeAllPanels()">×</span>
+        <h2 class="modder-name" style="color: #a855f7;">🧰 Tools Modder APK</h2>
+        <p class="modder-role" style="margin-bottom: 10px;">Aplikasi Pembongkar & Editor Berkas</p>
+        <div class="exec-list-container">
+            <div class="exec-file-card">
+                <div class="exec-file-info">
+                    <h4>NP Manager Premium v1.6.0</h4>
+                    <p>Fungsi: Mengedit dex, arsc, string translation, bypass signature verification.</p>
+                </div>
+                <a href="https://example.com/download/npmanager.apk" target="_blank" class="exec-download-btn">DOWNLOAD</a>
+            </div>
+            <div class="exec-file-card">
+                <div class="exec-file-info">
+                    <h4>MT Manager VIP Cloned</h4>
+                    <p>Fungsi: Jembatan Hex offset, decompile cepat, dan sign berkas otomatis.</p>
+                </div>
+                <a href="https://example.com/download/mtmanager.apk" target="_blank" class="exec-download-btn">DOWNLOAD</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="executive-panel" id="panel-sc">
+        <span class="close-modal" onclick="closeAllPanels()">×</span>
+        <h2 class="modder-name" style="color: #a855f7;">📜 Script Python & Termux</h2>
+        <p class="modder-role" style="margin-bottom: 10px;">Akses Source Script Automasi Modding</p>
+        <div class="exec-list-container">
+            <div class="exec-file-card">
+                <div class="exec-file-info">
+                    <h4>dump_lib_unity_offset.py</h4>
+                    <p>Fungsi: Membaca otomatis libil2cpp.so dan membuang metadata token fungsi Unity.</p>
+                </div>
+                <a href="https://example.com/download/dump_script.py" target="_blank" class="exec-download-btn">GET SCRIPT</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="executive-panel" id="panel-instant">
+        <span class="close-modal" onclick="closeAllPanels()">×</span>
+        <h2 class="modder-name" style="color: #a855f7;">⚡ Instant Premium Patcher</h2>
+        <p class="modder-role" style="margin-bottom: 10px;">Custom Patch Lucky Patcher Imports (.lpzip)</p>
+        <div class="exec-list-container">
+            <div class="exec-file-card">
+                <div class="exec-file-info">
+                    <h4>all_streaming_app_bypass.lpzip</h4>
+                    <p>Fungsi: Otomatis membuka lisensi premium/VIP tanpa iklan pada apk streaming.</p>
+                </div>
+                <a href="https://example.com/download/streaming_patch.lpzip" target="_blank" class="exec-download-btn">GET LPZIP</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="executive-panel" id="panel-flutter">
+        <span class="close-modal" onclick="closeAllPanels()">×</span>
+        <h2 class="modder-name" style="color: #a855f7;">⚔️ Flutter Patcher Pro</h2>
+        <p class="modder-role">Binary Automation Target Offset Modifier</p>
+        
+        <div style="text-align: left; margin-top:15px;">
+            <label class="exec-label">Muat Berkas (Select libapp.so):</label>
+            <input type="file" class="exec-file-input">
+
+            <label class="exec-label">Select Arsitektur:</label>
+            <select class="exec-select">
+                <option>ARM64-v8a (64-bit)</option>
+                <option>ARMEABI-v7a (32-bit)</option>
+                <option>x86_64</option>
+            </select>
+
+            <label class="exec-label">Offset Target:</label>
+            <input type="text" class="exec-input" value="0x1A2B3C" placeholder="Contoh: 0x7A4F20">
+
+            <label class="exec-label">Function Patching Method:</label>
+            <select class="exec-select">
+                <option>Atur ke true</option>
+                <option>Atur ke false</option>
+                <option>Return true</option>
+                <option>Return false</option>
+                <option>Sisipkan NOP (00 00 20 D4)</option>
+                <option>Paksa return</option>
+                <option>Hex Custom</option>
+            </select>
+
+            <button class="exec-btn" onclick="executePatcherSim('flutter')">PROSES & PATCH BINARY</button>
+
+            <div class="output-download-box" id="dl-box-flutter">
+                <span>✔️ Berkas libapp.so Berhasil Di-patch!</span>
+                <a href="#" class="output-dl-link" download="libapp_patched.so">UNDUH OUTPUT</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="executive-panel" id="panel-blutter">
+        <span class="close-modal" onclick="closeAllPanels()">×</span>
+        <h2 class="modder-name" style="color: #a855f7;">🧬 Blutter Flutter Dump</h2>
+        <p class="modder-role">Framework Metadata & Extraction Engine</p>
+        
+        <div style="text-align: left; margin-top:15px;">
+            <label class="exec-label">Muat Berkas 1 (Select libapp.so):</label>
+            <input type="file" class="exec-file-input">
+
+            <label class="exec-label">Muat Berkas 2 (Select libflutter.so):</label>
+            <input type="file" class="exec-file-input">
+
+            <label class="exec-label">API Key Default:</label>
+            <input type="text" class="exec-input" value="N/A" placeholder="N/A">
+
+            <button class="exec-btn" onclick="executePatcherSim('blutter')">EKSTRAK METADATA DUMP</button>
+
+            <div class="output-download-box" id="dl-box-blutter">
+                <span>✔️ Dump Sukses! String & API Key Berhasil Diekstrak.</span>
+                <a href="#" class="output-dl-link" download="blutter_dump_result.txt">UNDUH OUTPUT</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="executive-panel" id="panel-hexeditor">
+        <span class="close-modal" onclick="closeAllPanels()">×</span>
+        <h2 class="modder-name" style="color: #a855f7;">🧭 Hex Editor Tool</h2>
+        <p class="modder-role">Quick Hex Offset Inverted Reader</p>
+        <div style="text-align: left; margin-top:15px;">
+            <label class="exec-label">Masukkan Alamat Offset:</label>
+            <input type="text" class="exec-input" value="0x00A1B2C3">
+            <label class="exec-label">Ganti Nilai Opcode (Hex Value):</label>
+            <input type="text" class="exec-input" value="00 00 A0 E3">
+            <button class="exec-btn" onclick="alert('Offset dihitung sukses!')">HITUNG REVERSE CODE</button>
+        </div>
+    </div>
+
+    <div class="executive-panel" id="panel-stringtohex">
+        <span class="close-modal" onclick="closeAllPanels()">×</span>
+        <h2 class="modder-name" style="color: #a855f7;">🔄 String to Hex Converter</h2>
+        <p class="modder-role">Convert Text Data to Hex Codes</p>
+        <div style="text-align: left; margin-top:15px;">
+            <label class="exec-label">Masukkan Text / String:</label>
+            <input type="text" class="exec-input" id="inputString" value="Premium_Unlocked" onkeyup="convertStringToHex()">
+            <label class="exec-label">Hasil Konversi Hex Code:</label>
+            <input type="text" class="exec-input" id="resultHex" style="color: #22c55e; border-color: #22c55e;" readonly>
+        </div>
     </div>
 
     <div class="modder-tab" onclick="toggleModderModal()">👤</div>
@@ -833,22 +1107,12 @@
       <p class="modder-role">Lead Modder & Developer</p>
       <div class="modder-info">
         Komunitas MMK (Modz Master Killer)<br>
-        Spesialis APK Modifikasi & Android Customization<br>
-        Gabung ke komunitas kami melalui tautan di bawah ini:
+        Spesialis APK Modifikasi & Android Customization
       </div>
       <div class="modder-socials">
-        <a href="https://saweria.co/MrKhenzoOFFICIAL" target="_blank" class="social-link donate-link">
-          <span>☕</span> Dukung Melalui Saweria
-        </a>
-        <a href="https://chat.whatsapp.com/LDzlBOXR3I12Rb79oy5TFJ?mode=hqctcla" target="_blank" class="social-link">
-          <span>💬</span> Grup WhatsApp MMK
-        </a>
-        <a href="https://whatsapp.com/channel/0029Vb7i2omLNSa3VM8Chc1A" target="_blank" class="social-link channel-one">
-          <span>📢</span> Saluran Utama MMK
-        </a>
-        <a href="https://whatsapp.com/channel/0029Vb7vQrL1yT22MFrBrR42" target="_blank" class="social-link channel-two">
-        <span>🔔</span> Saluran Alternatif MMK
-        </a>
+        <a href="https://saweria.co/MrKhenzoOFFICIAL" target="_blank" class="social-link donate-link"><span>☕</span> Dukung Melalui Saweria</a>
+        <a href="https://chat.whatsapp.com/LDzlBOXR3I12Rb79oy5TFJ?mode=hqctcla" target="_blank" class="social-link"><span>💬</span> Grup WhatsApp MMK</a>
+        <a href="https://whatsapp.com/channel/0029Vb7i2omLNSa3VM8Chc1A" target="_blank" class="social-link channel-one"><span>📢</span> Saluran Utama MMK</a>
       </div>
     </div>
 
@@ -856,10 +1120,8 @@
       <header>
         <p>Kumpulan APK modifikasi terbaik dari komunitas MMK</p>
       </header>
-
       <div class="apk-grid" id="apkGrid"></div>
       <div class="no-results" id="noResults">🔍 Tidak ada APK yang cocok dengan kriteria pencarian</div>
-
       <div class="footer">
         <p>Designer By <strong> Khenzo</strong></p>
         <div class="warning">⚠️ PENTING!!. APLIKASI KAMI 100% GRATIS, APABILA ANDA MENDAPATKAN APLIKASI INI BAYAR MAKA SEGERA MINTA PENGEMBALIAN DANA ANDA.</div>
@@ -869,12 +1131,13 @@
     <script src="apks.js"></script>
 
     <script>
-        // DIJALANKAN DENGAN EVENT DOMCONTENTLOADED SUPAYA INSTAN / ANTI DELAY
-        window.addEventListener('DOMContentLoaded', () => {
+        const TOKEN_RAHASIA = 'MMK_VIP'; 
+
+        // RENDER UTAMA DAFTAR APK (Diletakkan di prioritas utama paling atas agar tidak crash)
+        function renderApkListCatalog() {
             const apkGrid = document.getElementById('apkGrid');
-            
-            // 1. Ambil & Render data aplikasi instan
             if (typeof apks !== 'undefined' && apkGrid) {
+                apkGrid.innerHTML = ""; // Bersihkan kontainer sebelum memuat
                 apks.forEach((apk, index) => {
                     const card = document.createElement('div');
                     card.className = 'apk-card';
@@ -885,16 +1148,11 @@
                     if(apk.multiDownload) {
                         let buttonsHTML = '';
                         for (const [key, value] of Object.entries(apk.links)) {
-                            const labelText = key.toUpperCase(); 
-                            buttonsHTML += `<a href="${value}" target="_blank" class="download-btn">⬇️ DOWNLOAD VIA ${labelText}</a>`;
+                            buttonsHTML += `<a href="${value}" target="_blank" class="download-btn">⬇️ DOWNLOAD VIA ${key.toUpperCase()}</a>`;
                         }
                         actionAreaHTML = `<div class="apk-action-area">${buttonsHTML}</div>`;
                     } else {
-                        actionAreaHTML = `
-                            <div class="apk-action-area">
-                                <a href="${apk.downloadUrl}" target="_blank" class="download-btn">⬇️ DOWNLOAD APK</a>
-                            </div>
-                        `;
+                        actionAreaHTML = `<div class="apk-action-area"><a href="${apk.downloadUrl}" target="_blank" class="download-btn">⬇️ DOWNLOAD APK</a></div>`;
                     }
 
                     let fallbackEmoji = '📱';
@@ -902,8 +1160,6 @@
                     else if (apk.category === 'Game') fallbackEmoji = '🎮';
                     else if (apk.category === 'Music') fallbackEmoji = '🎵';
                     else if (apk.category === 'Tools') fallbackEmoji = '🛠️';
-                    else if (apk.category === 'Entertainment') fallbackEmoji = '🎭';
-                    else if (apk.category === 'Foto & Video') fallbackEmoji = '📸';
 
                     card.innerHTML = `
                         <div class="apk-top-row">
@@ -930,8 +1186,16 @@
                     apkGrid.appendChild(card);
                 });
             }
+        }
 
-            // 2. PICU POP-UP PROMOSI OTOMATIS SETIAP KALI REFRESH / WEB BARU DIMUAT
+        window.addEventListener('DOMContentLoaded', () => {
+            // Jalankan fungsi muat katalog APK
+            renderApkListCatalog();
+            
+            // Cek status autentikasi 2 mode user
+            checkUserModeSystem();
+
+            // Jalankan pop-up pengumuman top-up
             setTimeout(() => {
                 const promoModal = document.getElementById('promoModal');
                 const overlay = document.getElementById('overlay');
@@ -939,10 +1203,91 @@
                     promoModal.classList.add('active');
                     overlay.classList.add('active');
                 }
-            }, 300); // Muncul mulus dengan delay 0.3 detik setelah grid selesai dibuat
+            }, 300); 
+            convertStringToHex();
         });
 
-        // FUNGSI UNTUK MENUTUP MODAL PROMOSI
+        // SIMULASI PROSES & OUTPUT FITUR FLUTTER PATCHER / BLUTTER
+        function executePatcherSim(type) {
+            const btn = document.querySelector(`#panel-${type} .exec-btn`);
+            const dlBox = document.getElementById(`dl-box-${type}`);
+            
+            btn.textContent = "SEDANG MEMPROSES PAYLOAD...";
+            btn.style.opacity = "0.6";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.textContent = type === 'flutter' ? "PROSES & PATCH BINARY" : "EKSTRAK METADATA DUMP";
+                btn.style.opacity = "1";
+                btn.disabled = false;
+                
+                // Tampilkan box unduhan output hasil patcher secara instan
+                dlBox.style.display = "flex";
+            }, 1800);
+        }
+
+        // MANAGEMENT SISTEM VALIDASI 2 MODE USER
+        function checkUserModeSystem() {
+            const currentToken = localStorage.getItem('mmk_token_akses');
+            const statusBadge = document.getElementById('userStatus');
+            const authBtn = document.getElementById('authMenuBtn');
+
+            if (currentToken === TOKEN_RAHASIA) {
+                statusBadge.textContent = "Executive Member";
+                statusBadge.className = "user-status-badge executive";
+                authBtn.textContent = "🔒 Keluar Akses";
+                authBtn.style.borderColor = "#ef4444";
+                authBtn.style.color = "#f87171";
+                
+                document.querySelectorAll('.executive-only').forEach(el => {
+                    el.style.setProperty('display', 'block', 'important');
+                });
+            } else {
+                statusBadge.textContent = "User Biasa";
+                statusBadge.className = "user-status-badge";
+                authBtn.textContent = "🔓 Login Akses";
+                authBtn.style.borderColor = "#0047ff";
+                authBtn.style.color = "#0066ff";
+                
+                document.querySelectorAll('.executive-only').forEach(el => {
+                    el.style.setProperty('display', 'none', 'important');
+                });
+            }
+        }
+
+        function handleExecutiveAuth() {
+            const currentToken = localStorage.getItem('mmk_token_akses');
+            if (currentToken === TOKEN_RAHASIA) {
+                localStorage.removeItem('mmk_token_akses');
+                alert("Logout berhasil. Anda beralih ke mode User Biasa.");
+                location.reload();
+            } else {
+                const inputKey = prompt("Masukkan Token Akses Executive Member:");
+                if (inputKey === TOKEN_RAHASIA) {
+                    localStorage.setItem('mmk_token_akses', inputKey);
+                    alert("Akses Terverifikasi! Menu Executive Terbuka.");
+                    location.reload();
+                } else if (inputKey !== null) {
+                    alert("Token Akses Salah!");
+                }
+            }
+        }
+
+        function openExecutivePanel(id) {
+            closeAllPanels();
+            document.getElementById('overlay').classList.add('active');
+            document.getElementById('panel-' + id).classList.add('active');
+        }
+
+        function convertStringToHex() {
+            const str = document.getElementById('inputString').value;
+            let hex = '';
+            for (let i = 0; i < str.length; i++) {
+                hex += '' + str.charCodeAt(i).toString(16);
+            }
+            document.getElementById('resultHex').value = hex.toUpperCase();
+        }
+
         function closePromoModal() {
             document.getElementById('promoModal').classList.remove('active');
             document.getElementById('overlay').classList.remove('active');
@@ -963,28 +1308,22 @@
             overlay.classList.toggle('active');
         }
 
-        function openModderProfile() {
-            toggleSidebar();
-            toggleModderModal();
-        }
-
-        function openModderProfileDesktop() {
-            toggleModderModal();
-        }
-
+        function openModderProfile() { toggleSidebar(); toggleModderModal(); }
+        function openModderProfileDesktop() { toggleModderModal(); }
         function toggleModderModal() {
             const modal = document.getElementById('modderModal');
             const overlay = document.getElementById('overlay');
             modal.classList.toggle('active');
-            overlay.classList.toggle('active');
+            overlay.classList.add('active');
         }
 
         function closeAllPanels() {
             document.getElementById('sidebar').classList.remove('active');
             document.getElementById('modderModal').classList.remove('active');
-            document.getElementById('promoModal').classList.remove('active'); // Tutup juga saat overlay diclick
+            document.getElementById('promoModal').classList.remove('active');
             document.getElementById('searchPopover').classList.remove('active');
             document.getElementById('overlay').classList.remove('active');
+            document.querySelectorAll('.executive-panel').forEach(p => p.classList.remove('active'));
         }
 
         function filterCategory(category) {
@@ -1014,7 +1353,6 @@
             cards.forEach(card => {
                 const title = card.querySelector('.apk-title').textContent.toLowerCase();
                 const description = card.querySelector('.apk-description').textContent.toLowerCase();
-
                 if (title.includes(searchTerm) || description.includes(searchTerm)) {
                     card.classList.remove('hidden');
                     found = true;
