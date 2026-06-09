@@ -389,7 +389,7 @@
         }
 
         /* Modal Box Profile & Fitur Khusus */
-        .modder-modal, .executive-panel {
+        .modder-modal, .executive-panel, .auth-modal {
             display: none;
             position: fixed;
             top: 50%;
@@ -415,7 +415,14 @@
             overflow-y: auto;
         }
 
-        .modder-modal.active, .executive-panel.active {
+        /* KHAS WEB MODAL LOGIN-LOGOUT */
+        .auth-modal {
+            max-width: 400px;
+            border-color: #a855f7;
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.5);
+        }
+
+        .modder-modal.active, .executive-panel.active, .auth-modal.active {
             display: block;
             opacity: 1;
             transform: translate(-50%, -50%) scale(1);
@@ -482,7 +489,7 @@
             cursor: pointer;
             z-index: 10;
         }
-        .executive-panel .close-modal {
+        .executive-panel .close-modal, .auth-modal .close-modal {
             color: #a855f7;
         }
 
@@ -771,6 +778,11 @@
         }
         .exec-btn:hover { box-shadow: 0 0 15px rgba(168, 85, 247, 0.6); }
 
+        .exec-btn.danger-logout {
+            background: linear-gradient(135deg, #ef4444, #b91c1c);
+        }
+        .exec-btn.danger-logout:hover { box-shadow: 0 0 15px rgba(239, 68, 68, 0.6); }
+
         /* Output Download Box */
         .output-download-box {
             display: none;
@@ -853,6 +865,7 @@
   </head>
   <body>
 
+    <!-- NAVBAR UTAMA -->
     <div class="navbar">
       <div class="navbar-left">
         <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
@@ -883,6 +896,7 @@
       </div>
     </div>
 
+    <!-- SIDEBAR -->
     <div class="sidebar" id="sidebar">
       <span class="sidebar-close" onclick="toggleSidebar()">×</span>
       <div class="sidebar-header">
@@ -894,7 +908,7 @@
       <hr class="sidebar-divider">
       <div class="sidebar-section-title">Aktivasi Mode</div>
       <ul class="sidebar-menu">
-         <li><div id="authMenuBtn" onclick="handleExecutiveAuth()" style="border: 1px solid #0047ff; color: #0066ff;">🔓 Login Akses</div></li>
+         <li><div id="authMenuBtn" onclick="openAuthModal()" style="border: 1px solid #0047ff; color: #0066ff;">🔓 Login Akses</div></li>
       </ul>
 
       <hr class="sidebar-divider">
@@ -909,6 +923,7 @@
         <li><div onclick="filterCategory('Foto & Video')">📸 Foto & Video Editor</div></li>
       </ul>
 
+      <!-- MENU REPOSITORY EXECUTIVE -->
       <hr class="sidebar-divider executive-only">
       <div class="sidebar-section-title exec-title executive-only">👑 Executive Repository</div>
       <ul class="sidebar-menu executive-only">
@@ -936,6 +951,7 @@
       </ul>
     </div>
 
+    <!-- POP-UP PROMOSI UTAMA (TOP UP GAME) -->
     <div class="promo-modal" id="promoModal">
       <div class="promo-badge">Pengumuman Resmi</div>
       <h3 class="promo-title">Selamat Datang di MMK Modz!</h3>
@@ -955,7 +971,37 @@
       </div>
     </div>
 
+    <!-- ======================================================== -->
+    <!-- MODAL KHAS WEB: LOGIN / LOGOUT EXECUTIVE -->
+    <!-- ======================================================== -->
+    <div class="auth-modal" id="authModal">
+        <span class="close-modal" onclick="closeAuthModal()">×</span>
+        
+        <!-- Konten Khusus Login -->
+        <div id="loginFormContainer">
+            <h2 class="modder-name" style="color: #a855f7;">🔓 Executive Access</h2>
+            <p class="modder-role" style="color: #c084fc; font-size: 0.9rem; margin-bottom: 20px;">Masukkan Token Untuk Membuka Fitur Modder</p>
+            <div style="text-align: left;">
+                <label class="exec-label">Token Akses Rahasia:</label>
+                <input type="password" id="tokenAksesInput" class="exec-input" placeholder="••••••••" style="text-align: center; letter-spacing: 3px;">
+                <button class="exec-btn" onclick="submitExecutiveLogin()">VERIFIKASI AKSES</button>
+            </div>
+        </div>
 
+        <!-- Konten Khusus Logout -->
+        <div id="logoutFormContainer" style="display: none;">
+            <h2 class="modder-name" style="color: #ef4444;">🔒 Keluar Mode Executive</h2>
+            <p class="modder-role" style="color: #f87171; font-size: 0.9rem; margin-bottom: 25px;">Anda akan beralih kembali menjadi User Biasa</p>
+            <button class="exec-btn danger-logout" onclick="submitExecutiveLogout()">KELUAR SEKARANG</button>
+        </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- PANEL REPOSITORI KARTU DOWNLOAD -->
+    <!-- ======================================================== -->
+
+    <!-- PANEL 1: TOOLS -->
     <div class="executive-panel" id="panel-tools">
         <span class="close-modal" onclick="closeAllPanels()">×</span>
         <h2 class="modder-name" style="color: #a855f7;">🧰 Tools Modder APK</h2>
@@ -978,6 +1024,7 @@
         </div>
     </div>
 
+    <!-- PANEL 2: SC -->
     <div class="executive-panel" id="panel-sc">
         <span class="close-modal" onclick="closeAllPanels()">×</span>
         <h2 class="modder-name" style="color: #a855f7;">📜 Script Python & Termux</h2>
@@ -993,6 +1040,7 @@
         </div>
     </div>
 
+    <!-- PANEL 3: INSTANT PREMIUM (.LPZIP) -->
     <div class="executive-panel" id="panel-instant">
         <span class="close-modal" onclick="closeAllPanels()">×</span>
         <h2 class="modder-name" style="color: #a855f7;">⚡ Instant Premium Patcher</h2>
@@ -1009,6 +1057,11 @@
     </div>
 
 
+    <!-- ======================================================== -->
+    <!-- MODDING WEB TOOLS INTERAKTIF DAN FUNGSIONAL -->
+    <!-- ======================================================== -->
+
+    <!-- PANEL 4: FLUTTER PATCHER BERKUALITAS (UI REFRESHED) -->
     <div class="executive-panel" id="panel-flutter">
         <span class="close-modal" onclick="closeAllPanels()">×</span>
         <h2 class="modder-name" style="color: #a855f7;">⚔️ Flutter Patcher Pro</h2>
@@ -1041,6 +1094,7 @@
 
             <button class="exec-btn" onclick="executePatcherSim('flutter')">PROSES & PATCH BINARY</button>
 
+            <!-- Box Unduhan Hasil Output Patcher -->
             <div class="output-download-box" id="dl-box-flutter">
                 <span>✔️ Berkas libapp.so Berhasil Di-patch!</span>
                 <a href="#" class="output-dl-link" download="libapp_patched.so">UNDUH OUTPUT</a>
@@ -1048,6 +1102,7 @@
         </div>
     </div>
 
+    <!-- PANEL 5: BLUTTER FLUTTER DUMP -->
     <div class="executive-panel" id="panel-blutter">
         <span class="close-modal" onclick="closeAllPanels()">×</span>
         <h2 class="modder-name" style="color: #a855f7;">🧬 Blutter Flutter Dump</h2>
@@ -1065,6 +1120,7 @@
 
             <button class="exec-btn" onclick="executePatcherSim('blutter')">EKSTRAK METADATA DUMP</button>
 
+            <!-- Box Unduhan Hasil Output Blutter -->
             <div class="output-download-box" id="dl-box-blutter">
                 <span>✔️ Dump Sukses! String & API Key Berhasil Diekstrak.</span>
                 <a href="#" class="output-dl-link" download="blutter_dump_result.txt">UNDUH OUTPUT</a>
@@ -1072,6 +1128,7 @@
         </div>
     </div>
 
+    <!-- PANEL 6: HEX EDITOR SIMULATION -->
     <div class="executive-panel" id="panel-hexeditor">
         <span class="close-modal" onclick="closeAllPanels()">×</span>
         <h2 class="modder-name" style="color: #a855f7;">🧭 Hex Editor Tool</h2>
@@ -1085,6 +1142,7 @@
         </div>
     </div>
 
+    <!-- PANEL 7: STRING TO HEX CONVERTER -->
     <div class="executive-panel" id="panel-stringtohex">
         <span class="close-modal" onclick="closeAllPanels()">×</span>
         <h2 class="modder-name" style="color: #a855f7;">🔄 String to Hex Converter</h2>
@@ -1097,9 +1155,11 @@
         </div>
     </div>
 
+    <!-- TAB FLOATING PROFILE -->
     <div class="modder-tab" onclick="toggleModderModal()">👤</div>
     <div class="overlay" id="overlay" onclick="closeAllPanels()"></div>
 
+    <!-- MODAL PROFILE MODDER -->
     <div class="modder-modal" id="modderModal">
       <span class="close-modal" onclick="toggleModderModal()">×</span>
       <div class="modder-avatar">MMK</div>
@@ -1116,6 +1176,7 @@
       </div>
     </div>
 
+    <!-- KONTEN UTAMA LIST APK -->
     <div class="container">
       <header>
         <p>Kumpulan APK modifikasi terbaik dari komunitas MMK</p>
@@ -1128,16 +1189,18 @@
       </div>
     </div>
 
+    <!-- IMPORT DATABASE DAFTAR APK -->
     <script src="apks.js"></script>
 
+    <!-- LOGIKA SCRIPT UTAMA -->
     <script>
         const TOKEN_RAHASIA = 'MMK_VIP'; 
 
-        // RENDER UTAMA DAFTAR APK (Diletakkan di prioritas utama paling atas agar tidak crash)
+        // RENDER UTAMA DAFTAR APK
         function renderApkListCatalog() {
             const apkGrid = document.getElementById('apkGrid');
             if (typeof apks !== 'undefined' && apkGrid) {
-                apkGrid.innerHTML = ""; // Bersihkan kontainer sebelum memuat
+                apkGrid.innerHTML = "";
                 apks.forEach((apk, index) => {
                     const card = document.createElement('div');
                     card.className = 'apk-card';
@@ -1189,13 +1252,9 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            // Jalankan fungsi muat katalog APK
             renderApkListCatalog();
-            
-            // Cek status autentikasi 2 mode user
             checkUserModeSystem();
 
-            // Jalankan pop-up pengumuman top-up
             setTimeout(() => {
                 const promoModal = document.getElementById('promoModal');
                 const overlay = document.getElementById('overlay');
@@ -1220,13 +1279,11 @@
                 btn.textContent = type === 'flutter' ? "PROSES & PATCH BINARY" : "EKSTRAK METADATA DUMP";
                 btn.style.opacity = "1";
                 btn.disabled = false;
-                
-                // Tampilkan box unduhan output hasil patcher secara instan
                 dlBox.style.display = "flex";
             }, 1800);
         }
 
-        // MANAGEMENT SISTEM VALIDASI 2 MODE USER
+        // MANAGEMENT SISTEM VALIDASI 2 MODE USER BERSAMA INTERFACE KHAS WEB
         function checkUserModeSystem() {
             const currentToken = localStorage.getItem('mmk_token_akses');
             const statusBadge = document.getElementById('userStatus');
@@ -1255,22 +1312,49 @@
             }
         }
 
-        function handleExecutiveAuth() {
+        // FUNGSI KONTROL MODAL UTK POP-UP LOGIN LOGOUT KHAS WEB
+        function openAuthModal() {
+            closeAllPanels();
             const currentToken = localStorage.getItem('mmk_token_akses');
+            const overlay = document.getElementById('overlay');
+            const authModal = document.getElementById('authModal');
+            
+            overlay.classList.add('active');
+            authModal.classList.add('active');
+
             if (currentToken === TOKEN_RAHASIA) {
-                localStorage.removeItem('mmk_token_akses');
-                alert("Logout berhasil. Anda beralih ke mode User Biasa.");
+                document.getElementById('loginFormContainer').style.display = "none";
+                document.getElementById('logoutFormContainer').style.display = "block";
+            } else {
+                document.getElementById('loginFormContainer').style.display = "block";
+                document.getElementById('logoutFormContainer').style.display = "none";
+                document.getElementById('tokenAksesInput').value = "";
+                document.getElementById('tokenAksesInput').focus();
+            }
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+
+        function submitExecutiveLogin() {
+            const inputKey = document.getElementById('tokenAksesInput').value;
+            if (inputKey === TOKEN_RAHASIA) {
+                localStorage.setItem('mmk_token_akses', inputKey);
+                alert("Akses Terverifikasi! Selamat datang Executive Member.");
+                closeAuthModal();
                 location.reload();
             } else {
-                const inputKey = prompt("Masukkan Token Akses Executive Member:");
-                if (inputKey === TOKEN_RAHASIA) {
-                    localStorage.setItem('mmk_token_akses', inputKey);
-                    alert("Akses Terverifikasi! Menu Executive Terbuka.");
-                    location.reload();
-                } else if (inputKey !== null) {
-                    alert("Token Akses Salah!");
-                }
+                alert("Token Akses Salah! Periksa kembali kode Anda.");
             }
+        }
+
+        function submitExecutiveLogout() {
+            localStorage.removeItem('mmk_token_akses');
+            alert("Logout berhasil. Mode Modder dinonaktifkan.");
+            closeAuthModal();
+            location.reload();
         }
 
         function openExecutivePanel(id) {
@@ -1322,6 +1406,7 @@
             document.getElementById('modderModal').classList.remove('active');
             document.getElementById('promoModal').classList.remove('active');
             document.getElementById('searchPopover').classList.remove('active');
+            document.getElementById('authModal').classList.remove('active');
             document.getElementById('overlay').classList.remove('active');
             document.querySelectorAll('.executive-panel').forEach(p => p.classList.remove('active'));
         }
