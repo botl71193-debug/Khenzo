@@ -1,5 +1,15 @@
 
 const apks = [
+{
+    name: "OtakuPlay",
+    version: "v1.3.19",
+    category: "Streaming",
+    size: "15 MB",
+    android: "Android 5.0+",
+    imageUrl: "https://i.ibb.co.com/dJQgQHrh/Otaku.webp",
+    downloadUrl: "https://safefileku.com/download/fjWZfQ3hB47JKsbm",
+    description: "Aplikasi pemutar video multifungsi untuk menonton anime dan donghua dengan streaming dari URL eksternal atau penyimpanan lokal, pengalaman menonton fleksibel dan nyaman."
+  },
   {
     name: "DramaQueen",
     version: "V3.3.110",
