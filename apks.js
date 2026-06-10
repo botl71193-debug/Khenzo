@@ -1,6 +1,16 @@
 
 const apks = [
   {
+    name: "DramaQueen",
+    version: "V3.3.110",
+    category: "Streaming",
+    size: "38,66M",
+    android: "Android 5.0+",
+    imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/dramaqueen.png",
+    downloadUrl: "https://safefileku.com/download/EMpdJLCSsdzi5zjD",
+    description: "Akses eksklusif koleksi drakor premium dan variety show sub Indo ad-free."
+  },
+  {
     name: "Mighty Micros",
     version: "v1.0.1",
     category: "Game",
@@ -144,16 +154,7 @@ const apks = [
     downloadUrl: "https://link.adsafelink.com/NCeRmOa",
     description: "Nonton drama Asia terlengkap, VIP server cepat unlocked tanpa login."
   },
-  {
-    name: "DramaQueen",
-    version: "v1.0.9",
-    category: "Streaming",
-    size: "19 MB",
-    android: "Android 5.0+",
-    imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/dramaqueen.png",
-    downloadUrl: "https://link.adsafelink.com/es5iMSo",
-    description: "Akses eksklusif koleksi drakor premium dan variety show sub Indo ad-free."
-  },
+
   {
     name: "Dramora",
     version: "v2.1.0",
