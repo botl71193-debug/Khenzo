@@ -1,6 +1,16 @@
 
 const apks = [
 {
+    name: "Passion Drama",
+    version: "v1.2.7",
+    category: "Streaming",
+    size: "55 MB",
+    android: "Android 7.0+",
+    imageUrl: "https://i.ibb.co.com/vvQptRxp/Passion-Drama.webp",
+    downloadUrl: "https://safefileku.com/download/6XRxEmaEjL5a0Q8k",
+    description: "Aplikasi streaming drama dengan serial eksklusif setiap hari,涵盖 berbagai genre suspense, komedi, urban, dan sejarah. Tonton drama favorit kualitas 1080P HD dengan fitur download cepat."
+  },
+{
     name: "OtakuPlay",
     version: "v1.3.19",
     category: "Streaming",
