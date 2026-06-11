@@ -1,6 +1,16 @@
 
 const apks = [
 {
+    name: "Crazy Popcorn",
+    version: "v1.5.54",
+    category: "Streaming",
+    size: "55 MB",
+    android: "Android 6.0+",
+    imageUrl: "https://i.ibb.co.com/FkvRvvf1/crazy.webp",
+    downloadUrl: "https://safefileku.com/download/F5lnxOMGjIYf6rAJ",
+    description: "Aplikasi streaming drama pendek trending dengan update setiap minggu. Tonton film pendek & drama berkualitas tinggi, smart picks, quick & fun watch untuk semua genre."
+  },
+{
     name: "Passion Drama",
     version: "v1.2.7",
     category: "Streaming",
