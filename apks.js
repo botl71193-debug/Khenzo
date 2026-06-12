@@ -1,6 +1,16 @@
 
 const apks = [
 {
+    name: "Vidma",
+    version: "v2.27.0",
+    category: "Foto & Video",
+    size: "99 MB",
+    android: "Android 6.0+",
+    imageUrl: "https://i.ibb.co.com/yKLmtpL/Vidma.webp",
+    downloadUrl: "https://safefileku.com/download/KUrbLNmg8YEMSAuF",
+    description: "Editor video dan pembuat video musik yang mudah digunakan dengan berbagai pilihan musik, efek trending, dan tools editing lengkap untuk Instagram, TikTok, dan Facebook."
+  },
+{
     name: "DongHa",
     version: "v1.0.0",
     category: "Streaming",
