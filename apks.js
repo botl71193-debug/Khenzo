@@ -1,6 +1,16 @@
 
 const apks = [
 {
+    name: "PVZ Funsion",
+    version: "v3.7.1",
+    category: "Game",
+    size: "494 MB",
+    android: "Android 5.0+",
+    imageUrl: "https://i.ibb.co.com/1GqVCrML/Screenshot-2026-0614-085120.webp",
+    downloadUrl: "https://safefileku.com/download/aFX1KkPk8OsPZCS2",
+    description: "Game mod Plants vs Zombies Fusion versi fan modification dengan fitur hybrid plants yang powerful, unlimited suns, dan zombie baru yang lebih menantang. Gabungkan strategi dan aksi untuk melawan zombi."
+  },
+{
     name: "Vidma",
     version: "v2.27.0",
     category: "Foto & Video",
