@@ -1,6 +1,16 @@
 
 const apks = [
 {
+    name: "FreeReals",
+    version: "v2.3.40",
+    category: "Streaming",
+    size: "75 MB",
+    android: "Android 5.0+",
+    imageUrl: "https://i.ibb.co.com/Rp4hSXyg/Free-Reals.webp",
+    downloadUrl: "https://safefileku.com/download/bDTzRW18BPWadcbM",
+    description: "Aplikasi streaming drama pendek dan mini-seri terlengkap sepenuhnya gratis. Nonton drama China, video pendek, klip drama mini dengan update harian, streaming HD tanpa iklan."
+  },
+{
     name: "PVZ Funsion",
     version: "v3.7.1",
     category: "Game",
