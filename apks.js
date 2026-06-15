@@ -1,6 +1,36 @@
 
 const apks = [
 {
+    name: "BitTV",
+    version: "v2.1.6-Zenith",
+    category: "Streaming",
+    size: "13 MB",
+    android: "Android 5.0+",
+    imageUrl: "https://i.ibb.co.com/8gkxbZDJ/Bit-Tv.webp",
+    downloadUrl: "https://safefileku.com/download/mkOXiKJYYpTWxotM",
+    description: "Aplikasi streaming TV digital gratis tanpa iklan dan tanpa langganan. Nonton saluran TV online lengkap berbagai genre: berita, hiburan, olahraga, dokumenter, drama, film, kartun, siaran langsung acara penting dengan kualitas tinggi tanpa buffering."
+  },
+{
+    name: "Donghua Fun",
+    version: "v2.0.11",
+    category: "Streaming",
+    size: "42 MB",
+    android: "Android 5.0+",
+    imageUrl: "https://i.ibb.co.com/3y3694Kz/Dong-Fun.webp",
+    downloadUrl: "https://safefileku.com/download/Xcl91jeuurCRMMr2",
+    description: "Aplikasi nonton anime 3D Tiongkok (Donghua) gratis dengan subtitle bahasa Inggris, update harian Full HD, pencarian instan sekali klik, kualitas streaming optimal untuk penggemar anime China."
+  },
+{
+    name: "TeraBox",
+    version: "v4.18.6",
+    category: "Tools",
+    size: "144 MB",
+    android: "Android 6.0+",
+    imageUrl: "https://i.ibb.co.com/6RqqxRLb/Tera.webp",
+    downloadUrl: "https://safefileku.com/download/FBoDTizBGmgo5IiD",
+    description: "Penyimpanan cloud gratis hingga 1TB (1024GB) dengan fitur backup otomatis foto & video, upload file besar hingga 20GB, akses cross-device, keamanan dokumen dengan face recognition."
+  },
+{
     name: "FreeReals",
     version: "v2.3.40",
     category: "Streaming",
