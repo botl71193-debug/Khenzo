@@ -1,4 +1,3 @@
-
 const apks = [
 {
     name: "BitTV",
@@ -43,7 +42,7 @@ const apks = [
 {
     name: "PVZ Funsion",
     version: "v3.7.1",
-    category: "Game",
+    category: "Games",
     size: "494 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/1GqVCrML/Screenshot-2026-0614-085120.webp",
@@ -53,7 +52,7 @@ const apks = [
 {
     name: "Vidma",
     version: "v2.27.0",
-    category: "Foto & Video",
+    category: "Editor",
     size: "99 MB",
     android: "Android 6.0+",
     imageUrl: "https://i.ibb.co.com/yKLmtpL/Vidma.webp",
@@ -113,7 +112,7 @@ const apks = [
   {
     name: "Mighty Micros",
     version: "v1.0.1",
-    category: "Game",
+    category: "Games",
     size: "105 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/pjpN3fDf/Screenshot-2026-0609-155659.webp",
@@ -123,7 +122,7 @@ const apks = [
   {
     name: "EasyCut",
     version: "v1.8.9.2023",
-    category: "Foto & Video",
+    category: "Editor",
     size: "61 MB",
     android: "Android 6.0+",
     imageUrl: "https://i.ibb.co.com/XfJScKd2/Easy-Cut.webp",
@@ -143,7 +142,7 @@ const apks = [
   {
     name: "Minecraft Patch",
     version: "V1.26.23.1",
-    category: "Game",
+    category: "Games",
     size: "156 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/gZFKwDMd/Minecraft-Bedrock-icon.webp",
@@ -157,7 +156,7 @@ const apks = [
   {
     name: "My Supermarket Simulator 3D",
     version: "v1.32.2",
-    category: "Game",
+    category: "Games",
     size: "236 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/LzZvvrsG/Supermarket-Simulator.webp",
@@ -177,7 +176,7 @@ const apks = [
   {
     name: "BeautyPlus",
     version: "V 7.38.1",
-    category: "Foto & Video",
+    category: "Editor",
     size: "371 MB",
     android: "Android 6.0+",
     imageUrl: "https://i.supaimg.com/1ac260ce-b26f-4f02-a315-4072e31459d4/1f57c4f2-fca5-4414-9788-e3824fa18c2e.png",
@@ -197,7 +196,7 @@ const apks = [
   {
     name: "Bus Simulator",
     version: "V 4.5",
-    category: "Game",
+    category: "Games",
     size: "1 GB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/CsKKbjQS/Bussid.webp",
@@ -207,7 +206,7 @@ const apks = [
   {
     name: "Frag Pro Shooter",
     version: "V 5.1.0",
-    category: "Game",
+    category: "Games",
     size: "200 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/MkJ1SxSZ/Frag-Pro.webp",
@@ -217,7 +216,7 @@ const apks = [
   {
     name: "Beach Buggy Racing 2",
     version: "V 2026.05.21",
-    category: "Game",
+    category: "Games",
     size: "200 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/WWJMXTFs/Beach-Buggy.webp",
@@ -338,7 +337,7 @@ const apks = [
   {
     name: "Remini",
     version: "v3.7.83",
-    category: "Foto & Video",
+    category: "Editor",
     size: "54 MB",
     android: "Android 6.0+",
     imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/remini.png",
@@ -378,7 +377,7 @@ const apks = [
   {
     name: "XGames",
     version: "v2.0",
-    category: "Game",
+    category: "Games",
     size: "45 MB",
     android: "Android 5.0+",
     imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/xgame.png",
@@ -394,7 +393,7 @@ const apks = [
   {
     name: "Youshort",
     version: "v1.0.1",
-    category: "Entertainment",
+    category: "Streaming",
     size: "16 MB",
     android: "Android 5.0+",
     imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/youshort.png",
