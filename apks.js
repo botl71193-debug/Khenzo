@@ -1,5 +1,5 @@
 const apks = [
-{
+  {
     name: "BitTV",
     version: "v2.1.6-Zenith",
     category: "Streaming",
@@ -9,7 +9,7 @@ const apks = [
     downloadUrl: "https://www.mediafire.com/file/ed236807c2glmsl/BitTV_2.1.6-zenith.apk/file",
     description: "Aplikasi streaming TV digital gratis tanpa iklan dan tanpa langganan. Nonton saluran TV online lengkap berbagai genre: berita, hiburan, olahraga, dokumenter, drama, film, kartun, siaran langsung acara penting dengan kualitas tinggi tanpa buffering."
   },
-{
+  {
     name: "Donghua Fun",
     version: "v2.0.11",
     category: "Streaming",
@@ -19,7 +19,7 @@ const apks = [
     downloadUrl: "https://safefileku.com/download/Xcl91jeuurCRMMr2",
     description: "Aplikasi nonton anime 3D Tiongkok (Donghua) gratis dengan subtitle bahasa Inggris, update harian Full HD, pencarian instan sekali klik, kualitas streaming optimal untuk penggemar anime China."
   },
-{
+  {
     name: "TeraBox",
     version: "v4.18.6",
     category: "Tools",
@@ -29,7 +29,7 @@ const apks = [
     downloadUrl: "https://safefileku.com/download/FBoDTizBGmgo5IiD",
     description: "Penyimpanan cloud gratis hingga 1TB (1024GB) dengan fitur backup otomatis foto & video, upload file besar hingga 20GB, akses cross-device, keamanan dokumen dengan face recognition."
   },
-{
+  {
     name: "FreeReals",
     version: "v2.3.40",
     category: "Streaming",
@@ -39,17 +39,17 @@ const apks = [
     downloadUrl: "https://safefileku.com/download/bDTzRW18BPWadcbM",
     description: "Aplikasi streaming drama pendek dan mini-seri terlengkap sepenuhnya gratis. Nonton drama China, video pendek, klip drama mini dengan update harian, streaming HD tanpa iklan."
   },
-{
+  {
     name: "PVZ Funsion",
     version: "v3.7.1",
-    category: "Games",
+    category: "Games Mod",
     size: "494 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/1GqVCrML/Screenshot-2026-0614-085120.webp",
     downloadUrl: "https://safefileku.com/download/aFX1KkPk8OsPZCS2",
     description: "Game mod Plants vs Zombies Fusion versi fan modification dengan fitur hybrid plants yang powerful, unlimited suns, dan zombie baru yang lebih menantang. Gabungkan strategi dan aksi untuk melawan zombi."
   },
-{
+  {
     name: "Vidma",
     version: "v2.27.0",
     category: "Editor",
@@ -59,7 +59,7 @@ const apks = [
     downloadUrl: "https://safefileku.com/download/KUrbLNmg8YEMSAuF",
     description: "Editor video dan pembuat video musik yang mudah digunakan dengan berbagai pilihan musik, efek trending, dan tools editing lengkap untuk Instagram, TikTok, dan Facebook."
   },
-{
+  {
     name: "DongHa",
     version: "v1.0.0",
     category: "Streaming",
@@ -69,7 +69,7 @@ const apks = [
     downloadUrl: "https://safefileku.com/download/bXhsKJ34RTbEjgpn",
     description: "Aplikasi nonton anime dan donghua terlengkap dengan sub Indo, kualitas HD, update setiap hari, streaming gratis tanpa iklan mengganggu."
   },
-{
+  {
     name: "Crazy Popcorn",
     version: "v1.5.54",
     category: "Streaming",
@@ -79,7 +79,7 @@ const apks = [
     downloadUrl: "https://safefileku.com/download/F5lnxOMGjIYf6rAJ",
     description: "Aplikasi streaming drama pendek trending dengan update setiap minggu. Tonton film pendek & drama berkualitas tinggi, smart picks, quick & fun watch untuk semua genre."
   },
-{
+  {
     name: "Passion Drama",
     version: "v1.2.7",
     category: "Streaming",
@@ -89,7 +89,7 @@ const apks = [
     downloadUrl: "https://safefileku.com/download/6XRxEmaEjL5a0Q8k",
     description: "Aplikasi streaming drama dengan serial eksklusif setiap hari,涵盖 berbagai genre suspense, komedi, urban, dan sejarah. Tonton drama favorit kualitas 1080P HD dengan fitur download cepat."
   },
-{
+  {
     name: "OtakuPlay",
     version: "v1.3.19",
     category: "Streaming",
@@ -112,7 +112,7 @@ const apks = [
   {
     name: "Mighty Micros",
     version: "v1.0.1",
-    category: "Games",
+    category: "Games Mod",
     size: "105 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/pjpN3fDf/Screenshot-2026-0609-155659.webp",
@@ -142,7 +142,7 @@ const apks = [
   {
     name: "Minecraft Patch",
     version: "V1.26.23.1",
-    category: "Games",
+    category: "Games Mod",
     size: "156 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/gZFKwDMd/Minecraft-Bedrock-icon.webp",
@@ -156,7 +156,7 @@ const apks = [
   {
     name: "My Supermarket Simulator 3D",
     version: "v1.32.2",
-    category: "Games",
+    category: "Games Mod",
     size: "236 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/LzZvvrsG/Supermarket-Simulator.webp",
@@ -196,7 +196,7 @@ const apks = [
   {
     name: "Bus Simulator",
     version: "V 4.5",
-    category: "Games",
+    category: "Games Mod",
     size: "1 GB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/CsKKbjQS/Bussid.webp",
@@ -206,7 +206,7 @@ const apks = [
   {
     name: "Frag Pro Shooter",
     version: "V 5.1.0",
-    category: "Games",
+    category: "Games Mod",
     size: "200 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/MkJ1SxSZ/Frag-Pro.webp",
@@ -216,7 +216,7 @@ const apks = [
   {
     name: "Beach Buggy Racing 2",
     version: "V 2026.05.21",
-    category: "Games",
+    category: "Games Mod",
     size: "200 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/WWJMXTFs/Beach-Buggy.webp",
@@ -236,7 +236,7 @@ const apks = [
   {
     name: "Dark Aura",
     version: "v2.0.0",
-    category: "Entertainment",
+    category: "Aplikasi Mod",
     size: "12 MB",
     android: "Android 7.0+",
     imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/DarkAura.png",
@@ -253,7 +253,6 @@ const apks = [
     downloadUrl: "https://link.adsafelink.com/NCeRmOa",
     description: "Nonton drama Asia terlengkap, VIP server cepat unlocked tanpa login."
   },
-
   {
     name: "Dramora",
     version: "v2.1.0",
@@ -277,7 +276,7 @@ const apks = [
   {
     name: "Instagram Pro",
     version: "v311.0",
-    category: "Tools",
+    category: "Aplikasi Mod",
     size: "64 MB",
     android: "Android 6.0+",
     imageUrl: "https://worrying-apricot-utxtj0qs.edgeone.app/igmod.png",
@@ -287,7 +286,7 @@ const apks = [
   {
     name: "KomikBahagia",
     version: "v1.0",
-    category: "Entertainment",
+    category: "Aplikasi Mod",
     size: "12 MB",
     android: "Android 5.0+",
     imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/comikbahagia.png",
@@ -297,7 +296,7 @@ const apks = [
   {
     name: "KucingPremium",
     version: "v1.8.2",
-    category: "Entertainment",
+    category: "Streaming",
     size: "15 MB",
     android: "Android 5.0+",
     imageUrl: "https://worrying-apricot-utxtj0qs.edgeone.app/images.png",
@@ -307,7 +306,7 @@ const apks = [
   {
     name: "Melolo",
     version: "v1.2.0",
-    category: "Entertainment",
+    category: "Streaming",
     size: "21 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/Jw8Fzcgm/melolo.webp",
@@ -377,7 +376,7 @@ const apks = [
   {
     name: "XGames",
     version: "v2.0",
-    category: "Games",
+    category: "Games Mod",
     size: "45 MB",
     android: "Android 5.0+",
     imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/xgame.png",
