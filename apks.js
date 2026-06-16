@@ -7,7 +7,7 @@ const apks = [
     size: "13 MB",
     android: "Android 5.0+",
     imageUrl: "https://i.ibb.co.com/8gkxbZDJ/Bit-Tv.webp",
-    downloadUrl: "https://safefileku.com/download/mkOXiKJYYpTWxotM",
+    downloadUrl: "https://safefileku.com/download/dDuRLC7t86avzljP",
     description: "Aplikasi streaming TV digital gratis tanpa iklan dan tanpa langganan. Nonton saluran TV online lengkap berbagai genre: berita, hiburan, olahraga, dokumenter, drama, film, kartun, siaran langsung acara penting dengan kualitas tinggi tanpa buffering."
   },
 {
