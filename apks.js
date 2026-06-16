@@ -311,7 +311,7 @@ const apks = [
     category: "Entertainment",
     size: "21 MB",
     android: "Android 5.0+",
-    imageUrl: "https://clever-aquamarine-zdzgpsly.edgeone.app/floatee.png",
+    imageUrl: "https://i.ibb.co.com/Jw8Fzcgm/melolo.webp",
     downloadUrl: "https://link.adsafelink.com/9oNC5wAu",
     description: "Aplikasi streaming hiburan musik dan video pendek seru premium mod."
   },
