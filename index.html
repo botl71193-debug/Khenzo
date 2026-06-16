@@ -47,9 +47,10 @@
         ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-        /* NAVBAR - MODIFIED FOR CENTER TEXT */
+        /* NAVBAR */
         .navbar {
-            position: fixed; top: 0; left: 0; right: 0; height: 70px;
+            position: fixed;
+            top: 0; left: 0; right: 0; height: 70px;
             display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 20px;
             background: rgba(3, 4, 11, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0, 243, 255, 0.2); z-index: 1000;
@@ -60,9 +61,11 @@
         .navbar-right { display: flex; align-items: center; justify-content: flex-end; position: relative; }
 
         .menu-toggle {
-            background: rgba(0, 82, 255, 0.1); border: 1px solid var(--primary); color: var(--accent);
+            background: rgba(0, 82, 255, 0.1);
+            border: 1px solid var(--primary); color: var(--accent);
             width: 42px; height: 42px; font-size: 1.2rem; border-radius: 8px; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;
+            display: flex; align-items: center;
+            justify-content: center; transition: all 0.3s ease;
             box-shadow: 0 0 10px var(--primary-glow);
         }
         .menu-toggle:hover { background: var(--primary); color: #fff; box-shadow: 0 0 15px var(--accent); transform: scale(1.05); }
@@ -72,25 +75,31 @@
         .logo { width: 36px; height: 36px; border-radius: 8px; border: 2px solid var(--accent); box-shadow: 0 0 10px var(--accent-glow); object-fit: cover; }
 
         .main-title {
-            font-size: 1.35rem; font-weight: 900; letter-spacing: 2px; color: #fff; text-transform: uppercase;
+            font-size: 1.35rem;
+            font-weight: 900; letter-spacing: 2px; color: #fff; text-transform: uppercase;
             background: linear-gradient(to right, #fff 20%, var(--accent) 50%, var(--primary) 80%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .search-trigger-btn { background: transparent; border: none; color: var(--accent); font-size: 1.3rem; cursor: pointer; transition: transform 0.2s; }
         .search-trigger-btn:hover { transform: scale(1.1); text-shadow: 0 0 10px var(--accent); }
 
         .search-popover {
-            display: none; position: absolute; top: 55px; right: 0; background: var(--bg-card);
-            border: 1px solid var(--accent); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); z-index: 1010;
+            display: none;
+            position: absolute; top: 55px; right: 0; background: var(--bg-card);
+            border: 1px solid var(--accent); border-radius: 12px; padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8); z-index: 1010;
         }
         .search-popover.active { display: flex; }
         .search-popover input { background: #020205; border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; color: #fff; outline: none; width: 220px; font-size: 0.9rem; }
 
         /* SIDEBAR STRUCTURE */
         .sidebar {
-            position: fixed; top: 0; left: -330px; width: 310px; height: 100%; background: var(--bg-sidebar);
-            border-right: 1px solid rgba(0, 243, 255, 0.2); box-shadow: 10px 0 40px rgba(0,0,0,0.9);
+            position: fixed;
+            top: 0; left: -330px; width: 310px; height: 100%; background: var(--bg-sidebar);
+            border-right: 1px solid rgba(0, 243, 255, 0.2);
+            box-shadow: 10px 0 40px rgba(0,0,0,0.9);
             z-index: 2000; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); padding: 25px 20px; overflow-y: auto;
         }
         .sidebar.active { left: 0; }
@@ -106,8 +115,10 @@
         .sidebar-sign-text.dev-badge { color: var(--dev-color); background: rgba(244, 63, 94, 0.08); border-color: var(--dev-color); box-shadow: 0 0 8px var(--dev-glow); }
 
         .cyber-auth-btn {
-            width: 100%; padding: 12px 20px; background: #040817; color: var(--accent); border: 1px solid rgba(0, 243, 255, 0.4); border-radius: 10px;
-            font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s;
+            width: 100%;
+            padding: 12px 20px; background: #040817; color: var(--accent); border: 1px solid rgba(0, 243, 255, 0.4); border-radius: 10px;
+            font-size: 0.82rem; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s;
         }
         .cyber-auth-btn:hover { background: rgba(0, 243, 255, 0.15); color: #fff; border-color: #00f3ff; box-shadow: 0 0 20px rgba(0, 243, 255, 0.4); }
         .cyber-auth-btn.active-control { color: #fff; border-color: #ef4444; background: rgba(239, 68, 68, 0.1); }
@@ -118,8 +129,10 @@
         .sidebar-menu-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
 
         .sidebar-item-btn {
-            display: flex; align-items: center; justify-content: space-between; padding: 12px 15px; color: #cbd5e1; text-decoration: none;
-            font-size: 0.88rem; font-weight: 600; border-radius: 8px; background: rgba(255, 255, 255, 0.02); border: 1px solid transparent; cursor: pointer; transition: all 0.25s ease;
+            display: flex;
+            align-items: center; justify-content: space-between; padding: 12px 15px; color: #cbd5e1; text-decoration: none;
+            font-size: 0.88rem; font-weight: 600; border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02); border: 1px solid transparent; cursor: pointer; transition: all 0.25s ease;
         }
         .sidebar-item-btn:hover { background: rgba(0, 82, 255, 0.1); border-color: rgba(0, 82, 255, 0.3); color: #fff; transform: translateX(4px); }
 
@@ -145,14 +158,18 @@
 
         .apk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
         .apk-card {
-            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 20px;
-            position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; gap: 15px; box-shadow: 0 10px 35px rgba(0,0,0,0.6); transition: all 0.3s;
+            background: var(--bg-card);
+            border: 1px solid var(--border); border-radius: 16px; padding: 20px;
+            position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.6); transition: all 0.3s;
         }
         .apk-card.hidden { display: none !important; }
 
         .dev-edit-badge-btn {
-            position: absolute; top: 15px; right: 15px; background: rgba(244, 63, 94, 0.15); border: 1px solid var(--dev-color);
-            color: #fff; width: 32px; height: 32px; border-radius: 8px; display: none; align-items: center; justify-content: center;
+            position: absolute;
+            top: 15px; right: 15px; background: rgba(244, 63, 94, 0.15); border: 1px solid var(--dev-color);
+            color: #fff; width: 32px; height: 32px;
+            border-radius: 8px; display: none; align-items: center; justify-content: center;
             cursor: pointer; font-size: 0.9rem; z-index: 10; transition: 0.2s;
         }
         .dev-edit-badge-btn:hover { background: var(--dev-color); box-shadow: 0 0 10px var(--dev-color); transform: scale(1.05); }
@@ -170,49 +187,71 @@
         .apk-desc-area { background: rgba(2, 2, 5, 0.5); border: 1px solid rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; font-size: 0.84rem; color: #94a3b8; min-height: 60px; line-height: 1.4; }
 
         .download-action-btn {
-            display: block; width: 100%; padding: 12px; text-align: center; background: linear-gradient(135deg, var(--primary) 0%, #002ba1 100%);
-            color: #fff; border: none; border-radius: 10px; font-size: 0.9rem; font-weight: 700; text-decoration: none; cursor: pointer; transition: 0.3s;
+            display: block;
+            width: 100%; padding: 12px; text-align: center; background: linear-gradient(135deg, var(--primary) 0%, #002ba1 100%);
+            color: #fff; border: none; border-radius: 10px; font-size: 0.9rem;
+            font-weight: 700; text-decoration: none; cursor: pointer; transition: 0.3s;
         }
         .download-action-btn:hover { background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%); box-shadow: 0 0 15px var(--accent); }
 
-        /* MODAL RESPONSIVE ENGINE */
+        /* MODAL ENGINE */
         .modal-box {
-            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.85);
-            background: var(--bg-card); border: 2px solid var(--primary); box-shadow: 0 0 50px rgba(0,0,0,0.9);
-            width: 92%; max-width: 460px; border-radius: 16px; padding: 20px; z-index: 2500; opacity: 0; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: none;
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.85);
+            background: var(--bg-card); border: 2px solid var(--primary);
+            box-shadow: 0 0 50px rgba(0,0,0,0.9);
+            width: 92%; max-width: 460px; border-radius: 16px; padding: 20px; z-index: 2500; opacity: 0;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             max-height: 90vh; overflow-y: auto;
         }
         .modal-box.active { display: block; opacity: 1; transform: translate(-50%, -50%) scale(1); }
         .modal-close-btn { position: absolute; top: 12px; right: 16px; font-size: 1.5rem; color: var(--text-muted); cursor: pointer; z-index: 5; }
         .modal-close-btn:hover { color: #fff; }
 
-        /* FORM PHONE-OPTIMIZED SYSTEM (VERTICAL LAYOUT) */
-        .dev-panel-modal { border-color: var(--dev-color) !important; box-shadow: 0 0 50px rgba(0,0,0,0.9), 0 0 25px var(--dev-glow) !important; }
+        /* EXECUTIVE MODAL STYLES WITH BORDER DOWNLOAD BUTTON */
+        .exec-panel-modal { border-color: var(--exec-color) !important; box-shadow: 0 0 50px rgba(0,0,0,0.9), 0 0 25px var(--exec-glow) !important; }
+        .exec-header-row { display: flex; justify-content: space-between; align-items: center; margin: 15px 0 10px 0; }
         
-        /* Force single column for mobile screen optimization */
-        .form-mobile-vertical-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        .exec-panel-download-btn {
+            background: rgba(168, 85, 247, 0.1);
+            color: var(--exec-color);
+            border: 2px solid var(--exec-color); /* Neon Border */
+            box-shadow: 0 0 10px var(--exec-glow);
+            padding: 6px 16px; border-radius: 8px; font-size: 0.82rem; font-weight: 800;
+            text-decoration: none; text-transform: uppercase; transition: all 0.3s ease;
         }
-        
+        .exec-panel-download-btn:hover {
+            background: var(--exec-color);
+            color: #fff;
+            box-shadow: 0 0 20px var(--exec-color);
+            transform: scale(1.05);
+        }
+
+        .exec-feature-list { display: flex; flex-direction: column; gap: 8px; background: #020205; padding: 12px; border-radius: 10px; border: 1px solid rgba(168,85,247,0.15); }
+        .exec-feature-item { display: flex; gap: 10px; font-size: 0.86rem; color: #cbd5e1; line-height: 1.4; }
+
+        /* FORM PHONE-OPTIMIZED SYSTEM */
+        .dev-panel-modal { border-color: var(--dev-color) !important; box-shadow: 0 0 50px rgba(0,0,0,0.9), 0 0 25px var(--dev-glow) !important; }
+        .form-mobile-vertical-stack { display: flex; flex-direction: column; gap: 12px; }
         .form-group { display: flex; flex-direction: column; gap: 6px; text-align: left; }
         .form-group label { font-size: 0.75rem; font-weight: 800; color: #cbd5e1; text-transform: uppercase; letter-spacing: 1px; }
         
         .form-group input, .form-group select, .form-group textarea {
-            background: #020205; border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 8px; padding: 11px 14px; color: #fff; outline: none; font-size: 0.9rem; width: 100%;
+            background: #020205;
+            border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 8px; padding: 11px 14px; color: #fff; outline: none; font-size: 0.9rem; width: 100%;
             -webkit-appearance: none;
         }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--dev-color); box-shadow: 0 0 8px rgba(244, 63, 94, 0.2); }
-        
         .form-btn-row { display: flex; gap: 10px; margin-top: 10px; }
 
         .overlay-mask { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 1500; opacity: 0; transition: opacity 0.3s; }
         .overlay-mask.active { display: block; opacity: 1; }
 
         .floating-profile-trigger {
-            position: fixed; bottom: 20px; right: 20px; width: 48px; height: 48px; background: var(--primary); color: white;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 0 15px var(--primary-glow); cursor: pointer; z-index: 1200; transition: 0.3s; border: 1px solid var(--accent);
+            position: fixed;
+            bottom: 20px; right: 20px; width: 48px; height: 48px; background: var(--primary); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; box-shadow: 0 0 15px var(--primary-glow); cursor: pointer; z-index: 1200; transition: 0.3s; border: 1px solid var(--accent);
         }
         .floating-profile-trigger:hover { transform: rotate(360deg) scale(1.1); background: var(--accent); }
 
@@ -223,13 +262,12 @@
   </head>
   <body>
 
-    <!-- CORE SITE NAVBAR (GRID PATTERN FOR CENTERED LOGO) -->
+    <!-- CORE SITE NAVBAR -->
     <div class="navbar">
       <div class="navbar-left">
         <button class="menu-toggle" onclick="handleSidebarDisplay()">☰</button>
       </div>
 
-      <!-- LOGO DAN TEKS MMK MODS BERADA DI TENGAH -->
       <div class="logo-box">
         <img class="logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="Logo MMK">
         <span class="main-title">MMK | MODS</span>
@@ -360,14 +398,20 @@
       </div>
     </div>
 
-    <!-- MODAL: DATA INPUT FOR ADD/EDIT APK (OPTIMIZED VERTICAL FOR PHONES) -->
+    <!-- MODAL: DATA INPUT FOR ADD/EDIT APK -->
     <div class="modal-box dev-panel-modal" id="devApkFormModal">
       <span class="modal-close-btn" onclick="closeActiveOverlays()">×</span>
       <h3 id="formModalTitle" style="margin-bottom: 15px; color:#fff; font-size: 1.15rem; border-bottom: 1px solid rgba(244, 63, 94, 0.2); padding-bottom: 10px;">➕ TAMBAH APK BARU</h3>
       <input type="hidden" id="formEditIndex" value="">
 
-      <!-- Menggunakan susunan vertikal murni terpusat (Phone layout friendly) -->
       <div class="form-mobile-vertical-stack">
+        <div class="form-group" id="existingApkSelectorRow">
+          <label style="color: var(--accent);">Salin Dari APK Yang Sudah Ada (Opsional)</label>
+          <select id="formExistingApkSelect" onchange="handleLoadExistingApkData()">
+            <option value="">-- Buat Baru Dari Awal --</option>
+          </select>
+        </div>
+
         <div class="form-group">
           <label>Nama APK</label>
           <input type="text" id="formApkName" placeholder="Contoh: Mobile Legends Mod">
@@ -433,7 +477,7 @@
       <button class="download-action-btn" style="background:linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);" onclick="copyExportedTextToClipboard()">📋 KLIK SALIN SEMUA KODE</button>
     </div>
 
-    <!-- MODAL: EXECUTIVE DETAILS -->
+    <!-- MODAL: EXECUTIVE DETAILS (DENGAN TOMBOL BORDERED NEON) -->
     <div class="modal-box exec-panel-modal" id="execAppDetailsModal">
       <span class="modal-close-btn" onclick="closeActiveOverlays()">×</span>
       <div class="apk-top-flex" style="border-bottom: 1px solid rgba(168, 85, 247, 0.2); padding-bottom: 15px; margin-bottom: 10px;">
@@ -492,7 +536,7 @@
 
     <!-- SYSTEM SCRIPT CONTROLLER -->
 <script>
-        const TOKEN_EXECUTIVE = ". -..- . -.-. ..- - .. ...-";
+        const TOKEN_EXECUTIVE = "-..- . -.-. ..- - .. ...-";
         const TOKEN_DEVELOPER = "--- .-- -. . .-. / -- -- -.-";
 
         let internalApksData = [];
@@ -527,9 +571,8 @@
                 else if (item.category === 'Games Mod') defaultIcon = '🎮';
                 else if (item.category === 'Music') defaultIcon = '🎵';
                 else if (item.category === 'Tools') defaultIcon = '🛠️';
-
+                
                 let devEditButton = `<div class="dev-edit-badge-btn" style="display:${activeRole === 'DEVELOPER' ? 'flex' : 'none'}" onclick="openEditApkFormModal(${index})">✏️</div>`;
-
                 card.innerHTML = `
                     ${devEditButton}
                     <div class="apk-top-flex">
@@ -633,7 +676,6 @@
 
         function processAuthVerification() {
             const tokenValue = document.getElementById('devKeyInput').value.trim();
-            
             if (tokenValue === TOKEN_DEVELOPER) {
                 localStorage.setItem('mmk_sys_role', 'DEVELOPER');
                 alert("🔐 Akses Developer Diterima!");
@@ -666,8 +708,48 @@
             document.getElementById('formApkImg').value = "";
             document.getElementById('formApkLink').value = "";
 
+            const selectorRow = document.getElementById('existingApkSelectorRow');
+            const selectEl = document.getElementById('formExistingApkSelect');
+            selectorRow.style.setProperty('display', 'flex', 'important');
+            
+            selectEl.innerHTML = '<option value="">-- Buat Baru Dari Awal --</option>';
+            
+            internalApksData.forEach((item, index) => {
+                const opt = document.createElement('option');
+                opt.value = index;
+                opt.textContent = `${item.name} (${item.version || 'v?'})`;
+                selectEl.appendChild(opt);
+            });
+
             document.getElementById('globalOverlay').classList.add('active');
             document.getElementById('devApkFormModal').classList.add('active');
+        }
+
+        function handleLoadExistingApkData() {
+            const selectedIndex = document.getElementById('formExistingApkSelect').value;
+            
+            if (selectedIndex === "") {
+                document.getElementById('formApkName').value = "";
+                document.getElementById('formApkVersion').value = "";
+                document.getElementById('formApkSize').value = "";
+                document.getElementById('formApkAndroid').value = "";
+                document.getElementById('formApkDesc').value = "";
+                document.getElementById('formApkImg').value = "";
+                document.getElementById('formApkLink').value = "";
+                return;
+            }
+
+            const targetData = internalApksData[parseInt(selectedIndex)];
+            if (!targetData) return;
+
+            document.getElementById('formApkName').value = targetData.name || "";
+            document.getElementById('formApkVersion').value = targetData.version || "";
+            document.getElementById('formApkCategory').value = targetData.category || "Aplikasi Mod";
+            document.getElementById('formApkSize').value = targetData.size || "";
+            document.getElementById('formApkAndroid').value = targetData.android || "";
+            document.getElementById('formApkDesc').value = targetData.description || (targetData.features ? targetData.features.join(' ') : "");
+            document.getElementById('formApkImg').value = targetData.imageUrl || "";
+            document.getElementById('formApkLink').value = targetData.downloadUrl || "";
         }
 
         function openEditApkFormModal(index) {
@@ -677,6 +759,7 @@
 
             document.getElementById('formModalTitle').textContent = "✏️ SUNTING DATA APK";
             document.getElementById('formEditIndex').value = index;
+            document.getElementById('existingApkSelectorRow').style.setProperty('display', 'none', 'important');
 
             document.getElementById('formApkName').value = targetData.name || "";
             document.getElementById('formApkVersion').value = targetData.version || "";
@@ -718,7 +801,6 @@
             }
 
             localStorage.setItem('mmk_local_apks', JSON.stringify(internalApksData));
-            
             closeActiveOverlays();
             renderGridCards();
         }
@@ -743,17 +825,18 @@
 
         function showExecAppDetails(key) {
             if (typeof execAppsDatabase === 'undefined') {
-                alert("Database VIP.js gagal dimuat."); return;
+                alert("Database VIP.js gagal dimuat.");
+                return;
             }
             const appData = execAppsDatabase[key];
             if (!appData) return;
-
+            
             const iconFrame = document.getElementById('execModalIcon');
             iconFrame.innerHTML = `<img src="${appData.imageUrl}" alt="${appData.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='🛸';">`;
             
             document.getElementById('execModalName').textContent = appData.name;
             document.getElementById('execModalVersion').textContent = `Versi: ${appData.version}`;
-
+            
             const badgeFrame = document.getElementById('execModalBadges');
             badgeFrame.innerHTML = `
                 <span class="apk-badge" style="border-color:rgba(168, 85, 247, 0.3)">💾 ${appData.size || '10MB'}</span>
@@ -761,9 +844,8 @@
             `;
 
             document.getElementById('execModalDownloadBtn').href = appData.downloadUrl || '#';
-
+            
             const featuresContainer = document.getElementById('execModalFeatures');
-            featuresContainer.appendChild(item);
             featuresContainer.innerHTML = "";
             if(appData.features) {
                 appData.features.forEach(feat => {
@@ -819,7 +901,7 @@
             const boxes = document.querySelectorAll('.apk-card');
             const alertEmpty = document.getElementById('searchEmptyAlert');
             let success = false;
-
+            
             boxes.forEach(box => {
                 const titleText = box.querySelector('.apk-title').textContent.toLowerCase();
                 if (titleText.includes(query)) {
