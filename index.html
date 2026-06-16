@@ -1,1452 +1,835 @@
-<!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MMK | Modz</title>
-    <style>
+    <title>MMK | MODS - Premium Modding Hub</title>
+<style>
+        /* BASE DESIGN SYSTEM - CYBERPUNK MODZ */
+        :root {
+            --bg-main: #020205;
+            --bg-card: #060814;
+            --bg-sidebar: #03040b;
+            --primary: #0052ff;
+            --primary-glow: rgba(0, 82, 255, 0.4);
+            --accent: #00f3ff;
+            --accent-glow: rgba(0, 243, 255, 0.3);
+            --exec-color: #a855f7;
+            --exec-glow: rgba(168, 85, 247, 0.4);
+            --dev-color: #f43f5e;
+            --dev-glow: rgba(244, 63, 94, 0.4);
+            --text-main: #f1f5f9;
+            --text-muted: #64748b;
+            --border: rgba(0, 82, 255, 0.25);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #020204; 
+            background-color: var(--bg-main);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 82, 255, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
             min-height: 100vh;
-            padding: 20px;
-            color: #d1d5db;
-            padding-top: 75px; 
+            color: var(--text-main);
+            padding-top: 85px;
             overflow-x: hidden;
         }
 
-        /* Navbar Ringkas, Seimbang & Responsif */
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-main); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        /* NAVBAR - MODIFIED FOR CENTER TEXT */
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr; 
-            align-items: center;
-            padding: 10px 24px;
-            background: rgba(2, 2, 4, 0.95); 
-            backdrop-filter: blur(12px);
-            border-bottom: 2px solid rgba(0, 71, 255, 0.4); 
-            z-index: 1000;
-            box-shadow: 0 5px 25px rgba(0, 36, 156, 0.3);
-            animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: fixed; top: 0; left: 0; right: 0; height: 70px;
+            display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 20px;
+            background: rgba(3, 4, 11, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2); z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 1px 15px var(--primary-glow);
         }
 
-        @keyframes slideDown {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+        .navbar-left { display: flex; align-items: center; justify-content: flex-start; }
+        .navbar-right { display: flex; align-items: center; justify-content: flex-end; position: relative; }
 
-        /* Sisi Kiri Navbar */
-        .navbar-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        /* Menu Garis Tiga (Khusus Android/Mobile) */
         .menu-toggle {
-            background: transparent;
-            border: none;
-            color: #0066ff;
-            font-size: 1.4rem;
-            cursor: pointer;
-            display: none; 
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            text-shadow: 0 0 8px rgba(0, 71, 255, 0.6);
+            background: rgba(0, 82, 255, 0.1); border: 1px solid var(--primary); color: var(--accent);
+            width: 42px; height: 42px; font-size: 1.2rem; border-radius: 8px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;
+            box-shadow: 0 0 10px var(--primary-glow);
         }
+        .menu-toggle:hover { background: var(--primary); color: #fff; box-shadow: 0 0 15px var(--accent); transform: scale(1.05); }
 
-        /* Container Logo */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            border: 2px solid #0047ff;
-            box-shadow: 0 0 12px rgba(0, 71, 255, 0.5);
-            object-fit: cover;
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-            border-color: #00f3ff;
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.6);
-        }
-
-        /* Menu Navigasi Horizontal Desktop */
-        .desktop-nav {
-            display: flex;
-            gap: 14px;
-            margin-left: 10px;
-        }
-
-        .desktop-nav-item {
-            color: #d1d5db;
-            text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .desktop-nav-item:hover {
-            color: #0066ff;
-            text-shadow: 0 0 8px rgba(0, 71, 255, 0.6);
-        }
-
-        /* Sisi Tengah Navbar (Judul Utama) */
-        .navbar-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        /* CENTER BRAND LOGO & TITLE */
+        .logo-box { grid-column: 2; display: flex; align-items: center; gap: 10px; justify-content: center; }
+        .logo { width: 36px; height: 36px; border-radius: 8px; border: 2px solid var(--accent); box-shadow: 0 0 10px var(--accent-glow); object-fit: cover; }
 
         .main-title {
-            font-size: 1.4rem;
-            color: #fff;
-            letter-spacing: 2px;
-            font-weight: 800;
-            text-align: center;
-            white-space: nowrap;
-            animation: neonFlicker 2.5s infinite alternate ease-in-out;
+            font-size: 1.35rem; font-weight: 900; letter-spacing: 2px; color: #fff; text-transform: uppercase;
+            background: linear-gradient(to right, #fff 20%, var(--accent) 50%, var(--primary) 80%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        @keyframes neonFlicker {
-            0%, 100% { text-shadow: 0 0 6px #0047ff, 0 0 15px #00249c; }
-            50% { text-shadow: 0 0 12px #0066ff, 0 0 25px #0047ff; }
-        }
+        .search-trigger-btn { background: transparent; border: none; color: var(--accent); font-size: 1.3rem; cursor: pointer; transition: transform 0.2s; }
+        .search-trigger-btn:hover { transform: scale(1.1); text-shadow: 0 0 10px var(--accent); }
 
-        /* Sisi Kanan Navbar */
-        .navbar-right {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            position: relative;
-        }
-
-        .search-trigger-btn {
-            background: transparent;
-            border: none;
-            color: #0066ff;
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 5px;
-            transition: transform 0.2s ease;
-            text-shadow: 0 0 8px rgba(0, 71, 255, 0.6);
-        }
-
-        .search-trigger-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* Kotak input Pencarian */
         .search-popover {
-            display: none;
-            position: absolute;
-            top: 45px;
-            right: 0;
-            background: rgba(2, 2, 4, 0.98);
-            border: 1px solid #0047ff;
-            border-radius: 10px;
-            padding: 8px;
-            box-shadow: 0 5px 20px rgba(0, 71, 255, 0.4);
-            z-index: 1010;
+            display: none; position: absolute; top: 55px; right: 0; background: var(--bg-card);
+            border: 1px solid var(--accent); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); z-index: 1010;
         }
+        .search-popover.active { display: flex; }
+        .search-popover input { background: #020205; border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; color: #fff; outline: none; width: 220px; font-size: 0.9rem; }
 
-        .search-popover.active {
-            display: flex;
-            align-items: center;
-        }
-
-        .search-popover input {
-            background: rgba(0, 36, 156, 0.2);
-            border: 1px solid rgba(0, 71, 255, 0.4);
-            border-radius: 6px;
-            padding: 6px 12px;
-            color: #fff;
-            outline: none;
-            font-size: 0.9rem;
-            width: 200px;
-        }
-
-        /* Sidebar Style */
+        /* SIDEBAR STRUCTURE */
         .sidebar {
-            position: fixed;
-            top: 0;
-            left: -300px;
-            width: 280px;
-            height: 100%;
-            background: linear-gradient(145deg, #020205 0%, #000b21 100%);
-            border-right: 2px solid #0047ff;
-            box-shadow: 5px 0 25px rgba(0, 36, 156, 0.4);
-            z-index: 2000;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            padding: 30px 20px;
-            overflow-y: auto;
+            position: fixed; top: 0; left: -330px; width: 310px; height: 100%; background: var(--bg-sidebar);
+            border-right: 1px solid rgba(0, 243, 255, 0.2); box-shadow: 10px 0 40px rgba(0,0,0,0.9);
+            z-index: 2000; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); padding: 25px 20px; overflow-y: auto;
         }
+        .sidebar.active { left: 0; }
+        .sidebar-close { position: absolute; top: 20px; right: 20px; font-size: 1.5rem; color: var(--text-muted); cursor: pointer; }
+        .sidebar-close:hover { color: #ff4444; }
 
-        .sidebar.active {
-            left: 0;
-        }
+        .sidebar-brand-area { text-align: center; padding: 15px 0; background: linear-gradient(180deg, rgba(0, 82, 255, 0.1) 0%, transparent 100%); border-radius: 14px; border: 1px solid rgba(0, 82, 255, 0.15); margin-top: 20px; margin-bottom: 20px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .sidebar-community-logo { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent); box-shadow: 0 0 15px var(--accent-glow); object-fit: cover; }
+        .sidebar-brand-title { font-size: 1.1rem; font-weight: 900; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+        
+        .sidebar-sign-text { display: inline-block; font-size: 0.72rem; font-weight: 800; color: #cbd5e1; background: rgba(255, 255, 255, 0.05); border: 1px solid #64748b; padding: 4px 14px; border-radius: 20px; text-transform: uppercase; }
+        .sidebar-sign-text.exec-badge { color: var(--exec-color); background: rgba(168, 85, 247, 0.08); border-color: var(--exec-color); box-shadow: 0 0 8px var(--exec-glow); }
+        .sidebar-sign-text.dev-badge { color: var(--dev-color); background: rgba(244, 63, 94, 0.08); border-color: var(--dev-color); box-shadow: 0 0 8px var(--dev-glow); }
 
-        .sidebar-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.8rem;
-            color: #0047ff;
-            cursor: pointer;
+        .cyber-auth-btn {
+            width: 100%; padding: 12px 20px; background: #040817; color: var(--accent); border: 1px solid rgba(0, 243, 255, 0.4); border-radius: 10px;
+            font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s;
         }
+        .cyber-auth-btn:hover { background: rgba(0, 243, 255, 0.15); color: #fff; border-color: #00f3ff; box-shadow: 0 0 20px rgba(0, 243, 255, 0.4); }
+        .cyber-auth-btn.active-control { color: #fff; border-color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+        .cyber-auth-btn.active-control:hover { border-color: #f87171; background: rgba(239, 68, 68, 0.2); box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
 
-        .sidebar-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 20px;
-            margin-top: 15px;
-        }
+        .sidebar-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 18px 0; border: none; }
+        .sidebar-label { font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; padding-left: 5px; }
+        .sidebar-menu-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
 
-        .sidebar-logo {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            border: 3px solid #0047ff;
-            box-shadow: 0 0 15px rgba(0, 71, 255, 0.5);
-            margin-bottom: 12px;
-            object-fit: cover;
+        .sidebar-item-btn {
+            display: flex; align-items: center; justify-content: space-between; padding: 12px 15px; color: #cbd5e1; text-decoration: none;
+            font-size: 0.88rem; font-weight: 600; border-radius: 8px; background: rgba(255, 255, 255, 0.02); border: 1px solid transparent; cursor: pointer; transition: all 0.25s ease;
         }
+        .sidebar-item-btn:hover { background: rgba(0, 82, 255, 0.1); border-color: rgba(0, 82, 255, 0.3); color: #fff; transform: translateX(4px); }
 
-        .sidebar-title {
-            color: #fff;
-            font-size: 1.15rem;
-            font-weight: 700;
-            text-shadow: 0 0 8px #0047ff;
-            letter-spacing: 1px;
-        }
+        /* DROPDOWN & SUBMENU VIP */
+        .sub-menu-holder { list-style: none; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding-left: 12px; display: flex; flex-direction: column; gap: 4px; }
+        .sub-menu-holder li div { display: block; padding: 9px 15px; font-size: 0.84rem; color: #94a3b8; background: rgba(0,0,0,0.2); border-left: 2px solid var(--border); border-radius: 0 6px 6px 0; cursor: pointer; transition: 0.2s; }
+        .sub-menu-holder li div:hover { color: #fff; background: rgba(0, 243, 255, 0.05); border-left-color: var(--accent); padding-left: 18px; }
+        .dropdown-parent.open .sub-menu-holder { max-height: 400px; margin-top: 4px; margin-bottom: 6px; }
+        .dropdown-parent .arrow-icon { font-size: 0.7rem; transition: transform 0.3s; color: var(--text-muted); }
+        .dropdown-parent.open .arrow-icon { transform: rotate(180deg); color: var(--accent); }
 
-        /* Status Badge di Sidebar */
-        .user-status-badge {
-            background: rgba(255, 255, 255, 0.1);
-            color: #a2b4cc;
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            border-radius: 12px;
-            margin-top: 5px;
-            font-weight: bold;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .user-status-badge.executive {
-            background: rgba(168, 85, 247, 0.2);
-            color: #c084fc;
-            border-color: #a855f7;
-            box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
-        }
+        .exec-theme-btn:hover { background: rgba(168, 85, 247, 0.1) !important; border-color: rgba(168, 85, 247, 0.4) !important; }
+        .exec-sub-list li div { border-left-color: rgba(168, 85, 247, 0.3); }
+        .exec-sub-list li div:hover { border-left-color: var(--exec-color); background: rgba(168, 85, 247, 0.05); }
 
-        .sidebar-divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(0, 71, 255, 0.6), transparent);
-            margin: 15px 0;
-            border: none;
-        }
+        .hidden-exec-item { display: none !important; }
+        .dev-only-block { display: none !important; }
 
-        .sidebar-section-title {
-            color: #0066ff;
-            font-size: 0.85em;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-        .sidebar-section-title.exec-title {
-            color: #a855f7;
-        }
+        /* APK GRID & CARDS */
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
+        .welcome-header { text-align: center; margin-bottom: 30px; display: flex; flex-direction: column; align-items: center; gap: 10px;}
+        .welcome-header p { font-size: 0.95rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
 
-        .sidebar-menu {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .sidebar-menu li div, .sidebar-menu li a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 8px 12px;
-            color: #d1d5db;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .sidebar-menu li a:hover, .sidebar-menu li div:hover {
-            background: rgba(0, 71, 255, 0.15);
-            color: #fff;
-        }
-
-        /* Custom Hover Menu Executive */
-        .exec-menu-item:hover {
-            background: rgba(168, 85, 247, 0.2) !important;
-            color: #fff !important;
-        }
-
-        /* Sembunyikan default menu executive untuk user biasa */
-        .executive-only {
-            display: none !important;
-        }
-
-        /* STYLING MODAL PROMOSI OTOMATIS (POP-UP UTAMA) */
-        .promo-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.7);
-            background: linear-gradient(145deg, #04040c 0%, #000f30 100%);
-            border: 2px solid #00f3ff; 
-            border-radius: 20px;
-            padding: 25px;
-            max-width: 440px;
-            width: 88%;
-            box-shadow: 0 0 35px rgba(0, 243, 255, 0.4);
-            z-index: 2500;
-            text-align: center;
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .promo-modal.active {
-            display: block;
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .promo-badge {
-            background: #00f3ff;
-            color: #000;
-            font-size: 0.75rem;
-            font-weight: 800;
-            padding: 4px 12px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
-        }
-
-        .promo-title {
-            color: #fff;
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            text-shadow: 0 0 8px rgba(0, 243, 255, 0.3);
-        }
-
-        .promo-text {
-            font-size: 0.88rem;
-            color: #a2b4cc;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        .promo-btn-close {
-            background: linear-gradient(135deg, #00f3ff 0%, #0047ff 100%);
-            color: #fff;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 0.88rem;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 71, 255, 0.4);
-            text-align: center;
-        }
-
-        .promo-btn-close:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.6);
-        }
-
-        /* Modal Box Profile & Fitur Khusus */
-        .modder-modal, .executive-panel, .auth-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.7);
-            background: linear-gradient(145deg, #020205 0%, #000b21 100%);
-            border: 2px solid #0047ff;
-            border-radius: 25px;
-            padding: 30px;
-            max-width: 520px;
-            width: 92%;
-            box-shadow: 0 0 40px rgba(0, 71, 255, 0.6);
-            z-index: 2000;
-            text-align: center;
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .executive-panel {
-            border-color: #a855f7;
-            box-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
-            max-height: 88vh;
-            overflow-y: auto;
-        }
-
-        /* KHAS WEB MODAL LOGIN-LOGOUT */
-        .auth-modal {
-            max-width: 400px;
-            border-color: #a855f7;
-            box-shadow: 0 0 35px rgba(168, 85, 247, 0.5);
-        }
-
-        .modder-modal.active, .executive-panel.active, .auth-modal.active {
-            display: block;
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .modder-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid #00249c;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2em;
-            color: #ffffff;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 0 10px rgba(0, 71, 255, 0.8);
-        }
-
-        .modder-name { font-size: 1.5em; color: #fff; margin-bottom: 5px; }
-        .modder-role { color: #0066ff; font-size: 1.1em; margin-bottom: 15px; }
-        .modder-info { font-size: 0.9rem; line-height: 1.4; color: #a2b4cc; }
-
-        .modder-socials {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 10px 20px;
-            border-radius: 30px;
-            border: 2px solid #25d366;
-            color: #25d366;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .social-link.channel-one { border-color: #0047ff; color: #0066ff; }
-        .social-link.channel-two { border-color: #a855f7; color: #a855f7; }
-        .social-link.donate-link { border-color: #eab308; color: #eab308; }
-
-        .social-link:hover {
-            transform: scale(1.02);
-            background: currentColor;
-            color: #000;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.8em;
-            color: #0047ff;
-            cursor: pointer;
-            z-index: 10;
-        }
-        .executive-panel .close-modal, .auth-modal .close-modal {
-            color: #a855f7;
-        }
-
-        /* Overlay */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 1500;
-            backdrop-filter: blur(5px);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .overlay.active {
-            display: block;
-            opacity: 1;
-        }
-
-        /* Main Content Intro */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            padding: 10px 15px;
-            margin-bottom: 25px;
-        }
-
-        header p {
-            font-size: 0.95rem;
-            color: #0055ff;
-        }
-
-        /* APK Grid Layout Asli Horizontal */
-        .apk-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 25px;
-        }
-
+        .apk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
         .apk-card {
-            background: linear-gradient(145deg, #05050a 0%, #00081a 100%);
-            border: 1px solid #00249c;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 0 15px rgba(0, 36, 156, 0.2);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 15px;
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 20px;
+            position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; gap: 15px; box-shadow: 0 10px 35px rgba(0,0,0,0.6); transition: all 0.3s;
         }
-
-        .apk-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -150%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(0, 102, 255, 0.15), transparent);
-            transform: skewX(-25deg);
-            animation: laserShimmer 6s infinite ease-in-out;
-        }
-
-        @keyframes laserShimmer {
-            0% { left: -150%; }
-            30%, 100% { left: 250%; }
-        }
-
-        .apk-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 71, 255, 0.35);
-            border-color: #0066ff;
-        }
-
         .apk-card.hidden { display: none !important; }
 
-        .apk-top-row {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 16px;
+        .dev-edit-badge-btn {
+            position: absolute; top: 15px; right: 15px; background: rgba(244, 63, 94, 0.15); border: 1px solid var(--dev-color);
+            color: #fff; width: 32px; height: 32px; border-radius: 8px; display: none; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 0.9rem; z-index: 10; transition: 0.2s;
         }
+        .dev-edit-badge-btn:hover { background: var(--dev-color); box-shadow: 0 0 10px var(--dev-color); transform: scale(1.05); }
 
-        .apk-icon {
-            width: 78px;
-            height: 78px;
-            background: #000000;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid rgba(0, 71, 255, 0.5);
-            transition: transform 0.4s ease;
-            flex-shrink: 0;
-            font-size: 2.2rem;
+        .apk-top-flex { display: flex; gap: 14px; align-items: center; }
+        .apk-icon-frame { width: 70px; height: 70px; background: #020205; border: 2px solid var(--border); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
+        .apk-icon-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+        .apk-main-info { display: flex; flex-direction: column; gap: 4px; flex-grow: 1; min-width: 0; }
+        .apk-title { font-size: 1.15rem; font-weight: 800; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .apk-version { font-size: 0.82rem; color: var(--accent); font-weight: 700; }
+        .apk-badge-row { display: flex; flex-wrap: wrap; gap: 4px; }
+        .apk-badge { font-size: 0.68rem; font-weight: 700; color: #94a3b8; padding: 2px 6px; background: rgba(0, 82, 255, 0.08); border: 1px solid rgba(0, 82, 255, 0.2); border-radius: 5px; }
+
+        .apk-desc-area { background: rgba(2, 2, 5, 0.5); border: 1px solid rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; font-size: 0.84rem; color: #94a3b8; min-height: 60px; line-height: 1.4; }
+
+        .download-action-btn {
+            display: block; width: 100%; padding: 12px; text-align: center; background: linear-gradient(135deg, var(--primary) 0%, #002ba1 100%);
+            color: #fff; border: none; border-radius: 10px; font-size: 0.9rem; font-weight: 700; text-decoration: none; cursor: pointer; transition: 0.3s;
         }
+        .download-action-btn:hover { background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%); box-shadow: 0 0 15px var(--accent); }
 
-        .apk-card:hover .apk-icon {
-            transform: scale(1.05) rotate(2deg);
-            border-color: #00f3ff;
+        /* MODAL RESPONSIVE ENGINE */
+        .modal-box {
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.85);
+            background: var(--bg-card); border: 2px solid var(--primary); box-shadow: 0 0 50px rgba(0,0,0,0.9);
+            width: 92%; max-width: 460px; border-radius: 16px; padding: 20px; z-index: 2500; opacity: 0; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            max-height: 90vh; overflow-y: auto;
         }
+        .modal-box.active { display: block; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        .modal-close-btn { position: absolute; top: 12px; right: 16px; font-size: 1.5rem; color: var(--text-muted); cursor: pointer; z-index: 5; }
+        .modal-close-btn:hover { color: #fff; }
 
-        .apk-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 14px;
-        }
-
-        .apk-meta-info {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            flex-grow: 1;
-        }
-
-        .apk-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #fff;
-            line-height: 1.2;
-        }
-
-        .apk-version {
-            color: #0066ff;
-            font-weight: 700;
-            font-size: 0.88em;
-            margin-bottom: 2px;
-        }
-
-        .apk-details {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 4px;
-        }
-
-        .detail-item {
-            font-size: 0.72em;
-            color: #a2b4cc;
-            font-weight: 600;
-            padding: 4px 8px;
-            background: rgba(0, 36, 156, 0.1);
-            border: 1px solid #0047ff; 
-            border-radius: 6px;
-            white-space: nowrap;
-        }
-
-        .apk-bottom-content {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            flex-grow: 1;
-            justify-content: space-between;
-        }
-
-        .apk-description-box {
-            background: rgba(0, 5, 20, 0.6);
-            border: 1px solid #00249c; 
-            border-radius: 12px;
-            padding: 12px;
-        }
-
-        .apk-description {
-            color: #94a3b8;
-            line-height: 1.5;
-            font-size: 0.86em;
-            text-align: left;
-        }
-
-        .apk-action-area {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            width: 100%;
-        }
-
-        .download-btn {
-            display: block;
-            width: 100%;
-            padding: 11px 20px;
-            background: linear-gradient(135deg, #00249c 0%, #000a2b 100%);
-            color: #ffffff;
-            border: 1px solid #0047ff;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 0.9em;
-            text-align: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .download-btn:hover {
-            background: linear-gradient(135deg, #0047ff 0%, #001a66 100%);
-            border-color: #00f3ff;
-            box-shadow: 0 0 12px rgba(0, 114, 255, 0.5);
-            transform: scale(1.01);
-        }
-
-        /* STYLING KARTU REPOSITORY EXECUTIVE */
-        .exec-list-container {
+        /* FORM PHONE-OPTIMIZED SYSTEM (VERTICAL LAYOUT) */
+        .dev-panel-modal { border-color: var(--dev-color) !important; box-shadow: 0 0 50px rgba(0,0,0,0.9), 0 0 25px var(--dev-glow) !important; }
+        
+        /* Force single column for mobile screen optimization */
+        .form-mobile-vertical-stack {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-top: 15px;
-            text-align: left;
         }
+        
+        .form-group { display: flex; flex-direction: column; gap: 6px; text-align: left; }
+        .form-group label { font-size: 0.75rem; font-weight: 800; color: #cbd5e1; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            background: #020205; border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 8px; padding: 11px 14px; color: #fff; outline: none; font-size: 0.9rem; width: 100%;
+            -webkit-appearance: none;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--dev-color); box-shadow: 0 0 8px rgba(244, 63, 94, 0.2); }
+        
+        .form-btn-row { display: flex; gap: 10px; margin-top: 10px; }
 
-        .exec-file-card {
-            background: rgba(168, 85, 247, 0.05);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            border-radius: 12px;
-            padding: 14px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-        }
+        .overlay-mask { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 1500; opacity: 0; transition: opacity 0.3s; }
+        .overlay-mask.active { display: block; opacity: 1; }
 
-        .exec-file-info h4 {
-            color: #fff;
-            font-size: 0.95rem;
-            margin-bottom: 4px;
+        .floating-profile-trigger {
+            position: fixed; bottom: 20px; right: 20px; width: 48px; height: 48px; background: var(--primary); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 0 15px var(--primary-glow); cursor: pointer; z-index: 1200; transition: 0.3s; border: 1px solid var(--accent);
         }
+        .floating-profile-trigger:hover { transform: rotate(360deg) scale(1.1); background: var(--accent); }
 
-        .exec-file-info p {
-            color: #a2b4cc;
-            font-size: 0.8rem;
-            line-height: 1.3;
-        }
-
-        .exec-download-btn {
-            background: linear-gradient(135deg, #a855f7 0%, #6b21a8 100%);
-            color: #fff;
-            border: none;
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            cursor: pointer;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: 0.3s;
-        }
-        .exec-download-btn:hover {
-            box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
-            transform: scale(1.02);
-        }
-
-        /* Form Input Fitur Khusus */
-        .exec-label {
-            display: block;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: #c084fc;
-            margin-bottom: 5px;
-            text-align: left;
-        }
-        .exec-input, .exec-select {
-            width: 100%; background: #000; border: 1px solid #a855f7;
-            padding: 10px; color: #fff; border-radius: 8px; margin-bottom: 12px; outline: none;
-            font-family: monospace; font-size: 0.9rem;
-        }
-        .exec-file-input {
-            width: 100%; background: rgba(168, 85, 247, 0.1); border: 1px dashed #a855f7;
-            padding: 10px; color: #fff; border-radius: 8px; margin-bottom: 12px; outline: none;
-            font-size: 0.82rem; cursor: pointer;
-        }
-        .exec-btn {
-            width: 100%; padding: 11px; border: none; border-radius: 8px;
-            background: linear-gradient(135deg, #a855f7, #6b21a8);
-            color: #fff; font-weight: bold; cursor: pointer; transition: 0.3s;
-            font-size: 0.88rem;
-        }
-        .exec-btn:hover { box-shadow: 0 0 15px rgba(168, 85, 247, 0.6); }
-
-        .exec-btn.danger-logout {
-            background: linear-gradient(135deg, #ef4444, #b91c1c);
-        }
-        .exec-btn.danger-logout:hover { box-shadow: 0 0 15px rgba(239, 68, 68, 0.6); }
-
-        /* Output Download Box */
-        .output-download-box {
-            display: none;
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid #22c55e;
-            border-radius: 8px;
-            padding: 12px;
-            margin-top: 15px;
-            align-items: center;
-            justify-content: space-between;
-            text-align: left;
-        }
-        .output-download-box span { color: #22c55e; font-size: 0.82rem; font-weight: bold; }
-        .output-dl-link {
-            background: #22c55e; color: #000; text-decoration: none; padding: 6px 12px;
-            border-radius: 6px; font-size: 0.8rem; font-weight: bold; transition: 0.3s;
-        }
-        .output-dl-link:hover { background: #4ade80; box-shadow: 0 0 10px rgba(34,197,94,0.5); }
-
-        .modder-tab {
-            position: fixed; bottom: 25px; right: 25px; width: 50px; height: 50px;
-            background: #0047ff; color: white; border-radius: 50%; display: flex;
-            align-items: center; justify-content: center; font-size: 1.5rem;
-            box-shadow: 0 0 15px #0047ff; cursor: pointer; z-index: 1400; transition: 0.3s;
-        }
-        .modder-tab:hover { transform: scale(1.1); }
-
-        .footer {
-            text-align: center;
-            color: #0055ff;
-            padding: 25px;
-            margin-top: 40px;
-            border-top: 2px solid rgba(0, 36, 156, 0.3);
-        }
-
-        .warning {
-            background: rgba(255, 68, 68, 0.05);
-            border: 1px solid rgba(255, 68, 68, 0.3);
-            padding: 10px 15px;
-            border-radius: 10px;
-            color: #ff4444;
-            font-size: 0.85em;
-            margin-top: 12px;
-            font-weight: 600;
-            animation: dangerPulse 2s infinite ease-in-out;
-        }
-
-        @keyframes dangerPulse {
-            0%, 100% { box-shadow: 0 0 5px rgba(255, 68, 68, 0.2); }
-            50% { box-shadow: 0 0 15px rgba(255, 68, 68, 0.5); }
-        }
-
-        .no-results {
-            text-align: center;
-            color: #0055ff;
-            font-size: 1.3em;
-            padding: 40px;
-            display: none;
-        }
-
-        @media (max-width: 900px) {
-            .navbar { padding: 10px 16px; }
-            body { padding-top: 70px; }
-            .desktop-nav { display: none; }
-            .menu-toggle { display: flex; }
-            .logo { width: 34px; height: 34px; }
-            .main-title { font-size: 1.15rem; letter-spacing: 1px; }
-            .apk-grid { grid-template-columns: 1fr; gap: 18px; }
-            .apk-top-row { gap: 12px; }
-            .apk-icon { width: 70px; height: 70px; border-radius: 12px; }
-            .apk-title { font-size: 1.1em; }
-            .search-popover {
-                width: calc(100vw - 32px);
-                right: -16px;
-                top: 48px;
-            }
-            .search-popover input { width: 100%; }
-        }
-    </style>
+        .footer-notice { text-align: center; margin-top: 50px; padding: 25px 15px; border-top: 1px solid var(--border); }
+        .notice-danger-card { background: rgba(239, 68, 68, 0.04); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 12px; padding: 12px; color: #f87171; max-width: 750px; margin: 15px auto 0 auto; font-size: 0.82rem; font-weight: 600; line-height: 1.4; }
+        .no-results-alert { text-align: center; color: var(--text-muted); padding: 40px 0; display: none; font-weight: 600; }
+</style>
   </head>
   <body>
 
-    <!-- NAVBAR UTAMA -->
+    <!-- CORE SITE NAVBAR (GRID PATTERN FOR CENTERED LOGO) -->
     <div class="navbar">
       <div class="navbar-left">
-        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-        <div class="logo-container">
-          <img class="logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="Logo">
-        </div>
-        <div class="desktop-nav">
-          <div class="desktop-nav-item" onclick="filterCategory('all')">Semua</div>
-          <div class="desktop-nav-item" onclick="filterCategory('Game')">Game</div>
-          <div class="desktop-nav-item" onclick="filterCategory('Streaming')">Streaming</div>
-          <div class="desktop-nav-item" onclick="filterCategory('Music')">Music</div>
-          <div class="desktop-nav-item" onclick="filterCategory('Tools')">Tools</div>
-          <div class="desktop-nav-item" onclick="filterCategory('Entertainment')">Hiburan</div>
-          <div class="desktop-nav-item" onclick="filterCategory('Foto & Video')">Editor</div>
-          <div class="desktop-nav-item" onclick="openModderProfileDesktop()">About</div>
-        </div>
+        <button class="menu-toggle" onclick="handleSidebarDisplay()">☰</button>
       </div>
 
-      <div class="navbar-center">
-        <h1 class="main-title">MMK | Modz</h1>
+      <!-- LOGO DAN TEKS MMK MODS BERADA DI TENGAH -->
+      <div class="logo-box">
+        <img class="logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="Logo MMK">
+        <span class="main-title">MMK | MODS</span>
       </div>
 
       <div class="navbar-right">
-        <button class="search-trigger-btn" onclick="toggleSearchBox()">🔍</button>
+        <button class="search-trigger-btn" onclick="handleSearchToggle()">🔍</button>
         <div class="search-popover" id="searchPopover">
-          <input type="text" id="searchInput" placeholder="Cari APK..." onkeyup="searchApk()">
+          <input type="text" id="searchInput" placeholder="Cari Mod Game..." onkeyup="executeApkSearch()">
         </div>
       </div>
     </div>
 
-    <!-- SIDEBAR -->
-    <div class="sidebar" id="sidebar">
-      <span class="sidebar-close" onclick="toggleSidebar()">×</span>
-      <div class="sidebar-header">
-        <img class="sidebar-logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="Logo MMK">
-        <div class="sidebar-title">MMK | Modz</div>
-        <div id="userStatus" class="user-status-badge">User Biasa</div>
+    <!-- SIDEBAR ENGINE -->
+    <div class="sidebar" id="sidebarMenu">
+      <span class="sidebar-close" onclick="handleSidebarDisplay()">×</span>
+
+      <div class="sidebar-brand-area">
+        <img class="sidebar-community-logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="MMK Community">
+        <div class="sidebar-brand-title">MMK | MODS</div>
+        <div id="userSignBadge" class="sidebar-sign-text">Guest Mode</div>
       </div>
-      
-      <hr class="sidebar-divider">
-      <div class="sidebar-section-title">Aktivasi Mode</div>
-      <ul class="sidebar-menu">
-         <li><div id="authMenuBtn" onclick="openAuthModal()" style="border: 1px solid #0047ff; color: #0066ff;">🔓 Login Akses</div></li>
-      </ul>
 
-      <hr class="sidebar-divider">
-      <div class="sidebar-section-title">Kategori apk</div>
-      <ul class="sidebar-menu">
-        <li><div onclick="filterCategory('all')">📱 Semua Aplikasi</div></li>
-        <li><div onclick="filterCategory('Game')">🎮 Game Modifikasi</div></li>
-        <li><div onclick="filterCategory('Streaming')">🎬 Streaming / TV</div></li>
-        <li><div onclick="filterCategory('Music')">🎵 Musik / Audio</div></li>
-        <li><div onclick="filterCategory('Tools')">🛠️ Tools / Utilitas</div></li>
-        <li><div onclick="filterCategory('Entertainment')">🎭 Hiburan / Komik</div></li>
-        <li><div onclick="filterCategory('Foto & Video')">📸 Foto & Video Editor</div></li>
-      </ul>
-
-      <!-- MENU REPOSITORY EXECUTIVE -->
-      <hr class="sidebar-divider executive-only">
-      <div class="sidebar-section-title exec-title executive-only">👑 Executive Repository</div>
-      <ul class="sidebar-menu executive-only">
-        <li><div class="exec-menu-item" onclick="openExecutivePanel('tools')">🧰 Tools Modder (.apk)</div></li>
-        <li><div class="exec-menu-item" onclick="openExecutivePanel('sc')">📜 Script & Termux (.py)</div></li>
-        <li><div class="exec-menu-item" onclick="openExecutivePanel('instant')">⚡ Instant Premium (.lpzip)</div></li>
-      </ul>
-
-      <hr class="sidebar-divider executive-only">
-      <div class="sidebar-section-title exec-title executive-only">🖥️ Modding Web Tools</div>
-      <ul class="sidebar-menu executive-only">
-        <li><div class="exec-menu-item" onclick="openExecutivePanel('flutter')">⚔️ Flutter Patcher</div></li>
-        <li><div class="exec-menu-item" onclick="openExecutivePanel('blutter')">🧬 Blutter Flutter Dump</div></li>
-        <li><div class="exec-menu-item" onclick="openExecutivePanel('hexeditor')">🧭 Hex Editor Online</div></li>
-        <li><div class="exec-menu-item" onclick="openExecutivePanel('stringtohex')">🔄 String to Hex</div></li>
-      </ul>
-
-      <hr class="sidebar-divider">
-      <div class="sidebar-section-title">Informasi & Dukungan</div>
-      <ul class="sidebar-menu">
-        <li><div onclick="openModderProfile()">👤 About modder</div></li>
-        <li><a href="https://whatsapp.com/channel/0029Vb7i2omLNSa3VM8Chc1A" target="_blank">📢 Join saluran Utama</a></li>
-        <li><a href="https://whatsapp.com/channel/0029Vb7vQrL1yT22MFrBrR42" target="_blank">🔔 Join saluran Alternatif</a></li>
-        <li><a href="https://saweria.co/MrKhenzoOFFICIAL" target="_blank">☕ Donate modder</a></li>
-      </ul>
-    </div>
-
-    <!-- POP-UP PROMOSI UTAMA (TOP UP GAME) -->
-    <div class="promo-modal" id="promoModal">
-      <div class="promo-badge">Pengumuman Resmi</div>
-      <h3 class="promo-title">Selamat Datang di MMK Modz!</h3>
-      <p class="promo-text">
-        Semua file APK Premium Mod di website ini dibagikan secara <strong>100% Free / Gratis</strong> untuk seluruh member grup!<br><br>
-        Jangan lupa untuk join <strong>Saluran WhatsApp Utama</strong> kami agar tidak ketinggalan update mod versi terbaru setiap hari.<br><br>
-        Kini kami juga menyediakan platform top up game, yuk cek ke platform top up game!
-      </p>
-      
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <a href="https://saweria.co/MrKhenzoOFFICIAL" target="_blank" class="promo-btn-close" style="text-decoration: none; display: block; background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); color: #000; border: 1px solid #eab308;" onclick="closePromoModal()">
-          🎮 TOP UP GAME 🎮
-        </a>
-        <button class="promo-btn-close" style="background: linear-gradient(135deg, #00f3ff 0%, #0047ff 100%); color: #fff; border: 1px solid #00f3ff;" onclick="closePromoModal()">
-          SKIP
+      <div class="cyber-auth-container" style="margin-bottom: 22px;">
+        <button id="authTriggerBtn" class="cyber-auth-btn" onclick="handleAuthModalDisplay()">
+          ⚙️ Sign In
         </button>
       </div>
+
+      <div class="sidebar-label">Kategori Aplikasi</div>
+      <ul class="sidebar-menu-list">
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('all')">📱 All Apps</div></li>
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('Aplikasi Mod')">📦 Aplikasi Mod</div></li>
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('Games Mod')">🎮 Games Mod</div></li>
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('Streaming')">🎬 Streaming</div></li>
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('Music')">🎵 Music</div></li>
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('Tools')">🛠️ Tools</div></li>
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('Editor')">📸 Editor</div></li>
+      </ul>
+
+      <div class="sidebar-divider dev-only-block"></div>
+      <div class="sidebar-label dev-only-block" style="color: var(--dev-color);">Dev Database Tool</div>
+      <ul class="sidebar-menu-list dev-only-block">
+        <li><div class="sidebar-item-btn" style="border-color: rgba(244,63,94,0.3); background: rgba(244,63,94,0.05);" onclick="exportCurrentApksFile()">💾 Ekspor Berkas apks.js</div></li>
+      </ul>
+
+      <!-- EXECUTIVE SECTIONS -->
+      <div class="sidebar-divider hidden-exec-item"></div>
+      <div class="sidebar-label hidden-exec-item" style="color: var(--exec-color);">Exclusive MODDED</div>
+      <ul class="sidebar-menu-list hidden-exec-item">
+        <li class="dropdown-parent" id="dropToolsModder">
+          <div class="sidebar-item-btn exec-theme-btn" onclick="handleDropdownTrigger('dropToolsModder')">
+            <span>🧰 Modder Tools app</span><span class="arrow-icon exec-arrow">▼</span>
+          </div>
+          <ul class="sub-menu-holder exec-sub-list">
+            <li><div onclick="showExecAppDetails('npManager')">- np manager</div></li>
+            <li><div onclick="showExecAppDetails('mtManager')">- mt manager</div></li>
+            <li><div onclick="showExecAppDetails('toolM')">- tool M</div></li>
+            <li><div onclick="showExecAppDetails('luckyPatcher')">- Lucky patcher</div></li>
+            <li><div onclick="showExecAppDetails('modderhub')">- Modderhub</div></li>
+          </ul>
+        </li>
+        <li class="dropdown-parent" id="dropScriptsTermux" style="margin-top: 5px;">
+          <div class="sidebar-item-btn exec-theme-btn" onclick="handleDropdownTrigger('dropScriptsTermux')">
+            <span>📜 Scrip termux</span><span class="arrow-icon exec-arrow">▼</span>
+          </div>
+          <ul class="sub-menu-holder exec-sub-list">
+            <li><div onclick="showExecAppDetails('hermesPatcher')">- hermes patcher</div></li>
+            <li><div onclick="showExecAppDetails('flutterPatcher')">- flutter patcher</div></li>
+            <li><div onclick="showExecAppDetails('ultimateFlutter')">- ultimate flutter patcher</div></li>
+            <li><div onclick="showExecAppDetails('blutter')">- blutter</div></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="sidebar-divider hidden-exec-item"></div>
+      <div class="sidebar-label hidden-exec-item" style="color: var(--exec-color);">Instant Premium</div>
+      <ul class="sidebar-menu-list hidden-exec-item">
+        <li class="dropdown-parent" id="dropInstantPrem">
+          <div class="sidebar-item-btn exec-theme-btn" onclick="handleDropdownTrigger('dropInstantPrem')">
+            <span>⚡ INSTANT PREMIUM</span><span class="arrow-icon exec-arrow">▼</span>
+          </div>
+          <ul class="sub-menu-holder exec-sub-list">
+            <li><div onclick="showExecAppDetails('beautyPlus')">- Beutyplus</div></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="sidebar-divider hidden-exec-item"></div>
+      <div class="sidebar-label hidden-exec-item" style="color: var(--exec-color);">Regex Generator</div>
+      <ul class="sidebar-menu-list hidden-exec-item">
+        <li class="dropdown-parent" id="dropRegexUtility">
+          <div class="sidebar-item-btn exec-theme-btn" onclick="handleDropdownTrigger('dropRegexUtility')">
+            <span>🧭 REGEX</span><span class="arrow-icon exec-arrow">▼</span>
+          </div>
+          <ul class="sub-menu-holder exec-sub-list">
+            <li><div onclick="showExecAppDetails('regexVip')">- unlock VIP | regex 1-5</div></li>
+            <li><div onclick="showExecAppDetails('regexAds')">- ads | regex 1</div></li>
+            <li><div onclick="showExecAppDetails('regexLicense')">- License | regex 1</div></li>
+            <li><div onclick="showExecAppDetails('regexFb')">- bypas sign FB | regex 1-2</div></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-label">About modder</div>
+      <ul class="sidebar-menu-list">
+        <li><div class="sidebar-item-btn" onclick="handleModderProfileModal()">👤 Profil Owner</div></li>
+        <li><a class="sidebar-item-btn" href="https://chat.whatsapp.com/LDzlBOXR3I12Rb79oy5TFJ" target="_blank">💬 Grup WhatsApp 🚀</a></li>
+      </ul>
     </div>
 
-    <!-- ======================================================== -->
-    <!-- MODAL KHAS WEB: LOGIN / LOGOUT EXECUTIVE -->
-    <!-- ======================================================== -->
-    <div class="auth-modal" id="authModal">
-        <span class="close-modal" onclick="closeAuthModal()">×</span>
-        
-        <!-- Konten Khusus Login -->
-        <div id="loginFormContainer">
-            <h2 class="modder-name" style="color: #a855f7;">🔓 Executive Access</h2>
-            <p class="modder-role" style="color: #c084fc; font-size: 0.9rem; margin-bottom: 20px;">Masukkan Token Untuk Membuka Fitur Modder</p>
-            <div style="text-align: left;">
-                <label class="exec-label">Token Akses Rahasia:</label>
-                <input type="password" id="tokenAksesInput" class="exec-input" placeholder="••••••••" style="text-align: center; letter-spacing: 3px;">
-                <button class="exec-btn" onclick="submitExecutiveLogin()">VERIFIKASI AKSES</button>
-            </div>
-        </div>
+    <!-- MASK OVERLAY -->
+    <div class="overlay-mask" id="globalOverlay" onclick="closeActiveOverlays()"></div>
 
-        <!-- Konten Khusus Logout -->
-        <div id="logoutFormContainer" style="display: none;">
-            <h2 class="modder-name" style="color: #ef4444;">🔒 Keluar Mode Executive</h2>
-            <p class="modder-role" style="color: #f87171; font-size: 0.9rem; margin-bottom: 25px;">Anda akan beralih kembali menjadi User Biasa</p>
-            <button class="exec-btn danger-logout" onclick="submitExecutiveLogout()">KELUAR SEKARANG</button>
-        </div>
-    </div>
-
-
-    <!-- ======================================================== -->
-    <!-- PANEL REPOSITORI KARTU DOWNLOAD -->
-    <!-- ======================================================== -->
-
-    <!-- PANEL 1: TOOLS -->
-    <div class="executive-panel" id="panel-tools">
-        <span class="close-modal" onclick="closeAllPanels()">×</span>
-        <h2 class="modder-name" style="color: #a855f7;">🧰 Tools Modder APK</h2>
-        <p class="modder-role" style="margin-bottom: 10px;">Aplikasi Pembongkar & Editor Berkas</p>
-        <div class="exec-list-container">
-            <div class="exec-file-card">
-                <div class="exec-file-info">
-                    <h4>NP Manager Premium v1.6.0</h4>
-                    <p>Fungsi: Mengedit dex, arsc, string translation, bypass signature verification.</p>
-                </div>
-                <a href="https://example.com/download/npmanager.apk" target="_blank" class="exec-download-btn">DOWNLOAD</a>
-            </div>
-            <div class="exec-file-card">
-                <div class="exec-file-info">
-                    <h4>MT Manager VIP Cloned</h4>
-                    <p>Fungsi: Jembatan Hex offset, decompile cepat, dan sign berkas otomatis.</p>
-                </div>
-                <a href="https://example.com/download/mtmanager.apk" target="_blank" class="exec-download-btn">DOWNLOAD</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- PANEL 2: SC -->
-    <div class="executive-panel" id="panel-sc">
-        <span class="close-modal" onclick="closeAllPanels()">×</span>
-        <h2 class="modder-name" style="color: #a855f7;">📜 Script Python & Termux</h2>
-        <p class="modder-role" style="margin-bottom: 10px;">Akses Source Script Automasi Modding</p>
-        <div class="exec-list-container">
-            <div class="exec-file-card">
-                <div class="exec-file-info">
-                    <h4>dump_lib_unity_offset.py</h4>
-                    <p>Fungsi: Membaca otomatis libil2cpp.so dan membuang metadata token fungsi Unity.</p>
-                </div>
-                <a href="https://example.com/download/dump_script.py" target="_blank" class="exec-download-btn">GET SCRIPT</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- PANEL 3: INSTANT PREMIUM (.LPZIP) -->
-    <div class="executive-panel" id="panel-instant">
-        <span class="close-modal" onclick="closeAllPanels()">×</span>
-        <h2 class="modder-name" style="color: #a855f7;">⚡ Instant Premium Patcher</h2>
-        <p class="modder-role" style="margin-bottom: 10px;">Custom Patch Lucky Patcher Imports (.lpzip)</p>
-        <div class="exec-list-container">
-            <div class="exec-file-card">
-                <div class="exec-file-info">
-                    <h4>all_streaming_app_bypass.lpzip</h4>
-                    <p>Fungsi: Otomatis membuka lisensi premium/VIP tanpa iklan pada apk streaming.</p>
-                </div>
-                <a href="https://example.com/download/streaming_patch.lpzip" target="_blank" class="exec-download-btn">GET LPZIP</a>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- ======================================================== -->
-    <!-- MODDING WEB TOOLS INTERAKTIF DAN FUNGSIONAL -->
-    <!-- ======================================================== -->
-
-    <!-- PANEL 4: FLUTTER PATCHER BERKUALITAS (UI REFRESHED) -->
-    <div class="executive-panel" id="panel-flutter">
-        <span class="close-modal" onclick="closeAllPanels()">×</span>
-        <h2 class="modder-name" style="color: #a855f7;">⚔️ Flutter Patcher Pro</h2>
-        <p class="modder-role">Binary Automation Target Offset Modifier</p>
-        
-        <div style="text-align: left; margin-top:15px;">
-            <label class="exec-label">Muat Berkas (Select libapp.so):</label>
-            <input type="file" class="exec-file-input">
-
-            <label class="exec-label">Select Arsitektur:</label>
-            <select class="exec-select">
-                <option>ARM64-v8a (64-bit)</option>
-                <option>ARMEABI-v7a (32-bit)</option>
-                <option>x86_64</option>
-            </select>
-
-            <label class="exec-label">Offset Target:</label>
-            <input type="text" class="exec-input" value="0x1A2B3C" placeholder="Contoh: 0x7A4F20">
-
-            <label class="exec-label">Function Patching Method:</label>
-            <select class="exec-select">
-                <option>Atur ke true</option>
-                <option>Atur ke false</option>
-                <option>Return true</option>
-                <option>Return false</option>
-                <option>Sisipkan NOP (00 00 20 D4)</option>
-                <option>Paksa return</option>
-                <option>Hex Custom</option>
-            </select>
-
-            <button class="exec-btn" onclick="executePatcherSim('flutter')">PROSES & PATCH BINARY</button>
-
-            <!-- Box Unduhan Hasil Output Patcher -->
-            <div class="output-download-box" id="dl-box-flutter">
-                <span>✔️ Berkas libapp.so Berhasil Di-patch!</span>
-                <a href="#" class="output-dl-link" download="libapp_patched.so">UNDUH OUTPUT</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- PANEL 5: BLUTTER FLUTTER DUMP -->
-    <div class="executive-panel" id="panel-blutter">
-        <span class="close-modal" onclick="closeAllPanels()">×</span>
-        <h2 class="modder-name" style="color: #a855f7;">🧬 Blutter Flutter Dump</h2>
-        <p class="modder-role">Framework Metadata & Extraction Engine</p>
-        
-        <div style="text-align: left; margin-top:15px;">
-            <label class="exec-label">Muat Berkas 1 (Select libapp.so):</label>
-            <input type="file" class="exec-file-input">
-
-            <label class="exec-label">Muat Berkas 2 (Select libflutter.so):</label>
-            <input type="file" class="exec-file-input">
-
-            <label class="exec-label">API Key Default:</label>
-            <input type="text" class="exec-input" value="N/A" placeholder="N/A">
-
-            <button class="exec-btn" onclick="executePatcherSim('blutter')">EKSTRAK METADATA DUMP</button>
-
-            <!-- Box Unduhan Hasil Output Blutter -->
-            <div class="output-download-box" id="dl-box-blutter">
-                <span>✔️ Dump Sukses! String & API Key Berhasil Diekstrak.</span>
-                <a href="#" class="output-dl-link" download="blutter_dump_result.txt">UNDUH OUTPUT</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- PANEL 6: HEX EDITOR SIMULATION -->
-    <div class="executive-panel" id="panel-hexeditor">
-        <span class="close-modal" onclick="closeAllPanels()">×</span>
-        <h2 class="modder-name" style="color: #a855f7;">🧭 Hex Editor Tool</h2>
-        <p class="modder-role">Quick Hex Offset Inverted Reader</p>
-        <div style="text-align: left; margin-top:15px;">
-            <label class="exec-label">Masukkan Alamat Offset:</label>
-            <input type="text" class="exec-input" value="0x00A1B2C3">
-            <label class="exec-label">Ganti Nilai Opcode (Hex Value):</label>
-            <input type="text" class="exec-input" value="00 00 A0 E3">
-            <button class="exec-btn" onclick="alert('Offset dihitung sukses!')">HITUNG REVERSE CODE</button>
-        </div>
-    </div>
-
-    <!-- PANEL 7: STRING TO HEX CONVERTER -->
-    <div class="executive-panel" id="panel-stringtohex">
-        <span class="close-modal" onclick="closeAllPanels()">×</span>
-        <h2 class="modder-name" style="color: #a855f7;">🔄 String to Hex Converter</h2>
-        <p class="modder-role">Convert Text Data to Hex Codes</p>
-        <div style="text-align: left; margin-top:15px;">
-            <label class="exec-label">Masukkan Text / String:</label>
-            <input type="text" class="exec-input" id="inputString" value="Premium_Unlocked" onkeyup="convertStringToHex()">
-            <label class="exec-label">Hasil Konversi Hex Code:</label>
-            <input type="text" class="exec-input" id="resultHex" style="color: #22c55e; border-color: #22c55e;" readonly>
-        </div>
-    </div>
-
-    <!-- TAB FLOATING PROFILE -->
-    <div class="modder-tab" onclick="toggleModderModal()">👤</div>
-    <div class="overlay" id="overlay" onclick="closeAllPanels()"></div>
-
-    <!-- MODAL PROFILE MODDER -->
-    <div class="modder-modal" id="modderModal">
-      <span class="close-modal" onclick="toggleModderModal()">×</span>
-      <div class="modder-avatar">MMK</div>
-      <h2 class="modder-name">MMK Modder</h2>
-      <p class="modder-role">Lead Modder & Developer</p>
-      <div class="modder-info">
-        Komunitas MMK (Modz Master Killer)<br>
-        Spesialis APK Modifikasi & Android Customization
+    <!-- MODAL: SECURITY GATE -->
+    <div class="modal-box" id="authGateModal">
+      <span class="modal-close-btn" onclick="closeActiveOverlays()">×</span>
+      <h3 style="margin-bottom: 10px; color:#fff;">🛡️ SIGN IN </h3>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom: 20px;">Masukkan Token Akses untuk berpindah mode.</p>
+      <div id="loginFormState">
+        <input type="password" id="devKeyInput" style="background:#020205; border:1px solid var(--border); border-radius:8px; padding:12px; color:#fff; width:100%; margin-bottom:15px; text-align:center; letter-spacing:4px; outline:none;" placeholder="••••••••">
+        <button class="download-action-btn" onclick="processAuthVerification()">VERIFIKASI AKSES</button>
       </div>
-      <div class="modder-socials">
-        <a href="https://saweria.co/MrKhenzoOFFICIAL" target="_blank" class="social-link donate-link"><span>☕</span> Dukung Melalui Saweria</a>
-        <a href="https://chat.whatsapp.com/LDzlBOXR3I12Rb79oy5TFJ?mode=hqctcla" target="_blank" class="social-link"><span>💬</span> Grup WhatsApp MMK</a>
-        <a href="https://whatsapp.com/channel/0029Vb7i2omLNSa3VM8Chc1A" target="_blank" class="social-link channel-one"><span>📢</span> Saluran Utama MMK</a>
+      <div id="logoutFormState" style="display:none; text-align:center;">
+        <p id="authActiveModeText" style="color:var(--accent); margin-bottom:20px; font-size:0.9rem; font-weight:bold;"></p>
+        <button class="download-action-btn" style="background:linear-gradient(135deg, #ef4444, #991b1b)" onclick="processAuthLogout()">LOGOUT / KEMBALI JADI GUEST</button>
       </div>
     </div>
 
-    <!-- KONTEN UTAMA LIST APK -->
+    <!-- MODAL: DATA INPUT FOR ADD/EDIT APK (OPTIMIZED VERTICAL FOR PHONES) -->
+    <div class="modal-box dev-panel-modal" id="devApkFormModal">
+      <span class="modal-close-btn" onclick="closeActiveOverlays()">×</span>
+      <h3 id="formModalTitle" style="margin-bottom: 15px; color:#fff; font-size: 1.15rem; border-bottom: 1px solid rgba(244, 63, 94, 0.2); padding-bottom: 10px;">➕ TAMBAH APK BARU</h3>
+      <input type="hidden" id="formEditIndex" value="">
+
+      <!-- Menggunakan susunan vertikal murni terpusat (Phone layout friendly) -->
+      <div class="form-mobile-vertical-stack">
+        <div class="form-group">
+          <label>Nama APK</label>
+          <input type="text" id="formApkName" placeholder="Contoh: Mobile Legends Mod">
+        </div>
+
+        <div class="form-group">
+          <label>Versi</label>
+          <input type="text" id="formApkVersion" placeholder="Contoh: v1.0.2">
+        </div>
+
+        <div class="form-group">
+          <label>Kategori</label>
+          <select id="formApkCategory">
+            <option value="Aplikasi Mod">Aplikasi Mod</option>
+            <option value="Games Mod">Games Mod</option>
+            <option value="Streaming">Streaming</option>
+            <option value="Music">Music</option>
+            <option value="Tools">Tools</option>
+            <option value="Editor">Editor</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Ukuran Size</label>
+          <input type="text" id="formApkSize" placeholder="Contoh: 25 MB">
+        </div>
+
+        <div class="form-group">
+          <label>Sistem Android</label>
+          <input type="text" id="formApkAndroid" placeholder="Contoh: Android 5.0+">
+        </div>
+
+        <div class="form-group">
+          <label>Deskripsi Fitur</label>
+          <textarea id="formApkDesc" rows="3" placeholder="Tulis deskripsi keunggulan mod di sini..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>URL Gambar (Img)</label>
+          <input type="text" id="formApkImg" placeholder="https://domain.com/gambar.png">
+        </div>
+
+        <div class="form-group">
+          <label>URL Download</label>
+          <input type="text" id="formApkLink" placeholder="https://downloadlink.com">
+        </div>
+      </div>
+
+      <div class="form-btn-row">
+        <button class="download-action-btn" style="background:#334155; padding: 11px;" onclick="closeActiveOverlays()">CANCEL</button>
+        <button class="download-action-btn" style="background:linear-gradient(135deg, var(--dev-color) 0%, #991b1b 100%); padding: 11px;" onclick="saveApkFormSubmission()">UPLOAD</button>
+      </div>
+    </div>
+
+    <!-- MODAL: CODES EXPORTER -->
+    <div class="modal-box dev-panel-modal" id="devDatabaseExportModal">
+      <span class="modal-close-btn" onclick="closeActiveOverlays()">×</span>
+      <h3 style="margin-bottom: 5px; color:#fff;">📂 SALIN DATABASE APKS.JS</h3>
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom: 15px;">Salin seluruh teks kode di bawah ini lalu gantikan (paste) ke dalam file <b>apks.js</b> Anda.</p>
+      <div class="form-group">
+        <textarea id="exportTextareaContainer" rows="12" style="font-family: 'Courier New', monospace; font-size: 0.78rem; line-height: 1.4; color: #67e8f9; background:#010208;" readonly onclick="this.select()"></textarea>
+      </div>
+      <button class="download-action-btn" style="background:linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);" onclick="copyExportedTextToClipboard()">📋 KLIK SALIN SEMUA KODE</button>
+    </div>
+
+    <!-- MODAL: EXECUTIVE DETAILS -->
+    <div class="modal-box exec-panel-modal" id="execAppDetailsModal">
+      <span class="modal-close-btn" onclick="closeActiveOverlays()">×</span>
+      <div class="apk-top-flex" style="border-bottom: 1px solid rgba(168, 85, 247, 0.2); padding-bottom: 15px; margin-bottom: 10px;">
+        <div class="apk-icon-frame" id="execModalIcon" style="border-color: var(--exec-color);"></div>
+        <div class="apk-main-info">
+          <span class="apk-title" id="execModalName">Nama Aplikasi</span>
+          <span class="apk-version" id="execModalVersion">Versi: 1.0.0</span>
+          <div class="apk-badge-row" id="execModalBadges"></div>
+        </div>
+      </div>
+      <div class="exec-header-row">
+        <span class="sidebar-label" style="color: var(--exec-color); font-size: 0.72rem; padding-left:0; margin-bottom:0;">FUNGSI & ENGINE UTAMA :</span>
+        <a href="#" target="_blank" id="execModalDownloadBtn" class="exec-panel-download-btn"> UNDUH </a>
+      </div>
+      <div style="text-align: left;">
+        <div class="exec-feature-list" id="execModalFeatures"></div>
+      </div>
+    </div>
+
+    <!-- MODAL: OWNER PROFILE -->
+    <div class="modal-box" id="modderProfileModal">
+      <span class="modal-close-btn" onclick="closeActiveOverlays()">×</span>
+      <div style="text-align:center; padding:10px 0;">
+        <div style="width:75px; height:75px; background:rgba(0,243,255,0.1); border:2px solid var(--accent); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px auto; font-weight:900; color:#fff; font-size:1.5rem;">MMK</div>
+        <h3 style="color:#fff; margin-bottom:4px;">MMK Modder Engine</h3>
+        <p style="color:var(--accent); font-size:0.85rem; font-weight:700; margin-bottom:15px;">Lead Software Modificator</p>
+        <p style="font-size:0.84rem; color:var(--text-muted); line-height:1.5;">Ekosistem Aplikasi Android khusus internal MMK Team.</p>
+      </div>
+    </div>
+
+    <!-- MAIN INTERFACE -->
     <div class="container">
-      <header>
-        <p>Kumpulan APK modifikasi terbaik dari komunitas MMK</p>
-      </header>
-      <div class="apk-grid" id="apkGrid"></div>
-      <div class="no-results" id="noResults">🔍 Tidak ada APK yang cocok dengan kriteria pencarian</div>
-      <div class="footer">
-        <p>Designer By <strong> Khenzo</strong></p>
-        <div class="warning">⚠️ PENTING!!. APLIKASI KAMI 100% GRATIS, APABILA ANDA MENDAPATKAN APLIKASI INI BAYAR MAKA SEGERA MINTA PENGEMBALIAN DANA ANDA.</div>
+      <div class="welcome-header">
+        <p>Premium Modded Applications Database</p>
+        <button class="download-action-btn dev-only-block" style="max-width:250px; background: linear-gradient(135deg, var(--dev-color) 0%, #b91c1c 100%); margin-top:10px;" onclick="openAddApkFormModal()">
+          ➕ TAMBAH DATA APK BARU
+        </button>
+      </div>
+
+      <div class="apk-grid" id="apkDisplayGrid"></div>
+      <div class="no-results-alert" id="searchEmptyAlert">❌ Berkas Mod tidak ditemukan. Silakan cek kembali kata kunci Anda.</div>
+
+      <div class="footer-notice">
+        <p style="color:var(--text-muted); font-size:0.85rem;">Platform Architecture Crafted By <strong>Khenzo</strong></p>
+        <div class="notice-danger-card">
+          ⚠️ PERINGATAN KERAS: SELURUH LAYANAN PADA PLATFORM MMK DISEDIAKAN 100% GRATIS!
+        </div>
       </div>
     </div>
 
-    <!-- IMPORT DATABASE DAFTAR APK -->
+    <div class="floating-profile-trigger" onclick="handleModderProfileModal()">👤</div>
+
+    <!-- EXTERNAL FILE DATABASE -->
     <script src="apks.js"></script>
+    <script src="VIP.js"></script>
 
-    <!-- LOGIKA SCRIPT UTAMA -->
-    <script>
-        const TOKEN_RAHASIA = 'MMK_VIP'; 
+    <!-- SYSTEM SCRIPT CONTROLLER -->
+<script>
+        const TOKEN_EXECUTIVE = ". -..- . -.-. ..- - .. ...-";
+        const TOKEN_DEVELOPER = "--- .-- -. . .-. / -- -- -.-";
 
-        // RENDER UTAMA DAFTAR APK
-        function renderApkListCatalog() {
-            const apkGrid = document.getElementById('apkGrid');
-            if (typeof apks !== 'undefined' && apkGrid) {
-                apkGrid.innerHTML = "";
-                apks.forEach((apk, index) => {
-                    const card = document.createElement('div');
-                    card.className = 'apk-card';
-                    card.setAttribute('data-category', apk.category);
-                    card.id = `apk-${index}`;
+        let internalApksData = [];
 
-                    let actionAreaHTML = '';
-                    if(apk.multiDownload) {
-                        let buttonsHTML = '';
-                        for (const [key, value] of Object.entries(apk.links)) {
-                            buttonsHTML += `<a href="${value}" target="_blank" class="download-btn">⬇️ DOWNLOAD VIA ${key.toUpperCase()}</a>`;
-                        }
-                        actionAreaHTML = `<div class="apk-action-area">${buttonsHTML}</div>`;
-                    } else {
-                        actionAreaHTML = `<div class="apk-action-area"><a href="${apk.downloadUrl}" target="_blank" class="download-btn">⬇️ DOWNLOAD APK</a></div>`;
-                    }
+        function initializeCatalogueEngine() {
+            const grid = document.getElementById('apkDisplayGrid');
+            if (!grid) return;
 
-                    let fallbackEmoji = '📱';
-                    if (apk.category === 'Streaming') fallbackEmoji = '🎬';
-                    else if (apk.category === 'Game') fallbackEmoji = '🎮';
-                    else if (apk.category === 'Music') fallbackEmoji = '🎵';
-                    else if (apk.category === 'Tools') fallbackEmoji = '🛠️';
-
-                    card.innerHTML = `
-                        <div class="apk-top-row">
-                            <div class="apk-icon">
-                                <img src="${apk.imageUrl}" alt="${apk.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='${fallbackEmoji}';" loading="lazy">
-                            </div>
-                            <div class="apk-meta-info">
-                                <div class="apk-title">${apk.name}</div>
-                                <div class="apk-version">${apk.version}</div>
-                                <div class="apk-details">
-                                    <span class="detail-item">💾 ${apk.size}</span>
-                                    <span class="detail-item">🤖 ${apk.android}</span>
-                                    <span class="detail-item">📁 ${apk.category}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="apk-bottom-content">
-                            <div class="apk-description-box">
-                                <div class="apk-description">${apk.description}</div>
-                            </div>
-                            ${actionAreaHTML}
-                        </div>
-                    `;
-                    apkGrid.appendChild(card);
-                });
+            const savedLocalData = localStorage.getItem('mmk_local_apks');
+            if (savedLocalData) {
+                internalApksData = JSON.parse(savedLocalData);
+            } else if (typeof apks !== 'undefined') {
+                internalApksData = apks;
             }
+
+            renderGridCards();
+        }
+
+        function renderGridCards() {
+            const grid = document.getElementById('apkDisplayGrid');
+            grid.innerHTML = "";
+
+            const activeRole = localStorage.getItem('mmk_sys_role') || 'GUEST';
+
+            internalApksData.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'apk-card';
+                card.setAttribute('data-target-cat', item.category);
+
+                let defaultIcon = '📱';
+                if (item.category === 'Streaming') defaultIcon = '🎬';
+                else if (item.category === 'Games Mod') defaultIcon = '🎮';
+                else if (item.category === 'Music') defaultIcon = '🎵';
+                else if (item.category === 'Tools') defaultIcon = '🛠️';
+
+                let devEditButton = `<div class="dev-edit-badge-btn" style="display:${activeRole === 'DEVELOPER' ? 'flex' : 'none'}" onclick="openEditApkFormModal(${index})">✏️</div>`;
+
+                card.innerHTML = `
+                    ${devEditButton}
+                    <div class="apk-top-flex">
+                        <div class="apk-icon-frame">
+                            <img src="${item.imageUrl}" alt="${item.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='${defaultIcon}';">
+                        </div>
+                        <div class="apk-main-info">
+                            <span class="apk-title">${item.name}</span>
+                            <span class="apk-version">${item.version}</span>
+                            <div class="apk-badge-row">
+                                <span class="apk-badge">💾 ${item.size}</span>
+                                <span class="apk-badge">🤖 ${item.android}</span>
+                                <span class="apk-badge">📁 ${item.category}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="apk-desc-area">${item.description || item.features ? (item.description || item.features.join(' ')) : ''}</div>
+                    <a href="${item.downloadUrl}" target="_blank" class="download-action-btn"> UNDUH </a>
+                `;
+                grid.appendChild(card);
+            });
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            renderApkListCatalog();
-            checkUserModeSystem();
-
-            setTimeout(() => {
-                const promoModal = document.getElementById('promoModal');
-                const overlay = document.getElementById('overlay');
-                if(promoModal && overlay) {
-                    promoModal.classList.add('active');
-                    overlay.classList.add('active');
-                }
-            }, 300); 
-            convertStringToHex();
+            initializeCatalogueEngine();
+            syncSecurityAccessState();
         });
 
-        // SIMULASI PROSES & OUTPUT FITUR FLUTTER PATCHER / BLUTTER
-        function executePatcherSim(type) {
-            const btn = document.querySelector(`#panel-${type} .exec-btn`);
-            const dlBox = document.getElementById(`dl-box-${type}`);
-            
-            btn.textContent = "SEDANG MEMPROSES PAYLOAD...";
-            btn.style.opacity = "0.6";
-            btn.disabled = true;
-
-            setTimeout(() => {
-                btn.textContent = type === 'flutter' ? "PROSES & PATCH BINARY" : "EKSTRAK METADATA DUMP";
-                btn.style.opacity = "1";
-                btn.disabled = false;
-                dlBox.style.display = "flex";
-            }, 1800);
+        function handleSidebarDisplay() {
+            document.getElementById('sidebarMenu').classList.toggle('active');
+            document.getElementById('globalOverlay').classList.toggle('active');
         }
 
-        // MANAGEMENT SISTEM VALIDASI 2 MODE USER BERSAMA INTERFACE KHAS WEB
-        function checkUserModeSystem() {
-            const currentToken = localStorage.getItem('mmk_token_akses');
-            const statusBadge = document.getElementById('userStatus');
-            const authBtn = document.getElementById('authMenuBtn');
+        function handleSearchToggle() {
+            const container = document.getElementById('searchPopover');
+            container.classList.toggle('active');
+            if (container.classList.contains('active')) document.getElementById('searchInput').focus();
+        }
 
-            if (currentToken === TOKEN_RAHASIA) {
-                statusBadge.textContent = "Executive Member";
-                statusBadge.className = "user-status-badge executive";
-                authBtn.textContent = "🔒 Keluar Akses";
-                authBtn.style.borderColor = "#ef4444";
-                authBtn.style.color = "#f87171";
-                
-                document.querySelectorAll('.executive-only').forEach(el => {
-                    el.style.setProperty('display', 'block', 'important');
-                });
+        function handleDropdownTrigger(targetId) {
+            document.getElementById(targetId).classList.toggle('open');
+        }
+
+        function syncSecurityAccessState() {
+            const activeRole = localStorage.getItem('mmk_sys_role') || 'GUEST';
+            const badge = document.getElementById('userSignBadge');
+            const triggerBtn = document.getElementById('authTriggerBtn');
+            
+            const hiddenExecElements = document.querySelectorAll('.hidden-exec-item');
+            const devOnlyBlocks = document.querySelectorAll('.dev-only-block');
+            const devEditBadges = document.querySelectorAll('.dev-edit-badge-btn');
+
+            if (activeRole === 'DEVELOPER') {
+                badge.textContent = "Developer Mode";
+                badge.className = "sidebar-sign-text dev-badge";
+                triggerBtn.innerHTML = "🔒 Logout";
+                triggerBtn.classList.add('active-control');
+
+                hiddenExecElements.forEach(el => el.style.setProperty('display', 'block', 'important'));
+                devOnlyBlocks.forEach(el => el.style.setProperty('display', 'block', 'important'));
+                devEditBadges.forEach(el => el.style.display = 'flex');
+
+            } else if (activeRole === 'EXECUTIVE') {
+                badge.textContent = "Executive Member";
+                badge.className = "sidebar-sign-text exec-badge";
+                triggerBtn.innerHTML = "🔒 Logout";
+                triggerBtn.classList.add('active-control');
+
+                hiddenExecElements.forEach(el => el.style.setProperty('display', 'block', 'important'));
+                devOnlyBlocks.forEach(el => el.style.setProperty('display', 'none', 'important'));
+                devEditBadges.forEach(el => el.style.display = 'none');
+
             } else {
-                statusBadge.textContent = "User Biasa";
-                statusBadge.className = "user-status-badge";
-                authBtn.textContent = "🔓 Login Akses";
-                authBtn.style.borderColor = "#0047ff";
-                authBtn.style.color = "#0066ff";
-                
-                document.querySelectorAll('.executive-only').forEach(el => {
-                    el.style.setProperty('display', 'none', 'important');
-                });
+                badge.textContent = "Guest Mode";
+                badge.className = "sidebar-sign-text";
+                triggerBtn.innerHTML = "⚙️ Sign In";
+                triggerBtn.classList.remove('active-control');
+
+                hiddenExecElements.forEach(el => el.style.setProperty('display', 'none', 'important'));
+                devOnlyBlocks.forEach(el => el.style.setProperty('display', 'none', 'important'));
+                devEditBadges.forEach(el => el.style.display = 'none');
             }
         }
 
-        // FUNGSI KONTROL MODAL UTK POP-UP LOGIN LOGOUT KHAS WEB
-        function openAuthModal() {
-            closeAllPanels();
-            const currentToken = localStorage.getItem('mmk_token_akses');
-            const overlay = document.getElementById('overlay');
-            const authModal = document.getElementById('authModal');
-            
-            overlay.classList.add('active');
-            authModal.classList.add('active');
+        function handleAuthModalDisplay() {
+            closeActiveOverlays();
+            const activeRole = localStorage.getItem('mmk_sys_role') || 'GUEST';
+            document.getElementById('globalOverlay').classList.add('active');
+            document.getElementById('authGateModal').classList.add('active');
 
-            if (currentToken === TOKEN_RAHASIA) {
-                document.getElementById('loginFormContainer').style.display = "none";
-                document.getElementById('logoutFormContainer').style.display = "block";
+            if (activeRole !== 'GUEST') {
+                document.getElementById('loginFormState').style.display = "none";
+                document.getElementById('logoutFormState').style.display = "block";
+                document.getElementById('authActiveModeText').textContent = `Status: Terhubung sebagai [ ${activeRole} ]`;
             } else {
-                document.getElementById('loginFormContainer').style.display = "block";
-                document.getElementById('logoutFormContainer').style.display = "none";
-                document.getElementById('tokenAksesInput').value = "";
-                document.getElementById('tokenAksesInput').focus();
+                document.getElementById('loginFormState').style.display = "block";
+                document.getElementById('logoutFormState').style.display = "none";
+                document.getElementById('devKeyInput').value = "";
             }
         }
 
-        function closeAuthModal() {
-            document.getElementById('authModal').classList.remove('active');
-            document.getElementById('overlay').classList.remove('active');
-        }
-
-        function submitExecutiveLogin() {
-            const inputKey = document.getElementById('tokenAksesInput').value;
-            if (inputKey === TOKEN_RAHASIA) {
-                localStorage.setItem('mmk_token_akses', inputKey);
-                alert("Akses Terverifikasi! Selamat datang Executive Member.");
-                closeAuthModal();
+        function processAuthVerification() {
+            const tokenValue = document.getElementById('devKeyInput').value.trim();
+            
+            if (tokenValue === TOKEN_DEVELOPER) {
+                localStorage.setItem('mmk_sys_role', 'DEVELOPER');
+                alert("🔐 Akses Developer Diterima!");
+                location.reload();
+            } else if (tokenValue === TOKEN_EXECUTIVE) {
+                localStorage.setItem('mmk_sys_role', 'EXECUTIVE');
+                alert("🔮 Akses Executive Member Terbuka!");
                 location.reload();
             } else {
-                alert("Token Akses Salah! Periksa kembali kode Anda.");
+                alert("❌ Token salah!");
             }
         }
 
-        function submitExecutiveLogout() {
-            localStorage.removeItem('mmk_token_akses');
-            alert("Logout berhasil. Mode Modder dinonaktifkan.");
-            closeAuthModal();
+        function processAuthLogout() {
+            localStorage.setItem('mmk_sys_role', 'GUEST');
+            alert("Sesi dikembangkan menjadi Guest.");
             location.reload();
         }
 
-        function openExecutivePanel(id) {
-            closeAllPanels();
-            document.getElementById('overlay').classList.add('active');
-            document.getElementById('panel-' + id).classList.add('active');
+        function openAddApkFormModal() {
+            closeActiveOverlays();
+            document.getElementById('formModalTitle').textContent = "➕ TAMBAH APK BARU";
+            document.getElementById('formEditIndex').value = "";
+            
+            document.getElementById('formApkName').value = "";
+            document.getElementById('formApkVersion').value = "";
+            document.getElementById('formApkSize').value = "";
+            document.getElementById('formApkAndroid').value = "";
+            document.getElementById('formApkDesc').value = "";
+            document.getElementById('formApkImg').value = "";
+            document.getElementById('formApkLink').value = "";
+
+            document.getElementById('globalOverlay').classList.add('active');
+            document.getElementById('devApkFormModal').classList.add('active');
         }
 
-        function convertStringToHex() {
-            const str = document.getElementById('inputString').value;
-            let hex = '';
-            for (let i = 0; i < str.length; i++) {
-                hex += '' + str.charCodeAt(i).toString(16);
+        function openEditApkFormModal(index) {
+            closeActiveOverlays();
+            const targetData = internalApksData[index];
+            if (!targetData) return;
+
+            document.getElementById('formModalTitle').textContent = "✏️ SUNTING DATA APK";
+            document.getElementById('formEditIndex').value = index;
+
+            document.getElementById('formApkName').value = targetData.name || "";
+            document.getElementById('formApkVersion').value = targetData.version || "";
+            document.getElementById('formApkCategory').value = targetData.category || "Aplikasi Mod";
+            document.getElementById('formApkSize').value = targetData.size || "";
+            document.getElementById('formApkAndroid').value = targetData.android || "";
+            document.getElementById('formApkDesc').value = targetData.description || (targetData.features ? targetData.features.join(' ') : "");
+            document.getElementById('formApkImg').value = targetData.imageUrl || "";
+            document.getElementById('formApkLink').value = targetData.downloadUrl || "";
+
+            document.getElementById('globalOverlay').classList.add('active');
+            document.getElementById('devApkFormModal').classList.add('active');
+        }
+
+        function saveApkFormSubmission() {
+            const name = document.getElementById('formApkName').value.trim();
+            const version = document.getElementById('formApkVersion').value.trim();
+            const category = document.getElementById('formApkCategory').value;
+            const size = document.getElementById('formApkSize').value.trim();
+            const android = document.getElementById('formApkAndroid').value.trim();
+            const description = document.getElementById('formApkDesc').value.trim();
+            const imageUrl = document.getElementById('formApkImg').value.trim();
+            const downloadUrl = document.getElementById('formApkLink').value.trim();
+
+            if (!name || !downloadUrl) {
+                alert("Nama APK dan Tautan Unduh wajib diisi!");
+                return;
             }
-            document.getElementById('resultHex').value = hex.toUpperCase();
-        }
 
-        function closePromoModal() {
-            document.getElementById('promoModal').classList.remove('active');
-            document.getElementById('overlay').classList.remove('active');
-        }
+            const payload = { name, version, category, size, android, description, imageUrl, downloadUrl };
+            const editIndex = document.getElementById('formEditIndex').value;
 
-        function toggleSearchBox() {
-            const popover = document.getElementById('searchPopover');
-            popover.classList.toggle('active');
-            if (popover.classList.contains('active')) {
-                document.getElementById('searchInput').focus();
+            if (editIndex !== "") {
+                internalApksData[parseInt(editIndex)] = payload;
+                alert("Data APK Berhasil Disunting!");
+            } else {
+                internalApksData.unshift(payload);
+                alert("Aplikasi Mod Baru Berhasil Ditambahkan!");
             }
+
+            localStorage.setItem('mmk_local_apks', JSON.stringify(internalApksData));
+            
+            closeActiveOverlays();
+            renderGridCards();
         }
 
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-            sidebar.classList.toggle('active');
-            overlay.classList.toggle('active');
+        function exportCurrentApksFile() {
+            closeActiveOverlays();
+            const textContainer = document.getElementById('exportTextareaContainer');
+            const formattedJsCode = `const apks = ${JSON.stringify(internalApksData, null, 4)};`;
+            textContainer.value = formattedJsCode;
+
+            document.getElementById('globalOverlay').classList.add('active');
+            document.getElementById('devDatabaseExportModal').classList.add('active');
         }
 
-        function openModderProfile() { toggleSidebar(); toggleModderModal(); }
-        function openModderProfileDesktop() { toggleModderModal(); }
-        function toggleModderModal() {
-            const modal = document.getElementById('modderModal');
-            const overlay = document.getElementById('overlay');
-            modal.classList.toggle('active');
-            overlay.classList.add('active');
+        function copyExportedTextToClipboard() {
+            const textContainer = document.getElementById('exportTextareaContainer');
+            textContainer.select();
+            document.execCommand('copy');
+            alert("📋 Seluruh teks kode database BERHASIL disalin!");
+            closeActiveOverlays();
         }
 
-        function closeAllPanels() {
-            document.getElementById('sidebar').classList.remove('active');
-            document.getElementById('modderModal').classList.remove('active');
-            document.getElementById('promoModal').classList.remove('active');
+        function showExecAppDetails(key) {
+            if (typeof execAppsDatabase === 'undefined') {
+                alert("Database VIP.js gagal dimuat."); return;
+            }
+            const appData = execAppsDatabase[key];
+            if (!appData) return;
+
+            const iconFrame = document.getElementById('execModalIcon');
+            iconFrame.innerHTML = `<img src="${appData.imageUrl}" alt="${appData.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='🛸';">`;
+            
+            document.getElementById('execModalName').textContent = appData.name;
+            document.getElementById('execModalVersion').textContent = `Versi: ${appData.version}`;
+
+            const badgeFrame = document.getElementById('execModalBadges');
+            badgeFrame.innerHTML = `
+                <span class="apk-badge" style="border-color:rgba(168, 85, 247, 0.3)">💾 ${appData.size || '10MB'}</span>
+                <span class="apk-badge" style="border-color:rgba(168, 85, 247, 0.3)">🤖 ${appData.android || '5.0+'}</span>
+            `;
+
+            document.getElementById('execModalDownloadBtn').href = appData.downloadUrl || '#';
+
+            const featuresContainer = document.getElementById('execModalFeatures');
+            featuresContainer.appendChild(item);
+            featuresContainer.innerHTML = "";
+            if(appData.features) {
+                appData.features.forEach(feat => {
+                    const item = document.createElement('div');
+                    item.className = 'exec-feature-item';
+                    item.innerHTML = `<span style="color:var(--exec-color)">⚡</span> <span>${feat}</span>`;
+                    featuresContainer.appendChild(item);
+                });
+            }
+
+            document.getElementById('sidebarMenu').classList.remove('active');
+            document.getElementById('globalOverlay').classList.add('active');
+            document.getElementById('execAppDetailsModal').classList.add('active');
+        }
+
+        function handleModderProfileModal() {
+            closeActiveOverlays();
+            document.getElementById('globalOverlay').classList.add('active');
+            document.getElementById('modderProfileModal').classList.add('active');
+        }
+
+        function closeActiveOverlays() {
+            document.getElementById('sidebarMenu').classList.remove('active');
+            document.getElementById('authGateModal').classList.remove('active');
+            document.getElementById('modderProfileModal').classList.remove('active');
+            document.getElementById('execAppDetailsModal').classList.remove('active');
+            document.getElementById('devApkFormModal').classList.remove('active');
+            document.getElementById('devDatabaseExportModal').classList.remove('active');
             document.getElementById('searchPopover').classList.remove('active');
-            document.getElementById('authModal').classList.remove('active');
-            document.getElementById('overlay').classList.remove('active');
-            document.querySelectorAll('.executive-panel').forEach(p => p.classList.remove('active'));
+            document.getElementById('globalOverlay').classList.remove('active');
+            document.querySelectorAll('.dropdown-parent').forEach(el => el.classList.remove('open'));
         }
 
-        function filterCategory(category) {
-            const cards = document.querySelectorAll('.apk-card');
-            const noResults = document.getElementById('noResults');
-            let matchCount = 0;
+        function applyCategoryFilter(catName) {
+            const items = document.querySelectorAll('.apk-card');
+            const alertEmpty = document.getElementById('searchEmptyAlert');
+            let totalMatch = 0;
 
-            cards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                if (category === 'all' || cardCategory === category) {
-                    card.classList.remove('hidden');
-                    matchCount++;
+            items.forEach(box => {
+                const specCat = box.getAttribute('data-target-cat');
+                if (catName === 'all' || specCat === catName) {
+                    box.classList.remove('hidden'); totalMatch++;
                 } else {
-                    card.classList.add('hidden');
+                    box.classList.add('hidden');
                 }
             });
-            noResults.style.display = matchCount > 0 ? 'none' : 'block';
-            closeAllPanels();
+            alertEmpty.style.display = totalMatch > 0 ? 'none' : 'block';
+            closeActiveOverlays();
         }
 
-        function searchApk() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('.apk-card');
-            const noResults = document.getElementById('noResults');
-            let found = false;
+        function executeApkSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const boxes = document.querySelectorAll('.apk-card');
+            const alertEmpty = document.getElementById('searchEmptyAlert');
+            let success = false;
 
-            cards.forEach(card => {
-                const title = card.querySelector('.apk-title').textContent.toLowerCase();
-                const description = card.querySelector('.apk-description').textContent.toLowerCase();
-                if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                    card.classList.remove('hidden');
-                    found = true;
+            boxes.forEach(box => {
+                const titleText = box.querySelector('.apk-title').textContent.toLowerCase();
+                if (titleText.includes(query)) {
+                    box.classList.remove('hidden'); success = true;
                 } else {
-                    card.classList.add('hidden');
+                    box.classList.add('hidden');
                 }
             });
-            noResults.style.display = found ? 'none' : 'block';
+            alertEmpty.style.display = success ? 'none' : 'block';
         }
-    </script>
+</script>
   </body>
 </html>
