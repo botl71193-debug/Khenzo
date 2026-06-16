@@ -86,10 +86,10 @@ const execAppsDatabase = {
         ]
     },
     flutterPatcher: {
-        name: "Flutter Patcher",
+        name: "Ultimate Flutter Patcher",
         version: "v1.5",
         imageUrl: "https://diverse-aqua-iq7wghij.edgeone.app/M.png",
-        downloadUrl: "https://download.link/flutter",
+        downloadUrl: "https://safefileku.com/download/P1yeCYqHimsLjOAy",
         size: "4 MB",
         android: "Termux OS",
         category: "Scrip termux",
