@@ -1,5 +1,15 @@
 const apks = [
     {
+        "name": "Instagram Pro",
+        "version": "V 423.0.0.47.66",
+        "category": "Aplikasi Mod",
+        "size": "149,06M",
+        "android": "Android 6.0+",
+        "description": "Download foto, video, story sekali klik, anti-view tersembunyi, feed ad-free.",
+        "imageUrl": "https://i.ibb.co.com/Ts8m7z4/igmod.webp",
+        "downloadUrl": "https://safefileku.com/download/QYIAydqGSp7qBzHJ"
+    },
+    {
         "name": "KucingPremium",
         "version": "v1.8.2",
         "category": "Streaming",
@@ -342,16 +352,6 @@ const apks = [
         "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/remini.png",
         "downloadUrl": "https://link.adsafelink.com/78c34m3",
         "description": "Penjernih foto AI pro unlocked, kuota edit tanpa batas, kualitas ultra HD."
-    },
-    {
-        "name": "TeraBox",
-        "version": "v3.24.1",
-        "category": "Tools",
-        "size": "68 MB",
-        "android": "Android 6.0+",
-        "imageUrl": "https://worrying-apricot-utxtj0qs.edgeone.app/tera.png",
-        "downloadUrl": "https://link.adsafelink.com/g5mo8dv",
-        "description": "Penyimpanan cloud raksasa dengan fitur download kecepatan tinggi VIP unlocked."
     },
     {
         "name": "WPS Office",
