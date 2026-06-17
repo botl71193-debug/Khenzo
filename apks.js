@@ -294,16 +294,6 @@ const apks = [
         "description": "Aplikasi widget melayang (floating shortcut) untuk multitasking pro unlocked."
     },
     {
-        "name": "Instagram Pro",
-        "version": "v311.0",
-        "category": "Aplikasi Mod",
-        "size": "64 MB",
-        "android": "Android 6.0+",
-        "imageUrl": "https://worrying-apricot-utxtj0qs.edgeone.app/igmod.png",
-        "downloadUrl": "https://link.adsafelink.com/d6hmwu1",
-        "description": "Download foto, video, story sekali klik, anti-view tersembunyi, feed ad-free."
-    },
-    {
         "name": "KomikBahagia",
         "version": "v1.0",
         "category": "Aplikasi Mod",
