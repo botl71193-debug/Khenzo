@@ -264,16 +264,6 @@ const apks = [
         "description": "Kustomisasi tema super dark AMOLED dengan paket ikon premium aesthetic."
     },
     {
-        "name": "DramaNova",
-        "version": "v1.1.5",
-        "category": "Streaming",
-        "size": "22 MB",
-        "android": "Android 5.0+",
-        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/DramaNova.png",
-        "downloadUrl": "https://link.adsafelink.com/NCeRmOa",
-        "description": "Nonton drama Asia terlengkap, VIP server cepat unlocked tanpa login."
-    },
-    {
         "name": "Dramora",
         "version": "v2.1.0",
         "category": "Streaming",
@@ -289,9 +279,9 @@ const apks = [
         "category": "Tools",
         "size": "5 MB",
         "android": "Android 6.0+",
-        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/floatee.png",
-        "downloadUrl": "https://link.adsafelink.com/7WhOymr",
-        "description": "Aplikasi widget melayang (floating shortcut) untuk multitasking pro unlocked."
+        "description": "Aplikasi widget melayang (floating shortcut) untuk multitasking pro unlocked.",
+        "imageUrl": "https://i.ibb.co.com/8D6979r3/Screenshot-2026-0618-164550.webp",
+        "downloadUrl": "https://link.adsafelink.com/7WhOymr"
     },
     {
         "name": "KomikBahagia",
