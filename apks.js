@@ -1,5 +1,15 @@
 const apks = [
     {
+        "name": "DramaQueen",
+        "version": "V3.3.113",
+        "category": "Streaming",
+        "size": "55,76M",
+        "android": "Android 5.0+",
+        "description": "Akses eksklusif koleksi drakor premium dan variety show sub Indo ad-free.",
+        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/dramaqueen.png",
+        "downloadUrl": "https://safefileku.com/download/5lXFLhFYpytA3R1D"
+    },
+    {
         "name": "BeautyPlus",
         "version": "V 7.39.0",
         "category": "Editor",
