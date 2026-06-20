@@ -1,5 +1,25 @@
 const apks = [
     {
+        "name": "OtakuPlay",
+        "version": "v1.3.20",
+        "category": "Streaming",
+        "size": "14,84M",
+        "android": "Android 5.0+",
+        "description": "Aplikasi pemutar video multifungsi untuk menonton anime dan donghua dengan streaming dari URL eksternal atau penyimpanan lokal, pengalaman menonton fleksibel dan nyaman.",
+        "imageUrl": "https://i.ibb.co.com/dJQgQHrh/Otaku.webp",
+        "downloadUrl": "https://safefileku.com/download/FtJp2EXt8bgsQibq"
+    },
+    {
+        "name": "Floatee",
+        "version": "v4.0",
+        "category": "Tools",
+        "size": "5 MB",
+        "android": "Android 6.0+",
+        "description": "Aplikasi widget melayang (floating shortcut) untuk multitasking pro unlocked.",
+        "imageUrl": "https://i.ibb.co.com/8D6979r3/Screenshot-2026-0618-164550.webp",
+        "downloadUrl": "https://safefileku.com/download/d48R6M1OpD1d6K0p"
+    },
+    {
         "name": "DramaQueen",
         "version": "V3.3.113",
         "category": "Streaming",
