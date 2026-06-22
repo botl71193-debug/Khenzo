@@ -1,5 +1,25 @@
 const apks = [
     {
+        "name": "My Drama",
+        "version": "1.68.0",
+        "category": "Aplikasi Mod",
+        "size": "102,35M",
+        "android": "Android 5+",
+        "description": "Aplikasi streaming drama pendek dan mini-seri terlengkap sepenuhnya gratis. Nonton drama China, video pendek, klip drama mini dengan update harian, streaming HD tanpa iklan.",
+        "imageUrl": "https://i.ibb.co.com/qFk9RKqt/My-Drama.webp",
+        "downloadUrl": "https://safefileku.com/download/BPy9Hr93gK8Gy1AC"
+    },
+    {
+        "name": "Passion Drama",
+        "version": "v1.3.0",
+        "category": "Streaming",
+        "size": "66,75M",
+        "android": "Android 7.0+",
+        "description": "Aplikasi streaming drama dengan serial eksklusif setiap hari,涵盖 berbagai genre suspense, komedi, urban, dan sejarah. Tonton drama favorit kualitas 1080P HD dengan fitur download cepat.",
+        "imageUrl": "https://i.ibb.co.com/vvQptRxp/Passion-Drama.webp",
+        "downloadUrl": "https://safefileku.com/download/42i60MbWGydfj4Js"
+    },
+    {
         "name": "OtakuPlay",
         "version": "v1.3.20",
         "category": "Streaming",
@@ -138,16 +158,6 @@ const apks = [
         "imageUrl": "https://i.ibb.co.com/FkvRvvf1/crazy.webp",
         "downloadUrl": "https://safefileku.com/download/F5lnxOMGjIYf6rAJ",
         "description": "Aplikasi streaming drama pendek trending dengan update setiap minggu. Tonton film pendek & drama berkualitas tinggi, smart picks, quick & fun watch untuk semua genre."
-    },
-    {
-        "name": "Passion Drama",
-        "version": "v1.2.7",
-        "category": "Streaming",
-        "size": "55 MB",
-        "android": "Android 7.0+",
-        "imageUrl": "https://i.ibb.co.com/vvQptRxp/Passion-Drama.webp",
-        "downloadUrl": "https://safefileku.com/download/6XRxEmaEjL5a0Q8k",
-        "description": "Aplikasi streaming drama dengan serial eksklusif setiap hari,涵盖 berbagai genre suspense, komedi, urban, dan sejarah. Tonton drama favorit kualitas 1080P HD dengan fitur download cepat."
     },
     {
         "name": "Mighty Micros",
