@@ -1,11 +1,21 @@
 const apks = [
     {
+        "name": "InShot",
+        "version": "2.204.1534",
+        "category": "Editor",
+        "size": "74,00M",
+        "android": "Android 5+",
+        "description": "Editor video dan pembuat konten profesional yang mudah digunakan. Potong, gabungkan klip, tambah musik, efek, filter, teks, stickers, blur latar untuk TikTok, YouTube, Instagram, dan platform media sosial.",
+        "imageUrl": "https://i.ibb.co.com/PZkWF3f1/inshot.webp",
+        "downloadUrl": "https://safefileku.com/download/pXOTAcnOhueVNs9u"
+    },
+    {
         "name": "My Drama",
         "version": "1.68.0",
-        "category": "Aplikasi Mod",
+        "category": "Streaming",
         "size": "102,35M",
         "android": "Android 5+",
-        "description": "Aplikasi streaming drama pendek dan mini-seri terlengkap sepenuhnya gratis. Nonton drama China, video pendek, klip drama mini dengan update harian, streaming HD tanpa iklan.",
+        "description": "Aplikasi streaming short drama & reel stories pemenang Webby Awards 2025 untuk Layanan Streaming Terbaik. Nonton film pendek eksklusif, serial mini, dan drama dari seluruh dunia dengan streaming HD mulus, rekomendasi pribadi, dan antarmuka intuitif.",
         "imageUrl": "https://i.ibb.co.com/qFk9RKqt/My-Drama.webp",
         "downloadUrl": "https://safefileku.com/download/BPy9Hr93gK8Gy1AC"
     },
