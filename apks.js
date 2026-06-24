@@ -1,5 +1,15 @@
 const apks = [
     {
+        "name": "DramaNova",
+        "version": "v1.3.16",
+        "category": "Streaming",
+        "size": "53,93M",
+        "android": "Android 5.0+",
+        "description": "Nonton drama Asia terlengkap, VIP server cepat unlocked tanpa login.",
+        "imageUrl": "https://i.ibb.co.com/qL615prw/Drama-Nova.webp",
+        "downloadUrl": "https://safefileku.com/download/lm0eDIvqp0kGXnqd"
+    },
+    {
         "name": "InShot",
         "version": "2.204.1534",
         "category": "Editor",
@@ -188,16 +198,6 @@ const apks = [
         "imageUrl": "https://i.ibb.co.com/XfJScKd2/Easy-Cut.webp",
         "downloadUrl": "https://safefileku.com/download/vkNl6F03OY2NfYey",
         "description": "Aplikasi editor video & foto mudah dan powerful untuk edit, merge, buat video, vlog dengan template, filter, dan efek lengkap."
-    },
-    {
-        "name": "DramaNova",
-        "version": "v1.3.10",
-        "category": "Streaming",
-        "size": "22 MB",
-        "android": "Android 5.0+",
-        "imageUrl": "https://i.ibb.co.com/qL615prw/Drama-Nova.webp",
-        "downloadUrl": "https://safefileku.com/download/Ok5nckWcwhs5N1SW",
-        "description": "Nonton drama Asia terlengkap, VIP server cepat unlocked tanpa login."
     },
     {
         "name": "Minecraft Patch",
@@ -392,22 +392,6 @@ const apks = [
         "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/Xeno.png",
         "downloadUrl": "https://link.adsafelink.com/9Iww9zQd",
         "description": "Browser keamanan enkripsi tinggi lengkap dengan VPN internal bypass internet positif."
-    },
-    {
-        "name": "XGames",
-        "version": "v2.0",
-        "category": "Games Mod",
-        "size": "45 MB",
-        "android": "Android 5.0+",
-        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/xgame.png",
-        "multiDownload": true,
-        "links": {
-            "PSP": "https://link.adsafelink.com/wFQ5ZE",
-            "PS2": "https://link.adsafelink.com/1L8k",
-            "PS3": "https://link.adsafelink.com/KwC4WD13",
-            "GameBoy": "https://link.adsafelink.com/2yPweIK3"
-        },
-        "description": "Pusat download game emulator terlengkap dengan script bawaan berbagai konsol."
     },
     {
         "name": "Youshort",
