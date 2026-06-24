@@ -269,9 +269,9 @@ const apks = [
         "category": "Games Mod",
         "size": "1 GB",
         "android": "Android 5.0+",
+        "description": "Game simulasi mengendarai bus dengan peta dan rute realistis, kustomisasi kendaraan, dan mode karier.",
         "imageUrl": "https://i.ibb.co.com/CsKKbjQS/Bussid.webp",
-        "downloadUrl": "https://www.mediafire.com/file/9gz1qrpal55px45/Busid+Mod+Apk+V4.5+Terbaru+2026.zip/file",
-        "description": "Game simulasi mengendarai bus dengan peta dan rute realistis, kustomisasi kendaraan, dan mode karier."
+        "downloadUrl": "https://www.mediafire.com/file/xiyqop8ijfgng9y/Bus+Simulator+Indonesia+v4.5.1+MOD+Premium.zip/file"
     },
     {
         "name": "Frag Pro Shooter",
