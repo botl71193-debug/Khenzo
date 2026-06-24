@@ -1,5 +1,45 @@
 const apks = [
     {
+        "name": "Music Downloader",
+        "version": "v4.5",
+        "category": "Tools",
+        "size": "11 MB",
+        "android": "Android 5.0+",
+        "description": "Download musik MP3 resolusi tinggi langsung dari berbagai platform musik.",
+        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/MusicDownloader.png",
+        "downloadUrl": "https://link.adsafelink.com/KXD6B"
+    },
+    {
+        "name": "Cineflow",
+        "version": "v1.0.2",
+        "category": "Streaming",
+        "size": "18 MB",
+        "android": "Android 5.0+",
+        "description": "Streaming film & series premium unlocked tanpa iklan dengan kualitas full HD.",
+        "imageUrl": "https://worrying-apricot-utxtj0qs.edgeone.app/cineflow.png",
+        "downloadUrl": "https://link.adsafelink.com/Q2CBs7SX"
+    },
+    {
+        "name": "Lane",
+        "version": "v 1.4",
+        "category": "Music",
+        "size": "75 MB",
+        "android": "Android 6.0+",
+        "description": "Aplikasi alternatif pemutar musik Spotify dengan fitur Premium terbuka.",
+        "imageUrl": "https://worrying-apricot-utxtj0qs.edgeone.app/lane.png",
+        "downloadUrl": "https://safefileku.com/download/3sA8xBwdh6oTQ6ZB"
+    },
+    {
+        "name": "Dramora",
+        "version": "v2.1.0",
+        "category": "Streaming",
+        "size": "25 MB",
+        "android": "Android 5.5+",
+        "description": "Platform streaming drama terlengkap dengan fitur download offline sepuasnya.",
+        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/Dramora.png",
+        "downloadUrl": "https://link.adsafelink.com/Pr9aGT"
+    },
+    {
         "name": "DramaNova",
         "version": "v1.3.16",
         "category": "Streaming",
@@ -224,36 +264,6 @@ const apks = [
         "description": "Game simulator supermarket 3D premium unlocked. Kelola toko, stok barang, layani pelanggan, dan kembangkan bisnis supermarketmu tanpa iklan."
     },
     {
-        "name": "Lane",
-        "version": "v 1.4",
-        "category": "Music",
-        "size": "75 MB",
-        "android": "Android 6.0+",
-        "imageUrl": "https://worrying-apricot-utxtj0qs.edgeone.app/lane.png",
-        "downloadUrl": "https://safefileku.com/download/3sA8xBwdh6oTQ6ZB",
-        "description": "Aplikasi alternatif pemutar musik Spotify dengan fitur Premium terbuka."
-    },
-    {
-        "name": "BeautyPlus",
-        "version": "V 7.38.1",
-        "category": "Editor",
-        "size": "371 MB",
-        "android": "Android 6.0+",
-        "imageUrl": "https://i.supaimg.com/1ac260ce-b26f-4f02-a315-4072e31459d4/1f57c4f2-fca5-4414-9788-e3824fa18c2e.png",
-        "downloadUrl": "https://safefileku.com/download/HO7fPpKhQVw9YmMk",
-        "description": "Editor foto & video AI dengan fitur premium unlocked, autopilot beauty, dan stiker eksklusif tanpa iklan."
-    },
-    {
-        "name": "Cineflow",
-        "version": "v1.0.2",
-        "category": "Streaming",
-        "size": "18 MB",
-        "android": "Android 5.0+",
-        "imageUrl": "https://worrying-apricot-utxtj0qs.edgeone.app/cineflow.png",
-        "downloadUrl": "https://link.adsafelink.com/Q2CBs7SX",
-        "description": "Streaming film & series premium unlocked tanpa iklan dengan kualitas full HD."
-    },
-    {
         "name": "Bus Simulator",
         "version": "V 4.5",
         "category": "Games Mod",
@@ -304,16 +314,6 @@ const apks = [
         "description": "Kustomisasi tema super dark AMOLED dengan paket ikon premium aesthetic."
     },
     {
-        "name": "Dramora",
-        "version": "v2.1.0",
-        "category": "Streaming",
-        "size": "25 MB",
-        "android": "Android 5.5+",
-        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/Dramora.png",
-        "downloadUrl": "https://link.adsafelink.com/Pr9aGT",
-        "description": "Platform streaming drama terlengkap dengan fitur download offline sepuasnya."
-    },
-    {
         "name": "Floatee",
         "version": "v4.0",
         "category": "Tools",
@@ -332,26 +332,6 @@ const apks = [
         "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/comikbahagia.png",
         "downloadUrl": "#",
         "description": "Baca ratusan manga, manhua, dan manhwa favorit tanpa koin/ad-free."
-    },
-    {
-        "name": "Melolo",
-        "version": "v1.2.0",
-        "category": "Streaming",
-        "size": "21 MB",
-        "android": "Android 5.0+",
-        "imageUrl": "https://i.ibb.co.com/Jw8Fzcgm/melolo.webp",
-        "downloadUrl": "https://link.adsafelink.com/9oNC5wAu",
-        "description": "Aplikasi streaming hiburan musik dan video pendek seru premium mod."
-    },
-    {
-        "name": "Music Downloader",
-        "version": "v4.5",
-        "category": "Tools",
-        "size": "11 MB",
-        "android": "Android 5.0+",
-        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/MusicDownloader.png",
-        "downloadUrl": "https://link.adsafelink.com/KXD6B",
-        "description": "Download musik MP3 resolusi tinggi langsung dari berbagai platform musik."
     },
     {
         "name": "RCTI+",
