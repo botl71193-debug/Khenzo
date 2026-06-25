@@ -1,5 +1,25 @@
 const apks = [
     {
+        "name": "Instant Mail",
+        "version": "8.0.0",
+        "category": "Aplikasi Mod",
+        "size": "123,98M",
+        "android": "Android 5+",
+        "description": "Membuat email dengan domain premium anda",
+        "imageUrl": "https://i.ibb.co.com/2YFqFnM2/icon.webp",
+        "downloadUrl": "https://safefileku.com/download/AJf2uvxN6e675gYW"
+    },
+    {
+        "name": "Temp Mail",
+        "version": "4.09",
+        "category": "Aplikasi Mod",
+        "size": "30,34M",
+        "android": "Android 5+",
+        "description": "Generator Mail tanpa batas",
+        "imageUrl": "https://i.ibb.co.com/gZDNDC54/icon.webp",
+        "downloadUrl": "https://safefileku.com/download/ABnL0fiUQcAcWKO5"
+    },
+    {
         "name": "DramaQueen",
         "version": "V3.3.114",
         "category": "Streaming",
