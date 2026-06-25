@@ -7,7 +7,7 @@ const apks = [
         "android": "Android 5+",
         "description": "Membuat email dengan domain premium anda",
         "imageUrl": "https://i.ibb.co.com/2YFqFnM2/icon.webp",
-        "downloadUrl": "https://safefileku.com/download/AJf2uvxN6e675gYW"
+        "downloadUrl": "https://safefileku.com/download/2eDOTysvseMpkioA"
     },
     {
         "name": "Temp Mail",
@@ -17,7 +17,7 @@ const apks = [
         "android": "Android 5+",
         "description": "Generator Mail tanpa batas",
         "imageUrl": "https://i.ibb.co.com/gZDNDC54/icon.webp",
-        "downloadUrl": "https://safefileku.com/download/ABnL0fiUQcAcWKO5"
+        "downloadUrl": "https://safefileku.com/download/TZlnDRTB6YEcGjWz"
     },
     {
         "name": "DramaQueen",
