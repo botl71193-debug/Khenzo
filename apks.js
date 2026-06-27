@@ -10,6 +10,16 @@ const apks = [
         "downloadUrl": "https://safefileku.com/download/wJmEkFv0579pTOcF"
     },
     {
+        "name": "DongHa",
+        "version": "v1.0.1",
+        "category": "Streaming",
+        "size": "43,30M",
+        "android": "Android 5.0+",
+        "imageUrl": "https://i.ibb.co.com/ZPxn8c7/dongha.webp",
+        "downloadUrl": "https://safefileku.com/download/bXhsKJ34RTbEjgpn",
+        "description": "Aplikasi nonton anime dan donghua terlengkap dengan sub Indo, kualitas HD, update setiap hari, streaming gratis tanpa iklan mengganggu."
+    },
+    {
         "name": "Instant Mail",
         "version": "8.0.0",
         "category": "Aplikasi Mod",
