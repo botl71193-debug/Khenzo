@@ -1,13 +1,13 @@
 const apks = [
     {
-        "name": "Dongha",
-        "version": "v1.0.1",
-        "category": "Streaming",
-        "size": "43,30M",
-        "android": "Android 5.0+",
-        "description": "Aplikasi nonton anime dan donghua terlengkap dengan sub Indo, kualitas HD, update setiap hari, streaming gratis tanpa iklan mengganggu.",
-        "imageUrl": "https://i.ibb.co.com/ZPxn8c7/dongha.webp",
-        "downloadUrl": "https://safefileku.com/download/UVxEGrYEyRTsoIOW"
+        "name": "BeautyPlus",
+        "version": "V 7.39.0",
+        "category": "Editor",
+        "size": "354,34M",
+        "android": "Android 6.0+",
+        "description": "Editor foto & video AI dengan fitur premium unlocked, autopilot beauty, dan stiker eksklusif tanpa iklan.",
+        "imageUrl": "https://i.supaimg.com/1ac260ce-b26f-4f02-a315-4072e31459d4/1f57c4f2-fca5-4414-9788-e3824fa18c2e.png",
+        "downloadUrl": "https://safefileku.com/download/wJmEkFv0579pTOcF"
     },
     {
         "name": "Instant Mail",
@@ -138,16 +138,6 @@ const apks = [
         "description": "Aplikasi widget melayang (floating shortcut) untuk multitasking pro unlocked.",
         "imageUrl": "https://i.ibb.co.com/8D6979r3/Screenshot-2026-0618-164550.webp",
         "downloadUrl": "https://safefileku.com/download/d48R6M1OpD1d6K0p"
-    },
-    {
-        "name": "BeautyPlus",
-        "version": "V 7.39.0",
-        "category": "Editor",
-        "size": "354,34M",
-        "android": "Android 6.0+",
-        "description": "Editor foto & video AI dengan fitur premium unlocked, autopilot beauty, dan stiker eksklusif tanpa iklan.",
-        "imageUrl": "https://i.supaimg.com/1ac260ce-b26f-4f02-a315-4072e31459d4/1f57c4f2-fca5-4414-9788-e3824fa18c2e.png",
-        "downloadUrl": "https://safefileku.com/download/sRLfffZabhvBsSCl"
     },
     {
         "name": "Instagram Pro",
