@@ -1,5 +1,15 @@
 const apks = [
     {
+        "name": "Frag Pro Shooter",
+        "version": "V 5.2.0",
+        "category": "Games Mod",
+        "size": "200 MB",
+        "android": "Android 5.0+",
+        "description": "Shooter multiplayer cepat dengan karakter unik, kemampuan khusus, dan pertarungan tim 4v4.",
+        "imageUrl": "https://i.ibb.co.com/MkJ1SxSZ/Frag-Pro.webp",
+        "downloadUrl": "https://www.mediafire.com/file/gk20lolq69agf41/Frag_Pro_Shooter_v5.2.0_Menu.zip/file"
+    },
+    {
         "name": "FreeReals",
         "version": "v2.3.60",
         "category": "Streaming",
