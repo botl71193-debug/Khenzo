@@ -1,5 +1,15 @@
 const apks = [
     {
+        "name": "FreeReals",
+        "version": "v2.3.60",
+        "category": "Streaming",
+        "size": "91,32M",
+        "android": "Android 5.0+",
+        "description": "Aplikasi streaming drama pendek dan mini-seri terlengkap sepenuhnya gratis. Nonton drama China, video pendek, klip drama mini dengan update harian, streaming HD tanpa iklan.",
+        "imageUrl": "https://i.ibb.co.com/Rp4hSXyg/Free-Reals.webp",
+        "downloadUrl": "https://safefileku.com/download/ya4snviziqOZutLZ"
+    },
+    {
         "name": "BeautyPlus",
         "version": "V 7.39.0",
         "category": "Editor",
