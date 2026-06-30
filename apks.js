@@ -1,5 +1,15 @@
 const apks = [
     {
+        "name": "MangaIndo",
+        "version": "2.1.2",
+        "category": "Aplikasi Mod",
+        "size": "64,07M",
+        "android": "Android 5+",
+        "description": "Aplikasi baca komik dan manga terlengkap dalam Bahasa Indonesia dengan ribuan judul manga, manhwa, dan manhua favorit. Update chapter terbaru setiap hari, offline mode, koleksi lengkap, brush reading experience terbaik untuk penggemar komik Indonesia",
+        "imageUrl": "https://i.ibb.co.com/mVj78Dfv/icon.webp",
+        "downloadUrl": "https://safefileku.com/download/JL186Wwrn8CdMxXN"
+    },
+    {
         "name": "Frag Pro Shooter",
         "version": "V 5.2.0",
         "category": "Games Mod",
