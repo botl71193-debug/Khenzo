@@ -1,5 +1,15 @@
 const apks = [
     {
+        "name": "Joytify",
+        "version": "1.6.4",
+        "category": "Aplikasi Mod",
+        "size": "18,43M",
+        "android": "Android 5+",
+        "description": "Aplikasi streaming musik modern tanpa batas dengan fitur premium unlocked. Strim lagu, explore playlist curated dari seluruh dunia, tanpa iklan, tanpa biaya tambahan, download musik offline, kualitas audio tinggi, dan pengalaman streaming musik optimal.",
+        "imageUrl": "https://i.ibb.co.com/fY4xyXPy/icon.webp",
+        "downloadUrl": "https://link.adsafelink.com/YPoZ"
+    },
+    {
         "name": "MangaIndo",
         "version": "2.1.2",
         "category": "Aplikasi Mod",
