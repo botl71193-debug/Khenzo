@@ -1,5 +1,15 @@
 const apks = [
     {
+        "name": "FreeReals",
+        "version": "2.3.70",
+        "category": "Streaming",
+        "size": "75,38M",
+        "android": "Android 5.0+",
+        "description": "Aplikasi streaming drama pendek dan mini-seri terlengkap sepenuhnya gratis. Nonton drama China, video pendek, klip drama mini dengan update harian, streaming HD tanpa iklan.",
+        "imageUrl": "https://i.ibb.co.com/Rp4hSXyg/Free-Reals.webp",
+        "downloadUrl": "https://link.adsafelink.com/5kkz"
+    },
+    {
         "name": "MetroList",
         "version": "13.6.0",
         "category": "Music",
@@ -38,16 +48,6 @@ const apks = [
         "description": "Shooter multiplayer cepat dengan karakter unik, kemampuan khusus, dan pertarungan tim 4v4.",
         "imageUrl": "https://i.ibb.co.com/MkJ1SxSZ/Frag-Pro.webp",
         "downloadUrl": "https://www.mediafire.com/file/gk20lolq69agf41/Frag_Pro_Shooter_v5.2.0_Menu.zip/file"
-    },
-    {
-        "name": "FreeReals",
-        "version": "v2.3.60",
-        "category": "Streaming",
-        "size": "91,32M",
-        "android": "Android 5.0+",
-        "description": "Aplikasi streaming drama pendek dan mini-seri terlengkap sepenuhnya gratis. Nonton drama China, video pendek, klip drama mini dengan update harian, streaming HD tanpa iklan.",
-        "imageUrl": "https://i.ibb.co.com/Rp4hSXyg/Free-Reals.webp",
-        "downloadUrl": "https://safefileku.com/download/ya4snviziqOZutLZ"
     },
     {
         "name": "BeautyPlus",
