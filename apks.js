@@ -7,7 +7,7 @@ const apks = [
         "android": "Android 5+",
         "description": "Editor video & foto gratis dengan 400+ efek & filter aesthetic populer. Akses filter tahun 90-an glows & glitters, sparkle star, efek Glitch, gaya IG, dan filter estetika keren untuk foto dan video. Gratis tanpa biaya tambahan, editor terbaik untuk kebutuhan editing semua",
         "imageUrl": "https://i.ibb.co.com/2YpGb10z/icon.webp",
-        "downloadUrl": "https://link.adsafelink.com/ORTi"
+        "downloadUrl": "#"
     },
     {
         "name": "FreeReals",
