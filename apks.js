@@ -1,13 +1,33 @@
 const apks = [
     {
+        "name": "Floatee",
+        "version": "v4.0",
+        "category": "Tools",
+        "size": "68,55M",
+        "android": "Android 6.0+",
+        "description": "Aplikasi widget melayang (floating shortcut) untuk multitasking pro unlocked.",
+        "imageUrl": "https://i.ibb.co.com/8D6979r3/Screenshot-2026-0618-164550.webp",
+        "downloadUrl": "https://link.adsafelink.com/G3gps"
+    },
+    {
+        "name": "Temp Mail",
+        "version": "3.2.0",
+        "category": "Aplikasi Mod",
+        "size": "48,36M",
+        "android": "Android 5+",
+        "description": "Generator email temporary dan anonim untuk melindungi privasi dari spam, bot, dan phishing. Dapatkan alamat email disposable gratis dalam satu klik, tanpa registrasi, gunakan untuk pendaftaran website, download e-book, akses konten eksklusif tanpa expose email pribadi. Email & inbox expire setelah 3 jam",
+        "imageUrl": "https://i.ibb.co.com/p6bN9PgG/icon.webp",
+        "downloadUrl": "https://link.adsafelink.com/zx1LYoeu"
+    },
+    {
         "name": "Efiko",
         "version": "1.6.2",
-        "category": "Aplikasi Mod",
+        "category": "Editor",
         "size": "22,98M",
         "android": "Android 5+",
         "description": "Editor video & foto gratis dengan 400+ efek & filter aesthetic populer. Akses filter tahun 90-an glows & glitters, sparkle star, efek Glitch, gaya IG, dan filter estetika keren untuk foto dan video. Gratis tanpa biaya tambahan, editor terbaik untuk kebutuhan editing semua",
         "imageUrl": "https://i.ibb.co.com/2YpGb10z/icon.webp",
-        "downloadUrl": "#"
+        "downloadUrl": "https://link.adsafelink.com/RFLBzO5"
     },
     {
         "name": "FreeReals",
@@ -200,16 +220,6 @@ const apks = [
         "downloadUrl": "https://safefileku.com/download/FtJp2EXt8bgsQibq"
     },
     {
-        "name": "Floatee",
-        "version": "v4.0",
-        "category": "Tools",
-        "size": "5 MB",
-        "android": "Android 6.0+",
-        "description": "Aplikasi widget melayang (floating shortcut) untuk multitasking pro unlocked.",
-        "imageUrl": "https://i.ibb.co.com/8D6979r3/Screenshot-2026-0618-164550.webp",
-        "downloadUrl": "https://safefileku.com/download/d48R6M1OpD1d6K0p"
-    },
-    {
         "name": "Instagram Pro",
         "version": "V 423.0.0.47.66",
         "category": "Aplikasi Mod",
@@ -392,16 +402,6 @@ const apks = [
         "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/DarkAura.png",
         "downloadUrl": "https://link.adsafelink.com/SYnCOLUp",
         "description": "Kustomisasi tema super dark AMOLED dengan paket ikon premium aesthetic."
-    },
-    {
-        "name": "Floatee",
-        "version": "v4.0",
-        "category": "Tools",
-        "size": "5 MB",
-        "android": "Android 6.0+",
-        "description": "Aplikasi widget melayang (floating shortcut) untuk multitasking pro unlocked.",
-        "imageUrl": "https://i.ibb.co.com/8D6979r3/Screenshot-2026-0618-164550.webp",
-        "downloadUrl": "https://link.adsafelink.com/7WhOymr"
     },
     {
         "name": "KomikBahagia",
