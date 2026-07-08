@@ -7,7 +7,7 @@ const apks = [
         "android": "Android 5+",
         "description": "Editor video mobile dengan alat AI dan fitur pro untuk membuat konten cepat. Edit film, vlog, Reels, Shorts dengan timeline tradisional, AI tools, template, chroma key profesional, audio controls, creative effects, ekspor HD tanpa watermark, 700 juta downloads, buat video kompleks cepat dengan fitur AI",
         "imageUrl": "https://i.ibb.co.com/rR3ZnPGJ/icon.webp",
-        "downloadUrl": "https://link.adsafelink.com/cT8IfY0t"
+        "downloadUrl": "https://link.adsafelink.com/u2jP"
     },
     {
         "name": "BeautyPlus",
