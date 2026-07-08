@@ -1,5 +1,15 @@
 const apks = [
     {
+        "name": "KineMaster",
+        "version": "8.1.15.36566.GP",
+        "category": "Aplikasi Mod",
+        "size": "157,74M",
+        "android": "Android 5+",
+        "description": "Editor video mobile dengan alat AI dan fitur pro untuk membuat konten cepat. Edit film, vlog, Reels, Shorts dengan timeline tradisional, AI tools, template, chroma key profesional, audio controls, creative effects, ekspor HD tanpa watermark, 700 juta downloads, buat video kompleks cepat dengan fitur AI",
+        "imageUrl": "https://i.ibb.co.com/rR3ZnPGJ/icon.webp",
+        "downloadUrl": "https://link.adsafelink.com/cT8IfY0t"
+    },
+    {
         "name": "BeautyPlus",
         "version": "V 7.40.1",
         "category": "Editor",
