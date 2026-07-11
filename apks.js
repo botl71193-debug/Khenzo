@@ -1,5 +1,15 @@
 const apks = [
     {
+        "name": "Remini",
+        "version": "3.7.1377.202522873",
+        "category": "Editor",
+        "size": "184,45M",
+        "android": "Android 6.0+",
+        "description": "Penjernih foto AI pro unlocked, kuota edit tanpa batas, kualitas ultra HD.",
+        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/remini.png",
+        "downloadUrl": "https://link.adsafelink.com/k3h1UuD"
+    },
+    {
         "name": "Donghua App",
         "version": "1.0.2",
         "category": "Aplikasi Mod",
@@ -452,16 +462,6 @@ const apks = [
         "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/rcti.png",
         "downloadUrl": "#",
         "description": "Nonton siaran langsung TV nasional tanpa buffer dan tanpa gangguan iklan."
-    },
-    {
-        "name": "Remini",
-        "version": "v3.7.83",
-        "category": "Editor",
-        "size": "54 MB",
-        "android": "Android 6.0+",
-        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/remini.png",
-        "downloadUrl": "https://link.adsafelink.com/78c34m3",
-        "description": "Penjernih foto AI pro unlocked, kuota edit tanpa batas, kualitas ultra HD."
     },
     {
         "name": "WPS Office",
