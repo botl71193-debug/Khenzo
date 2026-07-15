@@ -1,18 +1,1117 @@
-<!DOCTYPE html>
-<html>
-<head>
+<html lang="id">
+  <head>
     <meta charset="UTF-8">
-    <title>ENCODED BY KHENZO</title>
-        <title>LAWAK MAU NYURI HTML GW??</title>
-            <title>PUHCEK</title>
-</head>
-<body>
-    <script>
-            <script src="window.json"></script>
-            
-    </script>
-        <script src="apks.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMK | MODS - Premium Modding Hub</title>
+<style>
+        /* BASE DESIGN SYSTEM - CYBERPUNK MODZ */
+        :root {
+            --bg-main: #020205;
+            --bg-card: #060814;
+            --bg-sidebar: #03040b;
+            --primary: #0052ff;
+            --primary-glow: rgba(0, 82, 255, 0.4);
+            --accent: #00f3ff;
+            --accent-glow: rgba(0, 243, 255, 0.3);
+            --exec-color: #a855f7;
+            --exec-glow: rgba(168, 85, 247, 0.4);
+            --dev-color: #f43f5e;
+            --dev-glow: rgba(244, 63, 94, 0.4);
+            --text-main: #f1f5f9;
+            --text-muted: #64748b;
+            --border: rgba(0, 82, 255, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 82, 255, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: var(--text-main);
+            padding-top: 85px;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-main); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0; height: 70px;
+            display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 20px;
+            background: rgba(3, 4, 11, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2); z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 1px 15px var(--primary-glow);
+        }
+
+        .navbar-left { display: flex; align-items: center; justify-content: flex-start; }
+        .navbar-right { display: flex; align-items: center; justify-content: flex-end; position: relative; }
+
+        .menu-toggle {
+            background: rgba(0, 82, 255, 0.1);
+            border: 1px solid var(--primary); color: var(--accent);
+            width: 42px; height: 42px; font-size: 1.2rem; border-radius: 8px; cursor: pointer;
+            display: flex; align-items: center;
+            justify-content: center; transition: all 0.3s ease;
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+        .menu-toggle:hover { background: var(--primary); color: #fff; box-shadow: 0 0 15px var(--accent); transform: scale(1.05); }
+
+        .logo-box { grid-column: 2; display: flex; align-items: center; gap: 10px; justify-content: center; }
+        .logo { width: 36px; height: 36px; border-radius: 8px; border: 2px solid var(--accent); box-shadow: 0 0 10px var(--accent-glow); object-fit: cover; }
+
+        .main-title {
+            font-size: 1.35rem;
+            font-weight: 900; letter-spacing: 2px; color: #fff; text-transform: uppercase;
+            background: linear-gradient(to right, #fff 20%, var(--accent) 50%, var(--primary) 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .search-trigger-btn { background: transparent; border: none; color: var(--accent); font-size: 1.3rem; cursor: pointer; transition: transform 0.2s; }
+        .search-trigger-btn:hover { transform: scale(1.1); text-shadow: 0 0 10px var(--accent); }
+
+        .search-popover {
+            display: none;
+            position: absolute; top: 55px; right: 0; background: var(--bg-card);
+            border: 1px solid var(--accent); border-radius: 12px; padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8); z-index: 1010;
+        }
+        .search-popover.active { display: flex; }
+        .search-popover input { background: #020205; border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; color: #fff; outline: none; width: 220px; font-size: 0.9rem; }
+
+        .sidebar {
+            position: fixed;
+            top: 0; left: -330px; width: 310px; height: 100%; background: var(--bg-sidebar);
+            border-right: 1px solid rgba(0, 243, 255, 0.2);
+            box-shadow: 10px 0 40px rgba(0,0,0,0.9);
+            z-index: 2000; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); padding: 25px 20px; overflow-y: auto;
+        }
+        .sidebar.active { left: 0; }
+        .sidebar-close { position: absolute; top: 20px; right: 20px; font-size: 1.5rem; color: var(--text-muted); cursor: pointer; }
+        .sidebar-close:hover { color: #ff4444; }
+
+        .sidebar-brand-area { text-align: center; padding: 15px 0; background: linear-gradient(180deg, rgba(0, 82, 255, 0.1) 0%, transparent 100%); border-radius: 14px; border: 1px solid rgba(0, 82, 255, 0.15); margin-top: 20px; margin-bottom: 20px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .sidebar-community-logo { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--accent); box-shadow: 0 0 15px var(--accent-glow); object-fit: cover; }
+        .sidebar-brand-title { font-size: 1.1rem; font-weight: 900; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+
+        .sidebar-sign-text { display: inline-block; font-size: 0.72rem; font-weight: 800; color: #cbd5e1; background: rgba(255, 255, 255, 0.05); border: 1px solid #64748b; padding: 4px 14px; border-radius: 20px; text-transform: uppercase; }
+        .sidebar-sign-text.exec-badge { color: var(--exec-color); background: rgba(168, 85, 247, 0.08); border-color: var(--exec-color); box-shadow: 0 0 8px var(--exec-glow); }
+        .sidebar-sign-text.dev-badge { color: var(--dev-color); background: rgba(244, 63, 94, 0.08); border-color: var(--dev-color); box-shadow: 0 0 8px var(--dev-glow); }
+
+        .cyber-auth-btn {
+            width: 100%;
+            padding: 12px 20px; background: #040817; color: var(--accent); border: 1px solid rgba(0, 243, 255, 0.4); border-radius: 10px;
+            font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s;
+        }
+        .cyber-auth-btn:hover { background: rgba(0, 243, 255, 0.15); color: #fff; border-color: #00f3ff; box-shadow: 0 0 20px rgba(0, 243, 255, 0.4); }
+        .cyber-auth-btn.active-control { color: #fff; border-color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+        .cyber-auth-btn.active-control:hover { border-color: #f87171; background: rgba(239, 68, 68, 0.2); box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+
+        .sidebar-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 18px 0; border: none; }
+        .sidebar-label { font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; padding-left: 5px; }
+        .sidebar-menu-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+
+        .sidebar-item-btn {
+            display: flex;
+            align-items: center; justify-content: space-between; padding: 12px 15px; color: #cbd5e1; text-decoration: none;
+            font-size: 0.88rem; font-weight: 600; border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02); border: 1px solid transparent; cursor: pointer; transition: all 0.25s ease;
+        }
+        .sidebar-item-btn:hover { background: rgba(0, 82, 255, 0.1); border-color: rgba(0, 82, 255, 0.3); color: #fff; transform: translateX(4px); }
+
+        .sub-menu-holder { list-style: none; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding-left: 12px; display: flex; flex-direction: column; gap: 4px; }
+        .sub-menu-holder li div { display: block; padding: 9px 15px; font-size: 0.84rem; color: #94a3b8; background: rgba(0,0,0,0.2); border-left: 2px solid var(--border); border-radius: 0 6px 6px 0; cursor: pointer; transition: 0.2s; }
+        .sub-menu-holder li div:hover { color: #fff; background: rgba(0, 243, 255, 0.05); border-left-color: var(--accent); padding-left: 18px; }
+        .dropdown-parent.open .sub-menu-holder { max-height: 500px; margin-top: 4px; margin-bottom: 6px; }
+        .dropdown-parent .arrow-icon { font-size: 0.7rem; transition: transform 0.3s; color: var(--text-muted); }
+        .dropdown-parent.open .arrow-icon { transform: rotate(180deg); color: var(--accent); }
+
+        .exec-theme-btn:hover { background: rgba(168, 85, 247, 0.1) !important; border-color: rgba(168, 85, 247, 0.4) !important; }
+        .exec-sub-list li div { border-left-color: rgba(168, 85, 247, 0.3); }
+        .exec-sub-list li div:hover { border-left-color: var(--exec-color); background: rgba(168, 85, 247, 0.05); }
+
+        .hidden-exec-item { display: none !important; }
+        .dev-only-block { display: none !important; }
+
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
+        .welcome-header { text-align: center; margin-bottom: 30px; display: flex; flex-direction: column; align-items: center; gap: 10px;}
+        .welcome-header p { font-size: 0.95rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+
+        .apk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+        .apk-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border); border-radius: 16px; padding: 20px;
+            position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; gap: 15px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.6); transition: all 0.3s;
+        }
+        .apk-card.hidden { display: none !important; }
+
+        .card-control-box {
+            position: absolute;
+            top: 15px; right: 15px; display: none; gap: 6px; z-index: 10;
+        }
+        .dev-action-badge-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: #fff; width: 32px; height: 32px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            font-size: 0.85rem; transition: 0.2s;
+        }
+        .dev-action-badge-btn.edit-btn { background: rgba(14, 165, 233, 0.15); border-color: #0ea5e9; }
+        .dev-action-badge-btn.edit-btn:hover { background: #0ea5e9; box-shadow: 0 0 10px #0ea5e9; transform: scale(1.05); }
+        .dev-action-badge-btn.delete-btn { background: rgba(244, 63, 94, 0.15); border-color: var(--dev-color); }
+        .dev-action-badge-btn.delete-btn:hover { background: var(--dev-color); box-shadow: 0 0 10px var(--dev-color); transform: scale(1.05); }
+
+        .apk-top-flex { display: flex; gap: 14px; align-items: center; }
+        .apk-icon-frame { width: 70px; height: 70px; background: #020205; border: 2px solid var(--border); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
+        .apk-icon-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+        .apk-main-info { display: flex; flex-direction: column; gap: 4px; flex-grow: 1; min-width: 0; }
+        .apk-title { font-size: 1.15rem; font-weight: 800; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .apk-version { font-size: 0.82rem; color: var(--accent); font-weight: 700; }
+        .apk-badge-row { display: flex; flex-wrap: wrap; gap: 4px; }
+        .apk-badge { font-size: 0.68rem; font-weight: 700; color: #94a3b8; padding: 2px 6px; background: rgba(0, 82, 255, 0.08); border: 1px solid rgba(0, 82, 255, 0.2); border-radius: 5px; }
+
+        .apk-desc-area { background: rgba(2, 2, 5, 0.5); border: 1px solid rgba(255,255,255,0.03); padding: 10px; border-radius: 10px; font-size: 0.84rem; color: #94a3b8; min-height: 60px; line-height: 1.4; }
+
+        .download-action-btn {
+            display: block;
+            width: 100%; padding: 12px; text-align: center; background: linear-gradient(135deg, var(--primary) 0%, #002ba1 100%);
+            color: #fff; border: none; border-radius: 10px; font-size: 0.9rem;
+            font-weight: 700; text-decoration: none; cursor: pointer; transition: 0.3s;
+        }
+        .download-action-btn:hover { background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%); box-shadow: 0 0 15px var(--accent); }
+
+        .modal-box {
+            display: none;
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.85);
+            background: var(--bg-card); border: 2px solid var(--primary);
+            box-shadow: 0 0 50px rgba(0,0,0,0.9);
+            width: 92%; max-width: 520px; /* Diperlebar sedikit agar tombol muat */ border-radius: 16px; padding: 20px; z-index: 2500; opacity: 0;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            max-height: 90vh; overflow-y: auto;
+        }
+        .modal-box.active { display: block; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        .modal-close-btn { position: absolute; top: 12px; right: 16px; font-size: 1.5rem; color: var(--text-muted); cursor: pointer; z-index: 5; }
+        .modal-close-btn:hover { color: #fff; }
+
+        .exec-panel-modal { border-color: var(--exec-color) !important; box-shadow: 0 0 50px rgba(0,0,0,0.9), 0 0 25px var(--exec-glow) !important; }
+        .exec-header-row { display: flex; justify-content: space-between; align-items: center; margin: 15px 0 10px 0; }
+
+        .exec-panel-download-btn {
+            background: rgba(168, 85, 247, 0.1);
+            color: var(--exec-color); border: 2px solid var(--exec-color);
+            box-shadow: 0 0 10px var(--exec-glow); padding: 6px 16px; border-radius: 8px; font-size: 0.82rem; font-weight: 800;
+            text-decoration: none; text-transform: uppercase; transition: all 0.3s ease;
+        }
+        .exec-panel-download-btn:hover { background: var(--exec-color); color: #fff; box-shadow: 0 0 20px var(--exec-color); transform: scale(1.05); }
+
+        .exec-feature-list { display: flex; flex-direction: column; gap: 8px; background: #020205; padding: 12px; border-radius: 10px; border: 1px solid rgba(168,85,247,0.15); }
+        .exec-feature-item { display: flex; gap: 10px; font-size: 0.86rem; color: #cbd5e1; line-height: 1.4; }
+
+        .dev-panel-modal { border-color: var(--dev-color) !important; box-shadow: 0 0 50px rgba(0,0,0,0.9), 0 0 25px var(--dev-glow) !important; }
+        .form-mobile-vertical-stack { display: flex; flex-direction: column; gap: 12px; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; text-align: left; position: relative; }
+        .form-group label { font-size: 0.75rem; font-weight: 800; color: #cbd5e1; text-transform: uppercase; letter-spacing: 1px; }
+
+        .form-group input, .form-group select, .form-group textarea {
+            background: #020205;
+            border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 8px; padding: 11px 14px; color: #fff; outline: none; font-size: 0.9rem; width: 100%;
+            -webkit-appearance: none;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--dev-color); box-shadow: 0 0 8px rgba(244, 63, 94, 0.2); }
+        .form-btn-row { display: flex; gap: 10px; margin-top: 10px; }
+
+        .pena-upload-wrapper { display: flex; gap: 8px; width: 100%; }
+        .pena-upload-wrapper input { flex: 1; min-width: 0; } /* Penting agar kolom tidak terdorong tombol */
+
+        .action-trigger-btn {
+            background: rgba(244, 63, 94, 0.15);
+            border: 1px solid var(--dev-color); color: #fff;
+            border-radius: 8px; padding: 0 12px; font-size: 0.85rem; font-weight: bold; cursor: pointer;
+            display: flex; align-items: center;
+            justify-content: center; transition: all 0.2s; white-space: nowrap;
+        }
+        .action-trigger-btn:hover { box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); transform: scale(1.02); }
+
+        .overlay-mask { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 1500; opacity: 0; transition: opacity 0.3s; }
+        .overlay-mask.active { display: block; opacity: 1; }
+
+        .floating-profile-trigger {
+            position: fixed;
+            bottom: 20px; right: 20px; width: 48px; height: 48px; background: var(--primary); color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; box-shadow: 0 0 15px var(--primary-glow); cursor: pointer; z-index: 1200; transition: 0.3s; border: 1px solid var(--accent);
+        }
+        .floating-profile-trigger:hover { transform: rotate(360deg) scale(1.1); background: var(--accent); }
+
+        .footer-notice { text-align: center; margin-top: 50px; padding: 25px 15px; border-top: 1px solid var(--border); }
+        .notice-danger-card { background: rgba(239, 68, 68, 0.04); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 12px; padding: 12px; color: #f87171; max-width: 750px; margin: 15px auto 0 auto; font-size: 0.82rem; font-weight: 600; line-height: 1.4; }
+        .no-results-alert { text-align: center; color: var(--text-muted); padding: 40px 0; display: none; font-weight: 600; }
+</style>
+  </head>
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-left">
+        <button class="menu-toggle" onclick="handleSidebarDisplay()">☰</button>
+      </div>
+      <div class="logo-box">
+        <img class="logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="Logo MMK">
+        <span class="main-title">MMK | MODS</span>
+      </div>
+      <div class="navbar-right">
+
+        <div id="devUndoRedoControls" style="display: none; gap: 8px; margin-right: 15px; align-items: center;">
+          <button class="dev-action-badge-btn edit-btn" style="width: 32px; height: 32px; font-weight: bold;" title="Undo Data" onclick="undoDeveloperAction()">←</button>
+          <button class="dev-action-badge-btn edit-btn" style="width: 32px; height: 32px; font-weight: bold;" title="Redo Data" onclick="redoDeveloperAction()">→</button>
+        </div>
+
+        <button class="search-trigger-btn" onclick="handleSearchToggle()">🔍</button>
+        <div class="search-popover" id="searchPopover">
+          <input type="text" id="searchInput" placeholder="Cari Mod Game..." onkeyup="executeApkSearch()">
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar" id="sidebarMenu">
+      <span class="sidebar-close" onclick="handleSidebarDisplay()">×</span>
+
+      <div class="sidebar-brand-area">
+        <img class="sidebar-community-logo" src="https://diverse-aqua-iq7wghij.edgeone.app/M.png" alt="MMK Community">
+        <div class="sidebar-brand-title">MMK | MODS</div>
+        <div id="userSignBadge" class="sidebar-sign-text">Guest Mode</div>
+      </div>
+
+      <div class="cyber-auth-container" style="margin-bottom: 22px;">
+        <button id="authTriggerBtn" class="cyber-auth-btn" onclick="handleAuthModalDisplay()">
+          ⚙️ Sign In
+        </button>
+      </div>
+
+      <div class="sidebar-label">Kategori Aplikasi</div>
+      <ul class="sidebar-menu-list">
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('all')">📱 All Apps</div></li>
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('Aplikasi Mod')">📦 Aplikasi Mod</div></li>
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('Games Mod')">🎮 Games Mod</div></li>
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('Streaming')">🎬 Streaming</div></li>
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('Music')">🎵 Music</div></li>
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('Tools')">🛠️ Tools</div></li>
+        <li><div class="sidebar-item-btn" onclick="applyCategoryFilter('Editor')">📸 Editor</div></li>
+      </ul>
+
+      <div class="sidebar-divider dev-only-block"></div>
+      <div class="sidebar-label dev-only-block" style="color: var(--dev-color);">Dev Full Database Tool</div>
+      <ul class="sidebar-menu-list dev-only-block">
+        <li><div class="sidebar-item-btn" style="border-color: rgba(244,63,94,0.3); background: rgba(244,63,94,0.05);" onclick="exportCurrentApksFile('apksOnly')">💾 Ekspor Berkas apks.js Only</div></li>
+        <li><div class="sidebar-item-btn" style="border-color: rgba(244,63,94,0.3); background: rgba(244,63,94,0.05);" onclick="document.getElementById('importApksFile').click()">📥 Impor apks.js Lokal</div></li>
+
+        <li style="margin-top: 10px;"><div class="sidebar-item-btn" style="border-color: #a855f7; background: rgba(168,85,247,0.1);" onclick="exportCurrentApksFile('exportVip')">⚡ Ekspor VIP.js only</div></li>
+        <li><div class="sidebar-item-btn" style="border-color: #a855f7; background: rgba(168,85,247,0.1);" onclick="document.getElementById('importVipFile').click()">📥 Impor VIP.js Lokal</div></li>
+      </ul>
+
+      <input type="file" id="importApksFile" accept=".js" style="display:none" onchange="processImportApks(this)">
+      <input type="file" id="importVipFile" accept=".js" style="display:none" onchange="processImportVip(this)">
+
+      <div class="sidebar-divider hidden-exec-item"></div>
+      <div class="sidebar-label hidden-exec-item" style="color: var(--exec-color);">Exclusive MODDED</div>
+      <ul class="sidebar-menu-list hidden-exec-item">
+        <li class="dropdown-parent" id="dropToolsModder">
+          <div class="sidebar-item-btn exec-theme-btn" onclick="handleDropdownTrigger('dropToolsModder')">
+            <span>🧰 Modder Tools app</span><span class="arrow-icon exec-arrow">▼</span>
+          </div>
+          <ul class="sub-menu-holder exec-sub-list">
+            <li><div onclick="showExecAppDetails('npManager')">- np manager</div></li>
+            <li><div onclick="showExecAppDetails('mtManager')">- mt manager</div></li>
+            <li><div onclick="showExecAppDetails('toolM')">- tool M</div></li>
+            <li><div onclick="showExecAppDetails('luckyPatcher')">- Lucky patcher</div></li>
+            <li><div onclick="showExecAppDetails('modderhub')">- Modderhub</div></li>
+            <li><div onclick="showExecAppDetails('penaTool')">🖊️- Pena Tool</div></li>
+          </ul>
+        </li>
+        <li class="dropdown-parent" id="dropScriptsTermux" style="margin-top: 5px;">
+          <div class="sidebar-item-btn exec-theme-btn" onclick="handleDropdownTrigger('dropScriptsTermux')">
+            <span>📜 Scrip termux</span><span class="arrow-icon exec-arrow">▼</span>
+          </div>
+          <ul class="sub-menu-holder exec-sub-list">
+            <li><div onclick="showExecAppDetails('hermesPatcher')">- hermes patcher</div></li>
+            <li><div onclick="showExecAppDetails('flutterPatcher')">- flutter patcher</div></li>
+            <li><div onclick="showExecAppDetails('ultimateFlutter')">- ultimate flutter patcher</div></li>
+            <li><div onclick="showExecAppDetails('blutter')">- blutter</div></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="sidebar-divider hidden-exec-item"></div>
+      <div class="sidebar-label hidden-exec-item" style="color: var(--exec-color);">Instant Premium</div>
+      <ul class="sidebar-menu-list hidden-exec-item">
+        <li class="dropdown-parent" id="dropInstantPrem">
+          <div class="sidebar-item-btn exec-theme-btn" onclick="handleDropdownTrigger('dropInstantPrem')">
+            <span>⚡ INSTANT PREMIUM</span><span class="arrow-icon exec-arrow">▼</span>
+          </div>
+          <ul class="sub-menu-holder exec-sub-list">
+            <li><div onclick="showExecAppDetails('beautyPlus')">- Beautyplus</div></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="sidebar-divider hidden-exec-item"></div>
+      <div class="sidebar-label hidden-exec-item" style="color: var(--exec-color);">Regex Generator</div>
+      <ul class="sidebar-menu-list hidden-exec-item">
+        <li class="dropdown-parent" id="dropRegexUtility">
+          <div class="sidebar-item-btn exec-theme-btn" onclick="handleDropdownTrigger('dropRegexUtility')">
+            <span>🧭 REGEX</span><span class="arrow-icon exec-arrow">▼</span>
+          </div>
+          <ul class="sub-menu-holder exec-sub-list">
+            <li><div onclick="showExecAppDetails('regexVip')">- unlock VIP | regex 1-5</div></li>
+            <li><div onclick="showExecAppDetails('regexAds')">- ads | regex 1</div></li>
+            <li><div onclick="showExecAppDetails('regexLicense')">- License | regex 1</div></li>
+            <li><div onclick="showExecAppDetails('regexFb')">- bypas sign FB | regex 1-2</div></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-label">About modder</div>
+      <ul class="sidebar-menu-list">
+        <li><div class="sidebar-item-btn" onclick="handleModderProfileModal()">👤 Profil Owner</div></li>
+        <li><a class="sidebar-item-btn" href="https://chat.whatsapp.com/LDzlBOXR3I12Rb79oy5TFJ" target="_blank">💬 Grup WhatsApp 🚀</a></li>
+      </ul>
+    </div>
+
+    <div class="overlay-mask" id="globalOverlay" onclick="closeActiveOverlays()"></div>
+
+    <div class="modal-box" id="authGateModal">
+      <span class="modal-close-btn" onclick="closeActiveOverlays()">×</span>
+      <h3 style="margin-bottom: 10px; color:#fff;">🛡️ SIGN IN </h3>
+      <div id="loginFormState">
+        <input type="password" id="devKeyInput" style="background:#020205; border:1px solid var(--border); border-radius:8px; padding:12px; color:#fff; width:100%; margin-bottom:15px; text-align:center; letter-spacing:4px; outline:none;" placeholder="••••••••">
+        <button class="download-action-btn" onclick="processAuthVerification()">VERIFIKASI AKSES</button>
+      </div>
+      <div id="logoutFormState" style="display:none; text-align:center;">
+        <p id="authActiveModeText" style="color:var(--accent); margin-bottom:20px; font-size:0.9rem; font-weight:bold;"></p>
+        <button class="download-action-btn" style="background:linear-gradient(135deg, #ef4444, #991b1b)" onclick="processAuthLogout()">LOGOUT</button>
+      </div>
+    </div>
+
+    <!-- FORM EDIT/TAMBAH APK -->
+    <div class="modal-box dev-panel-modal" id="devApkFormModal">
+      <span class="modal-close-btn" onclick="closeActiveOverlays()">×</span>
+      <h3 id="formModalTitle" style="margin-bottom: 15px; color:#fff; font-size: 1.15rem; border-bottom: 1px solid rgba(244, 63, 94, 0.2); padding-bottom: 10px;">➕ TAMBAH APK BARU</h3>
+      <input type="hidden" id="formEditIndex" value="">
+
+      <div class="form-mobile-vertical-stack">
+        <div class="form-group" id="existingApkSelectorRow">
+          <label style="color: var(--accent);">Salin Dari APK Yang Sudah Ada</label>
+          <select id="formExistingApkSelect" onchange="handleLoadExistingApkData()">
+            <option value="">-- Buat Baru Dari Awal --</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Nama APK</label>
+          <input type="text" id="formApkName">
+        </div>
+        <div class="form-group">
+          <label>Versi</label>
+          <input type="text" id="formApkVersion">
+        </div>
+        <div class="form-group">
+          <label>Kategori</label>
+          <select id="formApkCategory">
+            <option value="Aplikasi Mod">Aplikasi Mod</option>
+            <option value="Games Mod">Games Mod</option>
+            <option value="Streaming">Streaming</option>
+            <option value="Music">Music</option>
+            <option value="Tools">Tools</option>
+            <option value="Editor">Editor</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Ukuran Size</label>
+          <input type="text" id="formApkSize">
+        </div>
+        <div class="form-group">
+          <label>Sistem Android</label>
+          <input type="text" id="formApkAndroid">
+        </div>
+        <div class="form-group">
+          <label>Deskripsi Fitur</label>
+          <textarea id="formApkDesc" rows="3"></textarea>
+        </div>
+
+        <!-- BAGIAN URL GAMBAR DENGAN COPY PASTE -->
+        <div class="form-group">
+          <label>URL Gambar / Ikon APK</label>
+          <div class="pena-upload-wrapper">
+            <input type="text" id="formApkImg" placeholder="https://...">
+            <button class="action-trigger-btn" style="background: rgba(14, 165, 233, 0.15); border-color: #0ea5e9;" onclick="copyFieldValue('formApkImg')" title="Salin URL">📄 COPY</button>
+            <button class="action-trigger-btn" onclick="pasteFieldValue('formApkImg')" title="Tempel URL">📋 PASTE</button>
+          </div>
+        </div>
+
+        <!-- BAGIAN URL DOWNLOAD DENGAN COPY PASTE -->
+        <div class="form-group">
+          <label>URL Download Tautan Berkas</label>
+          <div class="pena-upload-wrapper">
+            <input type="text" id="formApkLink" placeholder="https://...">
+            <button class="action-trigger-btn" style="background: rgba(14, 165, 233, 0.15); border-color: #0ea5e9;" onclick="copyFieldValue('formApkLink')" title="Salin URL">📄 COPY</button>
+            <button class="action-trigger-btn" style="background: rgba(168, 85, 247, 0.15); border-color: #a855f7;" onclick="pasteFieldValue('formApkLink')" title="Tempel URL">📋 PASTE</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-btn-row">
+        <button class="download-action-btn" style="background:#334155;" onclick="closeActiveOverlays()">CANCEL</button>
+        <button class="download-action-btn" style="background:linear-gradient(135deg, var(--dev-color) 0%, #991b1b 100%);" onclick="saveApkFormSubmission()">UPLOAD</button>
+      </div>
+    </div>
+
+    <div class="modal-box dev-panel-modal" id="devDatabaseExportModal">
+      <span class="modal-close-btn" onclick="closeActiveOverlays()">×</span>
+      <h3 id="exportModalMainTitle" style="margin-bottom: 5px; color:#fff;">📂 SALIN DATABASE ENGINE</h3>
+      <p id="exportModalSubDescription" style="font-size:0.8rem; color:var(--text-muted); margin-bottom: 15px;">Salin seluruh teks kode di bawah ini.</p>
+      <div class="form-group">
+        <textarea id="exportTextareaContainer" rows="12" style="font-family: 'Courier New', monospace; font-size: 0.78rem; color: #67e8f9; background:#010208;" readonly onclick="this.select()"></textarea>
+      </div>
+      <button class="download-action-btn" style="background:linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);" onclick="copyExportedTextToClipboard()">📋 KLIK SALIN SEMUA KODE</button>
+    </div>
+
+    <div class="modal-box exec-panel-modal" id="execAppDetailsModal">
+      <span class="modal-close-btn" onclick="closeActiveOverlays()">×</span>
+      <div class="apk-top-flex" style="border-bottom: 1px solid rgba(168, 85, 247, 0.2); padding-bottom: 15px; margin-bottom: 10px;">
+        <div class="apk-icon-frame" id="execModalIcon" style="border-color: var(--exec-color);"></div>
+        <div class="apk-main-info">
+          <span class="apk-title" id="execModalName">Nama Aplikasi</span>
+          <span class="apk-version" id="execModalVersion">Versi: 1.0.0</span>
+          <div class="apk-badge-row" id="execModalBadges"></div>
+        </div>
+      </div>
+      <div class="exec-header-row">
+        <span class="sidebar-label" style="color: var(--exec-color); font-size: 0.72rem;">FUNGSI & ENGINE UTAMA :</span>
+        <a href="#" target="_blank" id="execModalDownloadBtn" class="exec-panel-download-btn"> UNDUH </a>
+      </div>
+      <div style="text-align: left;">
+        <div class="exec-feature-list" id="execModalFeatures"></div>
+      </div>
+    </div>
+
+    <div class="modal-box" id="modderProfileModal">
+      <span class="modal-close-btn" onclick="closeActiveOverlays()">×</span>
+      <div style="text-align:center; padding:10px 0;">
+        <div style="width:75px; height:75px; background:rgba(0,243,255,0.1); border:2px solid var(--accent); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 15px auto; font-weight:900; color:#fff; font-size:1.5rem;">MMK</div>
+        <h3 style="color:#fff; margin-bottom:4px;">MMK Modder Engine</h3>
+        <p style="color:var(--accent); font-size:0.85rem; font-weight:700; margin-bottom:15px;">Lead Software Modificator</p>
+        <p style="font-size:0.84rem; color:var(--text-muted); line-height:1.5;">Ekosistem Aplikasi Android khusus internal MMK Team.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="welcome-header">
+        <p>Premium Modded Applications Database</p>
+        <button class="download-action-btn dev-only-block" style="max-width:250px; background: linear-gradient(135deg, var(--dev-color) 0%, #b91c1c 100%);" onclick="openAddApkFormModal()">
+          ➕ TAMBAH DATA APK BARU
+        </button>
+      </div>
+
+      <div class="apk-grid" id="apkDisplayGrid"></div>
+      <div class="no-results-alert" id="searchEmptyAlert">❌ Berkas Mod tidak ditemukan.</div>
+
+      <div class="footer-notice">
+        <p style="color:var(--text-muted); font-size:0.85rem;">Platform Architecture Crafted By <strong>Khenzo</strong></p>
+        <div class="notice-danger-card">⚠️ PERINGATAN: SELURUH LAYANAN MMK 100% GRATIS!</div>
+      </div>
+    </div>
+
+    <div class="floating-profile-trigger" onclick="handleModderProfileModal()">👤</div>
+
+    <script src="apks.js"></script>
     <script src="VIP.js"></script>
-    <script src="https://mehdi71x1.github.io/Hook-Manager-Pro/dcc+.js"></script>
-</body>
+
+<script>
+        const TOKEN_EXECUTIVE = "-..- . -.-. ..- - .. ...-";
+        const TOKEN_DEVELOPER = "--- .-- -. . .-. / -- -- -.-";
+
+        let internalApksData = [];
+        let apksHistory = [];
+        let currentHistoryIndex = -1;
+
+        function pushHistoryState() {
+            if (currentHistoryIndex < apksHistory.length - 1) {
+                apksHistory = apksHistory.slice(0, currentHistoryIndex + 1);
+            }
+            apksHistory.push(JSON.parse(JSON.stringify(internalApksData)));
+            currentHistoryIndex++;
+        }
+
+        function undoDeveloperAction() {
+            if (currentHistoryIndex > 0) {
+                currentHistoryIndex--;
+                internalApksData = JSON.parse(JSON.stringify(apksHistory[currentHistoryIndex]));
+                localStorage.setItem('mmk_local_apks', JSON.stringify(internalApksData));
+                renderGridCards();
+            } else {
+                alert("⚠️ Memori Undo kosong. Tidak ada aksi sebelumnya.");
+            }
+        }
+
+        function redoDeveloperAction() {
+            if (currentHistoryIndex < apksHistory.length - 1) {
+                currentHistoryIndex++;
+                internalApksData = JSON.parse(JSON.stringify(apksHistory[currentHistoryIndex]));
+                localStorage.setItem('mmk_local_apks', JSON.stringify(internalApksData));
+                renderGridCards();
+            } else {
+                alert("⚠️ Memori Redo kosong. Tidak ada aksi selanjutnya.");
+            }
+        }
+
+
+        function initializeCatalogueEngine() {
+            const grid = document.getElementById('apkDisplayGrid');
+            if (!grid) return;
+
+            const savedLocalData = localStorage.getItem('mmk_local_apks');
+            if (savedLocalData) {
+                internalApksData = JSON.parse(savedLocalData);
+            } else if (typeof apks !== 'undefined') {
+                internalApksData = apks;
+            } else {
+                internalApksData = [];
+            }
+            renderGridCards();
+
+            apksHistory = [];
+            currentHistoryIndex = -1;
+            pushHistoryState();
+        }
+
+        function renderGridCards() {
+            const grid = document.getElementById('apkDisplayGrid');
+            if (!grid) return;
+            grid.innerHTML = "";
+
+            const activeRole = localStorage.getItem('mmk_sys_role') || 'GUEST';
+
+            internalApksData.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'apk-card';
+                card.setAttribute('data-target-cat', item.category);
+
+                let defaultIcon = '📱';
+                if (item.category === 'Streaming') defaultIcon = '🎬';
+                else if (item.category === 'Games Mod') defaultIcon = '🎮';
+                else if (item.category === 'Music') defaultIcon = '🎵';
+                else if (item.category === 'Tools') defaultIcon = '🛠️';
+
+                let displayControl = activeRole === 'DEVELOPER' ? 'flex' : 'none';
+                let devActionButtons = `
+                    <div class="card-control-box" style="display:${displayControl}">
+                        <div class="dev-action-badge-btn edit-btn" title="Edit APK" onclick="openEditApkFormModal(${index})">✏️</div>
+                        <div class="dev-action-badge-btn delete-btn" title="Hapus APK" onclick="deleteApkItemCard(${index})">🗑️</div>
+                    </div>
+                `;
+                card.innerHTML = `
+                    ${devActionButtons}
+                    <div class="apk-top-flex">
+                        <div class="apk-icon-frame">
+                            <img src="${item.imageUrl || ''}" alt="${item.name || ''}" onerror="this.style.display='none'; this.parentElement.innerHTML='${defaultIcon}';">
+                        </div>
+                        <div class="apk-main-info">
+                            <span class="apk-title">${item.name || 'No Name'}</span>
+                            <span class="apk-version">${item.version || ''}</span>
+                            <div class="apk-badge-row">
+                                <span class="apk-badge">💾 ${item.size || '0 MB'}</span>
+                                <span class="apk-badge">🤖 ${item.android || '5.0+'}</span>
+                                <span class="apk-badge">📁 ${item.category || 'General'}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="apk-desc-area">${item.description || 'Tidak ada deskripsi.'}</div>
+                    <a href="${item.downloadUrl || '#'}" target="_blank" class="download-action-btn"> UNDUH </a>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function deleteApkItemCard(index) {
+            const targetApk = internalApksData[index];
+            if (!targetApk) return;
+
+            const confirmation = confirm(`Apakah Anda yakin ingin menghapus "${targetApk.name}" dari sistem?`);
+            if (confirmation) {
+                internalApksData.splice(index, 1);
+                localStorage.setItem('mmk_local_apks', JSON.stringify(internalApksData));
+                pushHistoryState();
+                renderGridCards();
+                alert("Aplikasi berhasil dihapus!");
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initializeCatalogueEngine();
+            syncSecurityAccessState();
+        });
+
+        function handleSidebarDisplay() {
+            const sb = document.getElementById('sidebarMenu');
+            const ov = document.getElementById('globalOverlay');
+            if(sb && ov) { sb.classList.toggle('active'); ov.classList.toggle('active'); }
+        }
+
+        function handleSearchToggle() {
+            const container = document.getElementById('searchPopover');
+            if(!container) return;
+            container.classList.toggle('active');
+            if (container.classList.contains('active')) document.getElementById('searchInput').focus();
+        }
+
+        function handleDropdownTrigger(targetId) {
+            const target = document.getElementById(targetId);
+            if(target) target.classList.toggle('open');
+        }
+
+        function syncSecurityAccessState() {
+            const activeRole = localStorage.getItem('mmk_sys_role') || 'GUEST';
+            const badge = document.getElementById('userSignBadge');
+            const triggerBtn = document.getElementById('authTriggerBtn');
+
+            const hiddenExecElements = document.querySelectorAll('.hidden-exec-item');
+            const devOnlyBlocks = document.querySelectorAll('.dev-only-block');
+            const controlBoxes = document.querySelectorAll('.card-control-box');
+            const devUndoRedo = document.getElementById('devUndoRedoControls'); 
+
+            if (activeRole === 'DEVELOPER') {
+                if(badge) { badge.textContent = "Developer Mode"; badge.className = "sidebar-sign-text dev-badge"; }
+                if(triggerBtn) { triggerBtn.innerHTML = "🔒 Logout"; triggerBtn.classList.add('active-control'); }
+                hiddenExecElements.forEach(el => el.style.setProperty('display', 'block', 'important'));
+                devOnlyBlocks.forEach(el => el.style.setProperty('display', 'block', 'important'));
+                controlBoxes.forEach(el => el.style.display = 'flex');
+                if(devUndoRedo) devUndoRedo.style.setProperty('display', 'flex', 'important');
+
+            } else if (activeRole === 'EXECUTIVE') {
+                if(badge) { badge.textContent = "Executive Member"; badge.className = "sidebar-sign-text exec-badge"; }
+                if(triggerBtn) { triggerBtn.innerHTML = "🔒 Logout"; triggerBtn.classList.add('active-control'); }
+                hiddenExecElements.forEach(el => el.style.setProperty('display', 'block', 'important'));
+                devOnlyBlocks.forEach(el => el.style.setProperty('display', 'none', 'important'));
+                controlBoxes.forEach(el => el.style.display = 'none');
+                if(devUndoRedo) devUndoRedo.style.setProperty('display', 'none', 'important');
+
+            } else {
+                if(badge) { badge.textContent = "Guest Mode"; badge.className = "sidebar-sign-text"; }
+                if(triggerBtn) { triggerBtn.innerHTML = "⚙️ Sign In"; triggerBtn.classList.remove('active-control'); }
+                hiddenExecElements.forEach(el => el.style.setProperty('display', 'none', 'important'));
+                devOnlyBlocks.forEach(el => el.style.setProperty('display', 'none', 'important'));
+                controlBoxes.forEach(el => el.style.display = 'none');
+                if(devUndoRedo) devUndoRedo.style.setProperty('display', 'none', 'important');
+            }
+        }
+
+        function handleAuthModalDisplay() {
+            closeActiveOverlays();
+            const activeRole = localStorage.getItem('mmk_sys_role') || 'GUEST';
+            document.getElementById('globalOverlay').classList.add('active');
+            document.getElementById('authGateModal').classList.add('active');
+
+            if (activeRole !== 'GUEST') {
+                document.getElementById('loginFormState').style.display = "none";
+                document.getElementById('logoutFormState').style.display = "block";
+                document.getElementById('authActiveModeText').textContent = `Status: [ ${activeRole} ]`;
+            } else {
+                document.getElementById('loginFormState').style.display = "block";
+                document.getElementById('logoutFormState').style.display = "none";
+                document.getElementById('devKeyInput').value = "";
+            }
+        }
+
+        function processAuthVerification() {
+            const tokenValue = document.getElementById('devKeyInput').value.trim();
+            if (tokenValue === TOKEN_DEVELOPER) {
+                localStorage.setItem('mmk_sys_role', 'DEVELOPER');
+                alert("🔐 Akses Developer Terbuka!");
+                location.reload();
+            } else if (tokenValue === TOKEN_EXECUTIVE) {
+                localStorage.setItem('mmk_sys_role', 'EXECUTIVE');
+                alert("🔮 Akses Executive Member Terbuka!");
+                location.reload();
+            } else {
+                alert("❌ Token salah!");
+            }
+        }
+
+        function processAuthLogout() {
+            localStorage.setItem('mmk_sys_role', 'GUEST');
+            alert("Keluar dari sesi adm.");
+            location.reload();
+        }
+
+        // --- FUNGSI COPY PASTE ---
+        async function copyFieldValue(inputId) {
+            const el = document.getElementById(inputId);
+            if (!el || !el.value) {
+                alert("⚠️ Kolom masih kosong, tidak ada yang bisa disalin!");
+                return;
+            }
+            try {
+                await navigator.clipboard.writeText(el.value);
+                alert("📄 URL berhasil disalin ke clipboard!");
+            } catch (err) {
+                el.select();
+                document.execCommand('copy');
+                alert("📄 URL berhasil disalin ke clipboard!");
+            }
+        }
+
+        async function pasteFieldValue(inputId) {
+            const el = document.getElementById(inputId);
+            if (!el) return;
+            try {
+                const text = await navigator.clipboard.readText();
+                el.value = text;
+                // Optional alert:
+                // alert("📋 URL berhasil ditempel!"); 
+            } catch (err) {
+                alert("❌ Gagal menempel teks. Pastikan browser mengizinkan akses clipboard.");
+            }
+        }
+        // --- AKHIR FUNGSI COPY PASTE ---
+
+        function openAddApkFormModal() {
+            closeActiveOverlays();
+            document.getElementById('formModalTitle').textContent = "➕ TAMBAH APK BARU";
+            document.getElementById('formEditIndex').value = "";
+
+            document.getElementById('formApkName').value = "";
+            document.getElementById('formApkVersion').value = "";
+            document.getElementById('formApkSize').value = "";
+            document.getElementById('formApkAndroid').value = "";
+            document.getElementById('formApkDesc').value = "";
+            document.getElementById('formApkImg').value = "";
+            document.getElementById('formApkLink').value = "";
+
+            const selectorRow = document.getElementById('existingApkSelectorRow');
+            const selectEl = document.getElementById('formExistingApkSelect');
+            selectorRow.style.setProperty('display', 'flex', 'important');
+            selectEl.innerHTML = '<option value="">-- Buat Baru Dari Awal --</option>';
+            internalApksData.forEach((item, index) => {
+                const opt = document.createElement('option');
+                opt.value = index;
+                opt.textContent = `${item.name || 'Mod'} (${item.version || 'v?'})`;
+                selectEl.appendChild(opt);
+            });
+            document.getElementById('globalOverlay').classList.add('active');
+            document.getElementById('devApkFormModal').classList.add('active');
+        }
+
+        function handleLoadExistingApkData() {
+            const selectedIndex = document.getElementById('formExistingApkSelect').value;
+            if (selectedIndex === "") return;
+
+            const targetData = internalApksData[parseInt(selectedIndex)];
+            if (!targetData) return;
+
+            document.getElementById('formApkName').value = targetData.name || "";
+            document.getElementById('formApkVersion').value = targetData.version || "";
+            document.getElementById('formApkCategory').value = targetData.category || "Aplikasi Mod";
+            document.getElementById('formApkSize').value = targetData.size || "";
+            document.getElementById('formApkAndroid').value = targetData.android || "";
+            document.getElementById('formApkDesc').value = targetData.description || "";
+            document.getElementById('formApkImg').value = targetData.imageUrl || "";
+            document.getElementById('formApkLink').value = targetData.downloadUrl || "";
+        }
+
+        function openEditApkFormModal(index) {
+            closeActiveOverlays();
+            const targetData = internalApksData[index];
+            if (!targetData) return;
+
+            document.getElementById('formModalTitle').textContent = "✏️ SUNTING DATA APK";
+            document.getElementById('formEditIndex').value = index;
+            document.getElementById('existingApkSelectorRow').style.setProperty('display', 'none', 'important');
+            document.getElementById('formApkName').value = targetData.name || "";
+            document.getElementById('formApkVersion').value = targetData.version || "";
+            document.getElementById('formApkCategory').value = targetData.category || "Aplikasi Mod";
+            document.getElementById('formApkSize').value = targetData.size || "";
+            document.getElementById('formApkAndroid').value = targetData.android || "";
+            document.getElementById('formApkDesc').value = targetData.description || "";
+            document.getElementById('formApkImg').value = targetData.imageUrl || "";
+            document.getElementById('formApkLink').value = targetData.downloadUrl || "";
+
+            document.getElementById('globalOverlay').classList.add('active');
+            document.getElementById('devApkFormModal').classList.add('active');
+        }
+
+        function deleteVipApp(key) {
+            if(confirm(`Yakin hapus aplikasi dari memori VIP?`)) {
+                delete execAppsDatabase[key];
+                alert("Data berhasil dihapus dari memori. Jangan lupa Ekspor VIP.js agar tersimpan permanen.");
+                closeActiveOverlays();
+            }
+        }
+
+        function editVipApp(key) {
+            const data = execAppsDatabase[key];
+            if (!data) return;
+
+            document.getElementById('formModalTitle').textContent = "✏️ SUNTING VIP APK";
+            document.getElementById('formEditIndex').value = 'VIP_' + key; 
+            document.getElementById('existingApkSelectorRow').style.setProperty('display', 'none', 'important');
+
+            document.getElementById('formApkName').value = data.name || "";
+            document.getElementById('formApkVersion').value = data.version || "";
+            document.getElementById('formApkCategory').value = "Tools"; 
+            document.getElementById('formApkSize').value = data.size || "";
+            document.getElementById('formApkAndroid').value = data.android || "";
+            document.getElementById('formApkDesc').value = Array.isArray(data.features) ? data.features.join('\n') : (data.features || "");
+            document.getElementById('formApkImg').value = data.imageUrl || "";
+            document.getElementById('formApkLink').value = data.downloadUrl || "";
+
+            closeActiveOverlays();
+            document.getElementById('globalOverlay').classList.add('active');
+            document.getElementById('devApkFormModal').classList.add('active');
+        }
+
+        function saveApkFormSubmission() {
+            const name = document.getElementById('formApkName').value.trim();
+            const version = document.getElementById('formApkVersion').value.trim();
+            const category = document.getElementById('formApkCategory').value;
+            const size = document.getElementById('formApkSize').value.trim();
+            const android = document.getElementById('formApkAndroid').value.trim();
+            const description = document.getElementById('formApkDesc').value.trim();
+            const imageUrl = document.getElementById('formApkImg').value.trim();
+            const downloadUrl = document.getElementById('formApkLink').value.trim();
+
+            if (!name || !downloadUrl) { alert("Nama & Link wajib terisi!"); return; }
+
+            const editIndex = document.getElementById('formEditIndex').value;
+
+            if (editIndex.startsWith('VIP_')) {
+                const vipKey = editIndex.replace('VIP_', '');
+                if (typeof execAppsDatabase !== 'undefined' && execAppsDatabase[vipKey]) {
+                    execAppsDatabase[vipKey].name = name;
+                    execAppsDatabase[vipKey].version = version;
+                    execAppsDatabase[vipKey].size = size;
+                    execAppsDatabase[vipKey].android = android;
+                    execAppsDatabase[vipKey].imageUrl = imageUrl;
+                    execAppsDatabase[vipKey].downloadUrl = downloadUrl;
+                    execAppsDatabase[vipKey].features = description.split('\n');
+                    alert("Data VIP.js berhasil disunting di memori!\n\nJangan lupa Ekspor VIP.js Only agar tersimpan permanen.");
+                }
+                closeActiveOverlays();
+                return;
+            }
+
+            const payload = { name, version, category, size, android, description, imageUrl, downloadUrl };
+
+            if (editIndex !== "") {
+                internalApksData[parseInt(editIndex)] = payload;
+            } else {
+                internalApksData.unshift(payload);
+            }
+
+            localStorage.setItem('mmk_local_apks', JSON.stringify(internalApksData));
+            pushHistoryState();
+            closeActiveOverlays();
+            renderGridCards();
+        }
+
+        function processImportApks(input) {
+            const file = input.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    let content = e.target.result;
+                    let jsonStr = content.substring(content.indexOf('=') + 1, content.lastIndexOf(';')).trim();
+                    let parsedData = JSON.parse(jsonStr);
+                    if (Array.isArray(parsedData)) {
+                        internalApksData = parsedData;
+                        localStorage.setItem('mmk_local_apks', JSON.stringify(internalApksData));
+                        pushHistoryState();
+                        renderGridCards();
+                        alert("✅ Berkas apks.js berhasil diimpor! Data web telah diperbarui.");
+                        closeActiveOverlays();
+                    } else {
+                        alert("❌ Format file apks.js tidak valid (bukan format Array).");
+                    }
+                } catch (err) {
+                    alert("❌ Gagal membaca file apks.js! Pastikan ini adalah file asli hasil ekspor sistem.");
+                    console.error(err);
+                }
+                input.value = ""; 
+            };
+            reader.readAsText(file);
+        }
+
+        function processImportVip(input) {
+            const file = input.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    let content = e.target.result;
+                    let jsonStr = content.substring(content.indexOf('=') + 1, content.lastIndexOf(';')).trim();
+                    let parsedData = JSON.parse(jsonStr);
+                    if (typeof parsedData === 'object' && !Array.isArray(parsedData)) {
+                        for (let key in execAppsDatabase) delete execAppsDatabase[key];
+                        for (let key in parsedData) execAppsDatabase[key] = parsedData[key];
+                        alert("✅ Berkas VIP.js berhasil diimpor! Data memori VIP telah diperbarui.");
+                        closeActiveOverlays();
+                    } else {
+                        alert("❌ Format file VIP.js tidak valid (bukan format Object).");
+                    }
+                } catch (err) {
+                    alert("❌ Gagal membaca file VIP.js! Pastikan ini adalah file asli hasil ekspor sistem.");
+                    console.error(err);
+                }
+                input.value = ""; 
+            };
+            reader.readAsText(file);
+        }
+
+        function exportCurrentApksFile(mode) {
+            closeActiveOverlays();
+            const textContainer = document.getElementById('exportTextareaContainer');
+            const mainTitle = document.getElementById('exportModalMainTitle');
+
+            if(!textContainer) return;
+
+            if (mode === 'apksOnly') {
+                mainTitle.textContent = "💾 SALIN DATA APKS.JS";
+                textContainer.value = "const apks = " + JSON.stringify(internalApksData, null, 4) + ";";
+            } 
+            else if (mode === 'exportVip') {
+                mainTitle.textContent = "⚡ SALIN DATA VIP.JS";
+                const dataToExport = JSON.stringify(execAppsDatabase, null, 4);
+                textContainer.value = "const execAppsDatabase = " + dataToExport + ";";
+            }
+
+            document.getElementById('globalOverlay').classList.add('active');
+            document.getElementById('devDatabaseExportModal').classList.add('active');
+        }
+
+        function copyExportedTextToClipboard() {
+            const textContainer = document.getElementById('exportTextareaContainer');
+            if(!textContainer) return;
+            textContainer.select();
+            document.execCommand('copy');
+            alert("📋 Berhasil disalin!");
+            closeActiveOverlays();
+        }
+
+        function showExecAppDetails(key) {
+            if (typeof execAppsDatabase === 'undefined') { alert("VIP.js tidak termuat."); return; }
+            const appData = execAppsDatabase[key];
+            if (!appData) return;
+
+            const activeRole = localStorage.getItem('mmk_sys_role') || 'GUEST';
+            let devActions = activeRole === 'DEVELOPER' ? `
+                <div style="display: flex; gap: 10px; margin-left: auto;">
+                    <button onclick="deleteVipApp('${key}')" style="background:transparent; border:none; cursor:pointer; font-size:1.2rem;" title="Hapus">🗑️</button>
+                    <button onclick="editVipApp('${key}')" style="background:transparent; border:none; cursor:pointer; font-size:1.2rem;" title="Edit">✏️</button>
+                </div>
+            ` : '';
+
+            const iconFrame = document.getElementById('execModalIcon');
+            if(iconFrame) iconFrame.innerHTML = `<img src="${appData.imageUrl || ''}" alt="${appData.name || ''}" onerror="this.style.display='none'; this.parentElement.innerHTML='🛸';">`;
+
+            const nameContainer = document.getElementById('execModalName');
+            nameContainer.innerHTML = `
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <span>${appData.name || 'Aplikasi'}</span>
+                    ${devActions}
+                </div>`;
+
+            document.getElementById('execModalVersion').textContent = `Versi: ${appData.version || '1.0'}`;
+
+            const badgeFrame = document.getElementById('execModalBadges');
+            if(badgeFrame) {
+                badgeFrame.innerHTML = `
+                    <span class="apk-badge" style="border-color:rgba(168, 85, 247, 0.3)">💾 ${appData.size || '10MB'}</span>
+                    <span class="apk-badge" style="border-color:rgba(168, 85, 247, 0.3)">🤖 ${appData.android || '5.0+'}</span>
+                `;
+            }
+
+            document.getElementById('execModalDownloadBtn').href = appData.downloadUrl || '#';
+            const featuresContainer = document.getElementById('execModalFeatures');
+            if(featuresContainer) {
+                featuresContainer.innerHTML = "";
+                if(appData.features) {
+                    appData.features.forEach(feat => {
+                        const item = document.createElement('div');
+                        item.className = 'exec-feature-item';
+                        item.innerHTML = `<span style="color:var(--exec-color)">⚡</span> <span>${feat}</span>`;
+                        featuresContainer.appendChild(item);
+                    });
+                }
+            }
+            closeActiveOverlays();
+            document.getElementById('globalOverlay').classList.add('active');
+            document.getElementById('execAppDetailsModal').classList.add('active');
+        }
+
+        function handleModderProfileModal() {
+            closeActiveOverlays();
+            document.getElementById('globalOverlay').classList.add('active');
+            document.getElementById('modderProfileModal').classList.add('active');
+        }
+
+        function closeActiveOverlays() {
+            if(document.getElementById('sidebarMenu')) document.getElementById('sidebarMenu').classList.remove('active');
+            if(document.getElementById('authGateModal')) document.getElementById('authGateModal').classList.remove('active');
+            if(document.getElementById('modderProfileModal')) document.getElementById('modderProfileModal').classList.remove('active');
+            if(document.getElementById('execAppDetailsModal')) document.getElementById('execAppDetailsModal').classList.remove('active');
+            if(document.getElementById('devApkFormModal')) document.getElementById('devApkFormModal').classList.remove('active');
+            if(document.getElementById('devDatabaseExportModal')) document.getElementById('devDatabaseExportModal').classList.remove('active');
+            if(document.getElementById('searchPopover')) document.getElementById('searchPopover').classList.remove('active');
+            if(document.getElementById('globalOverlay')) document.getElementById('globalOverlay').classList.remove('active');
+        }
+
+        function applyCategoryFilter(catName) {
+            const items = document.querySelectorAll('.apk-card');
+            const alertEmpty = document.getElementById('searchEmptyAlert');
+            let totalMatch = 0;
+
+            items.forEach(box => {
+                const specCat = box.getAttribute('data-target-cat');
+                if (catName === 'all' || specCat === catName) {
+                    box.classList.remove('hidden'); totalMatch++;
+                } else {
+                    box.classList.add('hidden');
+                }
+            });
+            if(alertEmpty) alertEmpty.style.display = totalMatch > 0 ? 'none' : 'block';
+            closeActiveOverlays();
+        }
+
+        function executeApkSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const boxes = document.querySelectorAll('.apk-card');
+            const alertEmpty = document.getElementById('searchEmptyAlert');
+            let success = false;
+            boxes.forEach(box => {
+                const titleText = box.querySelector('.apk-title').textContent.toLowerCase();
+                if (titleText.includes(query)) {
+                    box.classList.remove('hidden'); success = true;
+                } else {
+                    box.classList.add('hidden');
+                }
+            });
+            if(alertEmpty) alertEmpty.style.display = success ? 'none' : 'block';
+        }
+</script>
+  </body>
 </html>
