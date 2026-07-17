@@ -1,5 +1,25 @@
 const apks = [
     {
+        "name": "Youshort",
+        "version": "2.0.56",
+        "category": "Streaming",
+        "size": "81,72M",
+        "android": "Android 5.0+",
+        "description": "Nonton berbagai video pendek premium dan drama singkat menarik unlocked tanpa batas.",
+        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/youshort.png",
+        "downloadUrl": "https://safefileku.com/download/IeAHOoxPHM2w4l58"
+    },
+    {
+        "name": "Lane",
+        "version": "1.4.7",
+        "category": "Music",
+        "size": "75,23M",
+        "android": "Android 6.0+",
+        "description": "Aplikasi alternatif pemutar musik Spotify dengan fitur Premium terbuka.",
+        "imageUrl": "https://i.ibb.co.com/6R4bXjvW/icon.webp",
+        "downloadUrl": "https://safefileku.com/download/H0Zyk9f2yfWXF1vK"
+    },
+    {
         "name": "Remini",
         "version": "3.7.1377.202522873",
         "category": "Editor",
