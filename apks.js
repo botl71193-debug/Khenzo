@@ -1,5 +1,195 @@
 const apks = [
     {
+        "name": "Xeno",
+        "version": "1.1",
+        "category": "Tools",
+        "size": "13,55M",
+        "android": "Android 5+",
+        "description": "Skin injection tool for ML games\n• premium unlock\n• No ads\n• unlock all skin",
+        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/Xeno.png",
+        "downloadUrl": "https://link.adsafelink.com/uTUTIjne"
+    },
+    {
+        "name": "Math AI",
+        "version": "1.0.b561",
+        "category": "Tools",
+        "size": "49,10M",
+        "android": "Android 5+",
+        "description": "Asisten akademik all-in-one untuk menyelesaikan soal matematika, menjawab pertanyaan umum, dan membantu penulisan. Bisa scan atau input soal, lalu menampilkan solusi langkah demi langkah; tersedia juga paket premium untuk contoh tanpa batas.",
+        "imageUrl": "https://i.ibb.co.com/m5My3yQt/Screenshot-2026-0907-121645.webp",
+        "downloadUrl": "https://adlinksumo.com/xAfQpL"
+    },
+    {
+        "name": "Joytify",
+        "version": "1.6.6",
+        "category": "Music",
+        "size": "19,53M",
+        "android": "Android 5+",
+        "description": "Aplikasi streaming musik modern tanpa batas dengan fitur premium unlocked. Strim lagu, explore playlist curated dari seluruh dunia, tanpa iklan, tanpa biaya tambahan, download musik offline, kualitas audio tinggi, dan pengalaman streaming musik optimal.",
+        "imageUrl": "https://i.ibb.co.com/fY4xyXPy/icon.webp",
+        "downloadUrl": "https://adlinksumo.com/TwgcRU"
+    },
+    {
+        "name": "PicsKit",
+        "version": "2.7",
+        "category": "Editor",
+        "size": "87,98M",
+        "android": "Android 5+",
+        "description": "Editor foto berbasis layer dengan efek AI eraser, filter, glitch, neon, cutout, retouch, kolase, dan template desain kreatif untuk membuat editan bergaya profesional di Android.",
+        "imageUrl": "https://i.ibb.co.com/gFBj70pD/icon.webp",
+        "downloadUrl": "https://adlinksumo.com/EPgJK"
+    },
+    {
+        "name": "Dongha",
+        "version": "1.3.0",
+        "category": "Streaming",
+        "size": "48,66M",
+        "android": "Android 8+",
+        "description": "Aplikasi nonton anime dan donghua terlengkap dengan sub Indo, kualitas HD, update setiap hari, streaming gratis tanpa iklan mengganggu.",
+        "imageUrl": "https://i.ibb.co.com/ZPxn8c7/dongha.webp",
+        "downloadUrl": "https://adlinksumo.com/206A8f"
+    },
+    {
+        "name": "Lane",
+        "version": "1.4.7",
+        "category": "Music",
+        "size": "75,23M",
+        "android": "",
+        "description": "Aplikasi alternatif pemutar musik Spotify dengan fitur Premium terbuka.",
+        "imageUrl": "https://i.ibb.co.com/6R4bXjvW/icon.webp",
+        "downloadUrl": "https://adlinksumo.com/v3op7b"
+    },
+    {
+        "name": "BonusTv",
+        "version": "3.6.3",
+        "category": "Streaming",
+        "size": "178,37M",
+        "android": "Android 5+",
+        "description": "Aplikasi streaming drama pendek gratis dengan genre romance, suspense, fantasy, time-travel, dan mystery. Bisa nonton episode singkat",
+        "imageUrl": "https://i.ibb.co.com/zVFcSpHc/feather-rush-stripe.webp",
+        "downloadUrl": "https://adlinksumo.com/QLe6UP"
+    },
+    {
+        "name": "Passion Drama",
+        "version": "1.3.3",
+        "category": "Streaming",
+        "size": "150,90M",
+        "android": "",
+        "description": "Aplikasi streaming drama dengan serial eksklusif setiap hari,涵盖 berbagai genre suspense, komedi, urban, dan sejarah. Tonton drama favorit kualitas 1080P HD dengan fitur download cepat.",
+        "imageUrl": "https://i.ibb.co.com/vvQptRxp/Passion-Drama.webp",
+        "downloadUrl": "https://adlinksumo.com/BiX2hOZ"
+    },
+    {
+        "name": "Donghua App",
+        "version": "2.4.3",
+        "category": "Streaming",
+        "size": "42,12M",
+        "android": "Android 5+",
+        "description": "Aplikasi mudah untuk menemukan semua Donghua favorit (anime Tiongkok) dengan 100% gratis. 3D Chinese anime, pencarian sekali klik dengan subtitle bahasa Inggris dan kualitas Full HD, interface mudah, update harian setiap hari, jadwal streaming Senin-Sabtu, streaming cepat, app ringan, tanpa biaya, exclusive app untuk anime 3D China",
+        "imageUrl": "https://i.ibb.co.com/Nd6ZtvQC/icon.webp",
+        "downloadUrl": "https://adlinksumo.com/hiHzU"
+    },
+    {
+        "name": "GB WhatsApp",
+        "version": "2.26.28.78",
+        "category": "Aplikasi Mod",
+        "size": "123,45M",
+        "android": "Android 5+",
+        "description": "Aplikasi WhatsApp mod dengan fitur privasi tambahan, anti-ban, tema kustom, dual account, dan opsi login yang diperbaiki. Versi terbaru 2026 mendukung Android 5.1+",
+        "imageUrl": "https://i.ibb.co.com/DXqL3XN/icon.webp",
+        "downloadUrl": "https://adlinksumo.com/wSUcTG"
+    },
+    {
+        "name": "Shinigami",
+        "version": "1.0.5",
+        "category": "Aplikasi Mod",
+        "size": "10,48M",
+        "android": "Android 5+",
+        "description": "Aplikasi baca komik Bahasa Indonesia untuk manga, manhwa, manhua, dan komik lokal. Katalog komik update harian, bookmark, baca online gratis, dan tersedia juga versi web/PWA untuk dibuka lewat browser.",
+        "imageUrl": "https://i.ibb.co.com/qMSpp0bQ/icon.webp",
+        "downloadUrl": "https://adlinksumo.com/FgshUiV"
+    },
+    {
+        "name": "FreeReals",
+        "version": "2.4.40",
+        "category": "Streaming",
+        "size": "94,01M",
+        "android": "",
+        "description": "Aplikasi streaming drama pendek dan mini-seri terlengkap sepenuhnya gratis. Nonton drama China, video pendek, klip drama mini dengan update harian, streaming HD tanpa iklan.",
+        "imageUrl": "https://i.ibb.co.com/Rp4hSXyg/Free-Reals.webp",
+        "downloadUrl": "https://adlinksumo.com/mmXl9H"
+    },
+    {
+        "name": "Meld",
+        "version": "0.8.8",
+        "category": "Music",
+        "size": "25,71M",
+        "android": "Android 5+",
+        "description": "Aplikasi musik open-source yang menggabungkan YouTube Music dan integrasi akun Spotify untuk rekomendasi yang dipersonalisasi, pencarian, homepage, lyrics, EQ, dan offline playback. tanpa iklan dan support unduhan.",
+        "imageUrl": "https://i.ibb.co.com/pBTs0Q6w/icon.webp",
+        "downloadUrl": "https://adlinksumo.com/Q1wh"
+    },
+    {
+        "name": "Music Downloader",
+        "version": "1.6",
+        "category": "Music",
+        "size": "20,62M",
+        "android": "Android 5+",
+        "description": "Download musik MP3 resolusi tinggi langsung dari berbagai platform musik.",
+        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/MusicDownloader.png",
+        "downloadUrl": "https://adlinksumo.com/ggeRN2"
+    },
+    {
+        "name": "CloneApp",
+        "version": "4.2.0",
+        "category": "Tools",
+        "size": "69,07M",
+        "android": "Android 7+",
+        "description": "Kloning aplikasi tanpa batas, support vip feature bypass device-id.",
+        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/CloneApp.png",
+        "downloadUrl": "https://adlinksumo.com/Q7Fs3KwZ"
+    },
+    {
+        "name": "MikuNime",
+        "version": "0.2.9",
+        "category": "Streaming",
+        "size": "32,91M",
+        "android": "Android 8+",
+        "description": "Streaming anime subtitle Indonesia dari komunitas MikuNime V5. Tersedia website, grup WhatsApp, dan kontak admin untuk update anime sub Indo.",
+        "imageUrl": "https://i.ibb.co.com/tp693jPy/icon.webp",
+        "downloadUrl": "https://adlinksumo.com/VQP6"
+    },
+    {
+        "name": "Donghua Fun",
+        "version": "v2.0.11",
+        "category": "Streaming",
+        "size": "42 MB",
+        "android": "",
+        "description": "Aplikasi nonton anime 3D Tiongkok (Donghua) gratis dengan subtitle bahasa Inggris, update harian Full HD, pencarian instan sekali klik, kualitas streaming optimal untuk penggemar anime China.",
+        "imageUrl": "https://i.ibb.co.com/3y3694Kz/Dong-Fun.webp",
+        "downloadUrl": "https://adlinksumo.com/oOWSwcqX"
+    },
+    {
+        "name": "ManhwaID",
+        "version": "1.8.1",
+        "category": "Aplikasi Mod",
+        "size": "14,97M",
+        "android": "Android 8+",
+        "description": "Aplikasi baca komik dan manga terlengkap dalam Bahasa Indonesia dengan ribuan judul manga, manhwa, dan manhua favorit. Update chapter terbaru setiap hari, offline mode, koleksi lengkap, brush reading experience terbaik untuk penggemar komik Indonesia",
+        "imageUrl": "https://i.ibb.co.com/dwwDqQJR/icon.webp",
+        "downloadUrl": "https://adlinksumo.com/2PIB3b5Z"
+    },
+    {
+        "name": "Proton VPN",
+        "version": "5.19.72.0",
+        "category": "Tools",
+        "size": "62,58M",
+        "android": "Android 5+",
+        "description": "Premium tanpa berlangganan",
+        "imageUrl": "https://i.ibb.co.com/CKwsRpNT/icon.webp",
+        "downloadUrl": "https://link.adsafelink.com/b3ws33g"
+    },
+    {
         "name": "Youshort",
         "version": "2.0.56",
         "category": "Streaming",
@@ -10,16 +200,6 @@ const apks = [
         "downloadUrl": "https://safefileku.com/download/IeAHOoxPHM2w4l58"
     },
     {
-        "name": "Lane",
-        "version": "1.4.7",
-        "category": "Music",
-        "size": "75,23M",
-        "android": "Android 6.0+",
-        "description": "Aplikasi alternatif pemutar musik Spotify dengan fitur Premium terbuka.",
-        "imageUrl": "https://i.ibb.co.com/6R4bXjvW/icon.webp",
-        "downloadUrl": "https://safefileku.com/download/H0Zyk9f2yfWXF1vK"
-    },
-    {
         "name": "Remini",
         "version": "3.7.1377.202522873",
         "category": "Editor",
@@ -28,16 +208,6 @@ const apks = [
         "description": "Penjernih foto AI pro unlocked, kuota edit tanpa batas, kualitas ultra HD.",
         "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/remini.png",
         "downloadUrl": "https://link.adsafelink.com/k3h1UuD"
-    },
-    {
-        "name": "Donghua App",
-        "version": "1.0.2",
-        "category": "Aplikasi Mod",
-        "size": "32,71M",
-        "android": "Android 5+",
-        "description": "Aplikasi mudah untuk menemukan semua Donghua favorit (anime Tiongkok) dengan 100% gratis. 3D Chinese anime, pencarian sekali klik dengan subtitle bahasa Inggris dan kualitas Full HD, interface mudah, update harian setiap hari, jadwal streaming Senin-Sabtu, streaming cepat, app ringan, tanpa biaya, exclusive app untuk anime 3D China",
-        "imageUrl": "https://i.ibb.co.com/Nd6ZtvQC/icon.webp",
-        "downloadUrl": "https://link.adsafelink.com/DQGA50"
     },
     {
         "name": "KineMaster",
@@ -80,16 +250,6 @@ const apks = [
         "downloadUrl": "https://link.adsafelink.com/G3gps"
     },
     {
-        "name": "Temp Mail",
-        "version": "3.2.0",
-        "category": "Aplikasi Mod",
-        "size": "48,36M",
-        "android": "Android 5+",
-        "description": "Generator email temporary dan anonim untuk melindungi privasi dari spam, bot, dan phishing. Dapatkan alamat email disposable gratis dalam satu klik, tanpa registrasi, gunakan untuk pendaftaran website, download e-book, akses konten eksklusif tanpa expose email pribadi. Email & inbox expire setelah 3 jam",
-        "imageUrl": "https://i.ibb.co.com/p6bN9PgG/icon.webp",
-        "downloadUrl": "https://link.adsafelink.com/zx1LYoeu"
-    },
-    {
         "name": "Efiko",
         "version": "1.6.2",
         "category": "Editor",
@@ -100,16 +260,6 @@ const apks = [
         "downloadUrl": "https://link.adsafelink.com/RFLBzO5"
     },
     {
-        "name": "FreeReals",
-        "version": "2.3.70",
-        "category": "Streaming",
-        "size": "75,38M",
-        "android": "Android 5.0+",
-        "description": "Aplikasi streaming drama pendek dan mini-seri terlengkap sepenuhnya gratis. Nonton drama China, video pendek, klip drama mini dengan update harian, streaming HD tanpa iklan.",
-        "imageUrl": "https://i.ibb.co.com/Rp4hSXyg/Free-Reals.webp",
-        "downloadUrl": "https://link.adsafelink.com/5kkz"
-    },
-    {
         "name": "MetroList",
         "version": "13.6.0",
         "category": "Music",
@@ -118,16 +268,6 @@ const apks = [
         "description": "Client YouTube Music open-source dan ad-free untuk Android. Strim musik tanpa iklan, tanpa subscription, download offline, background play, themes custom, dan pengalaman streaming musik uninterrupted tanpa noise. Alternatif streaming musik",
         "imageUrl": "https://i.ibb.co.com/tp0WhZg4/icon.webp",
         "downloadUrl": "https://link.adsafelink.com/Btdgah8"
-    },
-    {
-        "name": "Joytify",
-        "version": "1.6.4",
-        "category": "Music",
-        "size": "18,43M",
-        "android": "Android 5+",
-        "description": "Aplikasi streaming musik modern tanpa batas dengan fitur premium unlocked. Strim lagu, explore playlist curated dari seluruh dunia, tanpa iklan, tanpa biaya tambahan, download musik offline, kualitas audio tinggi, dan pengalaman streaming musik optimal.",
-        "imageUrl": "https://i.ibb.co.com/fY4xyXPy/icon.webp",
-        "downloadUrl": "https://link.adsafelink.com/YPoZ"
     },
     {
         "name": "MangaIndo",
@@ -148,16 +288,6 @@ const apks = [
         "description": "Shooter multiplayer cepat dengan karakter unik, kemampuan khusus, dan pertarungan tim 4v4.",
         "imageUrl": "https://i.ibb.co.com/MkJ1SxSZ/Frag-Pro.webp",
         "downloadUrl": "https://www.mediafire.com/file/gk20lolq69agf41/Frag_Pro_Shooter_v5.2.0_Menu.zip/file"
-    },
-    {
-        "name": "DongHa",
-        "version": "v1.0.1",
-        "category": "Streaming",
-        "size": "43,30M",
-        "android": "Android 5.0+",
-        "imageUrl": "https://i.ibb.co.com/ZPxn8c7/dongha.webp",
-        "downloadUrl": "https://safefileku.com/download/bXhsKJ34RTbEjgpn",
-        "description": "Aplikasi nonton anime dan donghua terlengkap dengan sub Indo, kualitas HD, update setiap hari, streaming gratis tanpa iklan mengganggu."
     },
     {
         "name": "Instant Mail",
@@ -190,16 +320,6 @@ const apks = [
         "downloadUrl": "https://safefileku.com/download/4KXtHJjeAGkqp9nW"
     },
     {
-        "name": "Music Downloader",
-        "version": "v4.5",
-        "category": "Tools",
-        "size": "11 MB",
-        "android": "Android 5.0+",
-        "description": "Download musik MP3 resolusi tinggi langsung dari berbagai platform musik.",
-        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/MusicDownloader.png",
-        "downloadUrl": "https://link.adsafelink.com/KXD6B"
-    },
-    {
         "name": "Cineflow",
         "version": "v1.0.2",
         "category": "Streaming",
@@ -208,16 +328,6 @@ const apks = [
         "description": "Streaming film & series premium unlocked tanpa iklan dengan kualitas full HD.",
         "imageUrl": "https://worrying-apricot-utxtj0qs.edgeone.app/cineflow.png",
         "downloadUrl": "https://link.adsafelink.com/Q2CBs7SX"
-    },
-    {
-        "name": "Lane",
-        "version": "v 1.4",
-        "category": "Music",
-        "size": "75 MB",
-        "android": "Android 6.0+",
-        "description": "Aplikasi alternatif pemutar musik Spotify dengan fitur Premium terbuka.",
-        "imageUrl": "https://worrying-apricot-utxtj0qs.edgeone.app/lane.png",
-        "downloadUrl": "https://safefileku.com/download/3sA8xBwdh6oTQ6ZB"
     },
     {
         "name": "Dramora",
@@ -260,16 +370,6 @@ const apks = [
         "downloadUrl": "https://safefileku.com/download/BPy9Hr93gK8Gy1AC"
     },
     {
-        "name": "Passion Drama",
-        "version": "v1.3.0",
-        "category": "Streaming",
-        "size": "66,75M",
-        "android": "Android 7.0+",
-        "description": "Aplikasi streaming drama dengan serial eksklusif setiap hari,涵盖 berbagai genre suspense, komedi, urban, dan sejarah. Tonton drama favorit kualitas 1080P HD dengan fitur download cepat.",
-        "imageUrl": "https://i.ibb.co.com/vvQptRxp/Passion-Drama.webp",
-        "downloadUrl": "https://safefileku.com/download/42i60MbWGydfj4Js"
-    },
-    {
         "name": "OtakuPlay",
         "version": "v1.3.20",
         "category": "Streaming",
@@ -310,16 +410,6 @@ const apks = [
         "description": "Aplikasi streaming TV digital gratis tanpa iklan dan tanpa langganan. Nonton saluran TV online lengkap berbagai genre: berita, hiburan, olahraga, dokumenter, drama, film, kartun, siaran langsung acara penting dengan kualitas tinggi tanpa buffering."
     },
     {
-        "name": "Donghua Fun",
-        "version": "v2.0.11",
-        "category": "Streaming",
-        "size": "42 MB",
-        "android": "Android 5.0+",
-        "imageUrl": "https://i.ibb.co.com/3y3694Kz/Dong-Fun.webp",
-        "downloadUrl": "https://safefileku.com/download/Xcl91jeuurCRMMr2",
-        "description": "Aplikasi nonton anime 3D Tiongkok (Donghua) gratis dengan subtitle bahasa Inggris, update harian Full HD, pencarian instan sekali klik, kualitas streaming optimal untuk penggemar anime China."
-    },
-    {
         "name": "TeraBox",
         "version": "v4.18.6",
         "category": "Tools",
@@ -328,16 +418,6 @@ const apks = [
         "imageUrl": "https://i.ibb.co.com/6RqqxRLb/Tera.webp",
         "downloadUrl": "https://safefileku.com/download/FBoDTizBGmgo5IiD",
         "description": "Penyimpanan cloud gratis hingga 1TB (1024GB) dengan fitur backup otomatis foto & video, upload file besar hingga 20GB, akses cross-device, keamanan dokumen dengan face recognition."
-    },
-    {
-        "name": "FreeReals",
-        "version": "v2.3.40",
-        "category": "Streaming",
-        "size": "75 MB",
-        "android": "Android 5.0+",
-        "imageUrl": "https://i.ibb.co.com/Rp4hSXyg/Free-Reals.webp",
-        "downloadUrl": "https://safefileku.com/download/bDTzRW18BPWadcbM",
-        "description": "Aplikasi streaming drama pendek dan mini-seri terlengkap sepenuhnya gratis. Nonton drama China, video pendek, klip drama mini dengan update harian, streaming HD tanpa iklan."
     },
     {
         "name": "PVZ Funsion",
@@ -424,16 +504,6 @@ const apks = [
         "downloadUrl": "https://www.mediafire.com/file/xiyqop8ijfgng9y/Bus+Simulator+Indonesia+v4.5.1+MOD+Premium.zip/file"
     },
     {
-        "name": "Frag Pro Shooter",
-        "version": "V 5.1.0",
-        "category": "Games Mod",
-        "size": "200 MB",
-        "android": "Android 5.0+",
-        "imageUrl": "https://i.ibb.co.com/MkJ1SxSZ/Frag-Pro.webp",
-        "downloadUrl": "https://www.mediafire.com/file/fcikalep5413ca3/Frag_Pro_Shooter_v5.1.0_Menu.apk/file",
-        "description": "Shooter multiplayer cepat dengan karakter unik, kemampuan khusus, dan pertarungan tim 4v4."
-    },
-    {
         "name": "Beach Buggy Racing 2",
         "version": "V 2026.05.21",
         "category": "Games Mod",
@@ -442,16 +512,6 @@ const apks = [
         "imageUrl": "https://i.ibb.co.com/WWJMXTFs/Beach-Buggy.webp",
         "downloadUrl": "https://www.mediafire.com/file/qv6hjfup8z0nky0/(NO+PW)BB+Racing+2+Mod+Menu+v2026.05.21+Support+All+Fix+v3.zip/file",
         "description": "Game balapan kart arcade dengan power-up gila, trek beragam, dan mode multiplayer."
-    },
-    {
-        "name": "CloneApp",
-        "version": "v3.2.1",
-        "category": "Tools",
-        "size": "8 MB",
-        "android": "Android 6.0+",
-        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/CloneApp.png",
-        "downloadUrl": "https://link.adsafelink.com/8DyG5TiH",
-        "description": "Kloning aplikasi tanpa batas, support vip feature bypass device-id."
     },
     {
         "name": "Dark Aura",
@@ -492,25 +552,5 @@ const apks = [
         "imageUrl": "https://worrying-apricot-utxtj0qs.edgeone.app/wps.png",
         "downloadUrl": "https://link.adsafelink.com/aBAHAU4J",
         "description": "Buka dan edit semua dokumen PDF ke Word, edit ppt premium unlocked gratis."
-    },
-    {
-        "name": "Xeno",
-        "version": "v1.0.5",
-        "category": "Tools",
-        "size": "14 MB",
-        "android": "Android 6.0+",
-        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/Xeno.png",
-        "downloadUrl": "https://link.adsafelink.com/9Iww9zQd",
-        "description": "Browser keamanan enkripsi tinggi lengkap dengan VPN internal bypass internet positif."
-    },
-    {
-        "name": "Youshort",
-        "version": "v1.0.1",
-        "category": "Streaming",
-        "size": "16 MB",
-        "android": "Android 5.0+",
-        "imageUrl": "https://clever-aquamarine-zdzgpsly.edgeone.app/youshort.png",
-        "downloadUrl": "https://link.adsafelink.com/1ZOUs",
-        "description": "Nonton berbagai video pendek premium dan drama singkat menarik unlocked tanpa batas."
     }
 ];
