@@ -1,5 +1,35 @@
 const apks = [
     {
+        "name": "iLovePDF",
+        "version": "4.0.2",
+        "category": "Tools",
+        "size": "192,05M",
+        "android": "Android 5+",
+        "description": "Alat PDF online dan aplikasi untuk merge, split, compress, convert, edit, sign, OCR, dan mengelola PDF dengan cepat. Tersedia untuk web, Android, iPhone, dan desktop.",
+        "imageUrl": "https://i.ibb.co.com/6RJ7N1Ws/Screenshot-2026-0913-141801.webp",
+        "downloadUrl": "https://adlinksumo.com/2R7k"
+    },
+    {
+        "name": "Dongha",
+        "version": "1.3.1",
+        "category": "Streaming",
+        "size": "48,66M",
+        "android": "Android 8+",
+        "description": "Aplikasi nonton anime dan donghua terlengkap dengan sub Indo, kualitas HD, update setiap hari, streaming gratis tanpa iklan mengganggu.",
+        "imageUrl": "https://i.ibb.co.com/ZPxn8c7/dongha.webp",
+        "downloadUrl": "https://adlinksumo.com/0yqD"
+    },
+    {
+        "name": "Meld",
+        "version": "0.8.9",
+        "category": "Music",
+        "size": "25,71M",
+        "android": "Android 5+",
+        "description": "Aplikasi musik open-source yang menggabungkan YouTube Music dan integrasi akun Spotify untuk rekomendasi yang dipersonalisasi, pencarian, homepage, lyrics, EQ, dan offline playback. tanpa iklan dan support unduhan.",
+        "imageUrl": "https://i.ibb.co.com/pBTs0Q6w/icon.webp",
+        "downloadUrl": "https://adlinksumo.com/XAt4AMe"
+    },
+    {
         "name": "Xeno",
         "version": "1.1",
         "category": "Tools",
@@ -38,16 +68,6 @@ const apks = [
         "description": "Editor foto berbasis layer dengan efek AI eraser, filter, glitch, neon, cutout, retouch, kolase, dan template desain kreatif untuk membuat editan bergaya profesional di Android.",
         "imageUrl": "https://i.ibb.co.com/gFBj70pD/icon.webp",
         "downloadUrl": "https://adlinksumo.com/EPgJK"
-    },
-    {
-        "name": "Dongha",
-        "version": "1.3.0",
-        "category": "Streaming",
-        "size": "48,66M",
-        "android": "Android 8+",
-        "description": "Aplikasi nonton anime dan donghua terlengkap dengan sub Indo, kualitas HD, update setiap hari, streaming gratis tanpa iklan mengganggu.",
-        "imageUrl": "https://i.ibb.co.com/ZPxn8c7/dongha.webp",
-        "downloadUrl": "https://adlinksumo.com/206A8f"
     },
     {
         "name": "Lane",
@@ -118,16 +138,6 @@ const apks = [
         "description": "Aplikasi streaming drama pendek dan mini-seri terlengkap sepenuhnya gratis. Nonton drama China, video pendek, klip drama mini dengan update harian, streaming HD tanpa iklan.",
         "imageUrl": "https://i.ibb.co.com/Rp4hSXyg/Free-Reals.webp",
         "downloadUrl": "https://adlinksumo.com/mmXl9H"
-    },
-    {
-        "name": "Meld",
-        "version": "0.8.8",
-        "category": "Music",
-        "size": "25,71M",
-        "android": "Android 5+",
-        "description": "Aplikasi musik open-source yang menggabungkan YouTube Music dan integrasi akun Spotify untuk rekomendasi yang dipersonalisasi, pencarian, homepage, lyrics, EQ, dan offline playback. tanpa iklan dan support unduhan.",
-        "imageUrl": "https://i.ibb.co.com/pBTs0Q6w/icon.webp",
-        "downloadUrl": "https://adlinksumo.com/Q1wh"
     },
     {
         "name": "Music Downloader",
