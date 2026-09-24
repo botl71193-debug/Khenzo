@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# Khenzo · Termux Style — requirements
+# KHENZO · Termux Style — requirements
 clear
 echo -e "\033[1;32m"
 echo "  ╔══════════════════════════════════════╗"
