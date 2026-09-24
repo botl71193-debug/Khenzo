@@ -15,7 +15,7 @@ NAME="${KHENZO_NAME:-Khenzo}"
 
 echo -e "${C_R}"
 cat << 'ART'
-              < ^^ >
+< ^^ >
  ----
    \
     \
