@@ -26,7 +26,7 @@ from telegram.ext import (
 )
 
 # ═══════════ CONFIG ═══════════
-BOT_TOKEN = os.getenv("BOT_TOKEN") or os.getenv("TELEGRAM_TOKEN") or ""
+BOT_TOKEN = "8724738364:AAGFsy6RyvrK7KHTSyt9IVjBV7XutReVMpA"
 WORK_ROOT = Path(os.getenv("MMK_WORK_DIR", tempfile.gettempdir())) / "mmk_file_bot"
 MAX_MB = int(os.getenv("MMK_MAX_MB", "45"))  # limit Telegram bot API biasa ~50MB
 
